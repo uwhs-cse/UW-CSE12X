@@ -1,0 +1,27 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+chapters:
+  - file: unit-3/lesson-1/index
+    title: "3.1: For Loops"
+    sections:
+    - file: unit-3/lesson-1/intro-to-for-loops
+    - file: unit-3/lesson-1/for-loops-for-string-traversals
+    - file: unit-3/lesson-1/strings-and-character-practice
+
+
+
+# Or you organize the TOC by parts
+
+# parts:
+#   - caption: Chapters
+#     numbered: true
+#     maxdepth: 2
+#     chapters:
+#       - file: book/markdown
+#       - file: book/notebooks
+#   - caption: Appendices
+#     chapters:
+#       - file: book/bibliography
