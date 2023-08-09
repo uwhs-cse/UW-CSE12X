@@ -2,14 +2,14 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: index
+root: book/welcome
 chapters:
-  - file: unit-3/lesson-1/index
+  - file: book/unit-3/lesson-1/index
     title: "3.1: For Loops"
     sections:
-    - file: unit-3/lesson-1/intro-to-for-loops
-    - file: unit-3/lesson-1/for-loops-for-string-traversals
-    - file: unit-3/lesson-1/strings-and-character-practice
+    - file: book/unit-3/lesson-1/intro-to-for-loops
+    - file: book/unit-3/lesson-1/for-loops-for-string-traversals
+    - file: book/unit-3/lesson-1/strings-and-character-practice
 
 
 
