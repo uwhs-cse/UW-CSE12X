@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Strings and Characters &#8212; UW CSE 12X Open Access Prototype</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-2/lesson-4/strings-and-characters';</script>
+    <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-2/lesson-4/strings-and-characters.html" />
+    <link rel="shortcut icon" href="../../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../welcome.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-1/index.html">Unit 1: Hello World!</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-1/lesson-2/index.html">1.2: Printing</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printlns.html">Printlns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printing-practice.html">Println’s Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-3/index.html">Unit 3: Introduction to Iteration</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-1/index.html">3.1: For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/intro-to-for-loops.html">Introduction to For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loops-for-string-traversals.html">For Loops for String Traversals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loop-review.html">For Loop Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/strings-and-character-practice.html">Strings and Characters Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-2/index.html">3.2: Nested For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops.html">Nested For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops-review.html">Nested For Loops Review Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-4/index.html">Unit 4: Methods, Parameters, and Returns!</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-4/lesson-1/index.html">4.1: Methods</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods.html">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods-review.html">Methods Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-2/index.html">4.2: Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-3/index.html">4.3: Return Values</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/edit/main/book/unit-2/lesson-4/strings-and-characters.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/issues/new?title=Issue%20on%20page%20%2Fbook/unit-2/lesson-4/strings-and-characters.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/book/unit-2/lesson-4/strings-and-characters.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Strings and Characters</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characters">💬 Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-model-for-strings">🧠 Memory Model for Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-indexes">String Indexes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#charat"><code class="docutils literal notranslate"><span class="pre">charAt</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexof"><code class="docutils literal notranslate"><span class="pre">indexOf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length"><code class="docutils literal notranslate"><span class="pre">length</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-points">Main Points</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="strings-and-characters">
+<h1>Strings and Characters<a class="headerlink" href="#strings-and-characters" title="Permalink to this heading">#</a></h1>
+<div style="position: relative; padding-bottom: 62.5%; height: 0;">
+    <iframe src="https://www.youtube.com/embed/JuL-mxnzhUU" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Above, you’ll see there’s a video titled <em><strong>CSE 121: Strings and Characters Video Walkthrough</strong></em>. The video and the reading both have the same information! You’re not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!</p>
+</div>
+<section id="characters">
+<h2>💬 Characters<a class="headerlink" href="#characters" title="Permalink to this heading">#</a></h2>
+<p>Earlier, we talked about data types in Java such as <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, and <code class="docutils literal notranslate"><span class="pre">String</span></code>. We learned that strings represent a collection of characters (letters, digits, and other characters) that are strung together to form a word/sentence. Let’s explore in more detail! What are these individual characters that make up strings? Can we represent them in Java?</p>
+<p>Turns out, Java has another data type that we can use to represent a single <strong>character</strong> (a letter, digit, or special character) called <code class="docutils literal notranslate"><span class="pre">char</span></code>. The syntax to create a <code class="docutils literal notranslate"><span class="pre">char</span></code> variable is similar to creating strings, except we use <em>single quotes instead of double quotes</em>.</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>You can work with <code class="docutils literal notranslate"><span class="pre">char</span></code>s similarly to <code class="docutils literal notranslate"><span class="pre">int</span></code>s, as they are both <strong>primitive</strong> types.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Don’t worry if you’re not familiar with the idea of <strong>primitive</strong> types - these are just types that are directly built into Java! Primitive types always begin with a lowercase letter, and are Java <em>reserved words</em> which means that they often will be highlighted in a specific color when you type them into a Java program.</p>
+</div>
+<p>Characters are extremely important for us to be able to work with strings. We’ll see a lot more below (in the String Methods section) on how and why they’re useful!</p>
+</section>
+<section id="memory-model-for-strings">
+<h2>🧠 Memory Model for Strings<a class="headerlink" href="#memory-model-for-strings" title="Permalink to this heading">#</a></h2>
+<p>Suppose we create a string variable like below:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;foobar&quot;</span><span class="p">;</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>If we look at a visual representation of what this string looks like in Java’s memory, it might look something like this:</p>
+<p><img alt="The text &quot;int age;&quot; above an empty grey box, labeled with &quot;name: age (int)&quot;" src="../../../_images/string-memory-diagram.png" /></p>
+<p>Let’s break this visual down. We see there’s a set of characters (that form the word “foobar”) and there are some numbers associated with these letters, but what do these numbers mean?</p>
+<section id="string-indexes">
+<h3>String Indexes<a class="headerlink" href="#string-indexes" title="Permalink to this heading">#</a></h3>
+<p>Each character in the string has a number associated with it that specifies its position within the string. This number is called the <strong>index</strong> of the character. Notice that we start counting at <code class="docutils literal notranslate"><span class="pre">0</span></code> and not <code class="docutils literal notranslate"><span class="pre">1</span></code> (the letter <code class="docutils literal notranslate"><span class="pre">f</span></code> is at index <code class="docutils literal notranslate"><span class="pre">0</span></code>, not index <code class="docutils literal notranslate"><span class="pre">1</span></code>).</p>
+<div class="caution admonition">
+<p class="admonition-title">Caution</p>
+<p>Don’t forget that indices for <code class="docutils literal notranslate"><span class="pre">String</span></code>s start at <code class="docutils literal notranslate"><span class="pre">0</span></code>! This idea of starting to count at <code class="docutils literal notranslate"><span class="pre">0</span></code> is prominent in computer science and is called <strong>zero-based indexing</strong>. (We’ll encounter other ideas later in this course that <em>also</em> use zero-based indexing!)</p>
+</div>
+</section>
+</section>
+<section id="string-methods">
+<h2>String Methods<a class="headerlink" href="#string-methods" title="Permalink to this heading">#</a></h2>
+<p>Not only can we create string variables that store sequences of characters, but we can use perform operations on these strings using the methods below (and more!).</p>
+<section id="charat">
+<h3><code class="docutils literal notranslate"><span class="pre">charAt</span></code><a class="headerlink" href="#charat" title="Permalink to this heading">#</a></h3>
+<p>The string <code class="docutils literal notranslate"><span class="pre">charAt</span></code> method takes as input a specific index, and returns the character at that index in the string. To use this method, we can call it <em>on</em> a string. We pass an integer into this method between the parentheses, which represents the index of a certain character. Let’s see this in practice ⬇️</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CharAt</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// s       =&gt; &quot;foobar&quot;</span>
+<span class="w">        </span><span class="c1">// index   =&gt;  012345</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;foobar&quot;</span><span class="p">;</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// gets the character at index 0 (&#39;f&#39;)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">first</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// gets the character at index 1 (&#39;o&#39;)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">second</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">   </span><span class="c1">// gets the character at index 5 (&#39;r&#39;)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">last</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>The index that you pass into the <code class="docutils literal notranslate"><span class="pre">charAt</span></code> method as a parameter needs to be within the bounds of the string. In the example above, the only valid indices that you can pass in as a parameter are 0, 1, 2, 3, 4, and 5. If you try to pass in any other number, for example 6 (with the call <code class="docutils literal notranslate"><span class="pre">s.charAt(6)</span></code>), Java will throw an error.</p>
+</div>
+</section>
+<section id="indexof">
+<h3><code class="docutils literal notranslate"><span class="pre">indexOf</span></code><a class="headerlink" href="#indexof" title="Permalink to this heading">#</a></h3>
+<p>The string <code class="docutils literal notranslate"><span class="pre">indexOf</span></code> method does the opposite of the <code class="docutils literal notranslate"><span class="pre">charAt</span></code> method: it takes as input a character (or string), and gives us back the (first) index of that character. If the input is a string—either denoted by double quotes <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> or multiple characters—the method returns the first index where the whole substring appears.</p>
+<p>Notice the way we call the <code class="docutils literal notranslate"><span class="pre">indexOf</span></code> method and store its result in <code class="docutils literal notranslate"><span class="pre">char</span></code> variables - we’ll dig into this syntax a little bit more in a few weeks. Let’s see an example ⬇️</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IndexOf</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// s       =&gt; &quot;foobar&quot;</span>
+<span class="w">        </span><span class="c1">// index   =&gt;  012345</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;foobar&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="sc">&#39;f&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// gets the index of character &#39;f&#39; (0)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">first</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="sc">&#39;r&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">// gets the index of character &#39;r&#39; (5)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">last</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">middle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;ob&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// gets the index of substring &quot;ob&quot; (2)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">middle</span><span class="p">);</span>
+
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Run the program above and compare the console output with the indices in the comments (line 4). Do they line up?</p>
+<p>If you pass in a letter or substring that is not in the given string, you won’t get an error. However, you will get back the value <code class="docutils literal notranslate"><span class="pre">-1</span></code>, which indicates the letter/substring given is not present in the string.</p>
+</section>
+<section id="length">
+<h3><code class="docutils literal notranslate"><span class="pre">length</span></code><a class="headerlink" href="#length" title="Permalink to this heading">#</a></h3>
+<p>The string <code class="docutils literal notranslate"><span class="pre">length</span></code> method produces the length (number of characters) as an integer. Try running the code block below to see the syntax, and confirm that the lengths are correct!</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Length</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Manila&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 6 characters</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">lengthOfCity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">city</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">lengthOfCity</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;California&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 10 characters</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">lengthOfState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">lengthOfState</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">blank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 0 characters</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">lengthOfBlank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">blank</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">lengthOfBlank</span><span class="p">);</span>
+<span class="w">        </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="main-points">
+<h2>Main Points<a class="headerlink" href="#main-points" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Java has another data type, <code class="docutils literal notranslate"><span class="pre">char</span></code>, which represents a single character (a digit, letter, or other special character). You denote <code class="docutils literal notranslate"><span class="pre">char</span></code>s like <code class="docutils literal notranslate"><span class="pre">String</span></code>s, but with single quotes (<code class="docutils literal notranslate"><span class="pre">'</span></code>) instead of double quotes.</p></li>
+<li><p>Strings represent a sequence of characters, and also have some methods that you can call <em>on</em> strings to get information about them, such as <code class="docutils literal notranslate"><span class="pre">length</span></code>, <code class="docutils literal notranslate"><span class="pre">indexOf</span></code>, and <code class="docutils literal notranslate"><span class="pre">charAt</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/unit-2/lesson-4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characters">💬 Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-model-for-strings">🧠 Memory Model for Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-indexes">String Indexes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#charat"><code class="docutils literal notranslate"><span class="pre">charAt</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexof"><code class="docutils literal notranslate"><span class="pre">indexOf</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length"><code class="docutils literal notranslate"><span class="pre">length</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-points">Main Points</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Parker Gustafson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

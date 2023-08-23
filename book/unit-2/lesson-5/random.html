@@ -1,0 +1,650 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Random &#8212; UW CSE 12X Open Access Prototype</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-2/lesson-5/random';</script>
+    <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-2/lesson-5/random.html" />
+    <link rel="shortcut icon" href="../../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../welcome.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-1/index.html">Unit 1: Hello World!</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-1/lesson-2/index.html">1.2: Printing</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printlns.html">Printlns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printing-practice.html">Println’s Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-3/index.html">Unit 3: Introduction to Iteration</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-1/index.html">3.1: For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/intro-to-for-loops.html">Introduction to For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loops-for-string-traversals.html">For Loops for String Traversals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loop-review.html">For Loop Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/strings-and-character-practice.html">Strings and Characters Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-2/index.html">3.2: Nested For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops.html">Nested For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops-review.html">Nested For Loops Review Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-4/index.html">Unit 4: Methods, Parameters, and Returns!</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-4/lesson-1/index.html">4.1: Methods</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods.html">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods-review.html">Methods Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-2/index.html">4.2: Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-3/index.html">4.3: Return Values</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/edit/main/book/unit-2/lesson-5/random.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/issues/new?title=Issue%20on%20page%20%2Fbook/unit-2/lesson-5/random.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/book/unit-2/lesson-5/random.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Random</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-in-java"><code class="docutils literal notranslate"><span class="pre">Random</span></code> in Java 🎲</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-random">Creating <code class="docutils literal notranslate"><span class="pre">Random</span></code> ✏️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-methods"><code class="docutils literal notranslate"><span class="pre">Random</span></code> Methods 🧮</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-an-arbitrary-range-of-values">Generating an Arbitrary Range of Values 📚</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-points">Main Points:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="random">
+<h1>Random<a class="headerlink" href="#random" title="Permalink to this heading">#</a></h1>
+<div style="position: relative; padding-bottom: 62.5%; height: 0;">
+    <iframe src="https://www.youtube.com/embed/oUSwFccpobA" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Above, you’ll see there’s a video titled <em><strong>CSE 121: Random Video Walkthrough</strong></em>. The video and the reading both have the same information! You’re not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!</p>
+</div>
+<p>The concept of <strong>randomness</strong> is pretty useful in the real world! Sometimes, we want to be able to generate some random value and use it somehow. We could use random values to draw a random amount of stars, or print a message some random amount of times, etc.</p>
+<p>There are a lot of uses for generating random values, and luckily we have a way to mimic randomness in Java—this section will discuss using <code class="docutils literal notranslate"><span class="pre">Random</span></code> in Java and how to use it to generate ranges of random values!</p>
+<section id="random-in-java">
+<h2><code class="docutils literal notranslate"><span class="pre">Random</span></code> in Java 🎲<a class="headerlink" href="#random-in-java" title="Permalink to this heading">#</a></h2>
+<p>As mentioned previously, <code class="docutils literal notranslate"><span class="pre">Random</span></code> can be used in Java to generate <em>pseudorandom</em> numbers.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">Random</span></code> is just like <code class="docutils literal notranslate"><span class="pre">Turtle</span></code>s , however instead of using them to draw pictures, we use them to generate an arbitrary range of random values. Just like how we can make the <code class="docutils literal notranslate"><span class="pre">Turtle</span></code> do particular things (i.e. “move”) by making calls to particular methods, we can use methods on <code class="docutils literal notranslate"><span class="pre">Random</span></code> to generate those values.</p>
+</div>
+</section>
+<section id="creating-random">
+<h2>Creating <code class="docutils literal notranslate"><span class="pre">Random</span></code> ✏️<a class="headerlink" href="#creating-random" title="Permalink to this heading">#</a></h2>
+<p>In order to use <code class="docutils literal notranslate"><span class="pre">Random</span></code>, we have to be able to create (or construct) it!</p>
+<div class="caution admonition">
+<p class="admonition-title">Caution</p>
+<p>In order to successfully construct and use <code class="docutils literal notranslate"><span class="pre">Random</span></code> in our programs, make sure you have <strong><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">java.util.*;</span></code></strong> at the very top of your program!</p>
+</div>
+<p><img alt="&quot;Random&quot; (highlighted in blue) &quot;rand&quot; (highlighted in yellow) &quot;= new Random();&quot; (highlighted in pink)." src="../../../_images/random-creation.png" /></p>
+<ol class="arabic simple">
+<li><p><strong>The type</strong> – just like with any variable, when you create it you want to make clear what type the variable is. We can have variables of type <code class="docutils literal notranslate"><span class="pre">Random</span></code> by making sure you list the type as <code class="docutils literal notranslate"><span class="pre">Random</span></code>.</p></li>
+<li><p><strong>The name</strong> – again, just like with any variables, we can name <code class="docutils literal notranslate"><span class="pre">Random</span></code> variables anything we want! You’ll usually see them being named something along the lines of <code class="docutils literal notranslate"><span class="pre">rand</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code>, etc. but it’s up to you what you’d like to name it – as long as the name is clear, concise, and follows prescribed naming conventions.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Random</span></code> creation code</strong> – to <strong>construct</strong> or create a new <code class="docutils literal notranslate"><span class="pre">Random</span></code> variable, you <strong>must</strong> have <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">Random();</span></code> after the equal sign when creating a <code class="docutils literal notranslate"><span class="pre">Random</span></code> variable. This code helps ensure that we are properly constructing a new <code class="docutils literal notranslate"><span class="pre">Random</span></code> variable. Note that <code class="docutils literal notranslate"><span class="pre">new</span></code> is a keyword needed to create an instance of <code class="docutils literal notranslate"><span class="pre">Random</span></code>!</p></li>
+</ol>
+<p>Check out the block of code! If you try to run it, we get a compiler error.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Try fixing the code so that it runs properly. (answer is located in the <em>Expand</em> block below the code)</p>
+</div>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span><span class="w"> </span><span class="c1">// make sure to have this whenever you are using Random</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Example</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// code below to create a new Random variable</span>
+
+<span class="w">        </span><span class="c1">// something is wrong with it! try editing it so that this </span>
+<span class="w">        </span><span class="c1">// properly creates a Random object</span>
+<span class="w">        </span><span class="n">Random</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Random</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<details>
+<summary>Expand</summary>
+<p>Remember that in order to correctly create Random, we must have everything in the line below:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Random</span> <span class="pre">rand</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Random();</span></code></p>
+<p>In the code above, we forgot the <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword on the right side of the equal sign on line 9.</p>
+</details>
+</section>
+<section id="random-methods">
+<h2><code class="docutils literal notranslate"><span class="pre">Random</span></code> Methods 🧮<a class="headerlink" href="#random-methods" title="Permalink to this heading">#</a></h2>
+<p>Now that we know how to construct <code class="docutils literal notranslate"><span class="pre">Random</span></code>, we should learn how to use it to generate a random range of values!</p>
+<p>First off, we need to learn about the different methods we can call on our <code class="docutils literal notranslate"><span class="pre">Random</span></code> variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nextInt()</span></code> – when called on a <code class="docutils literal notranslate"><span class="pre">Random</span></code>, this method call will give you back any random <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nextInt(int</span> <span class="pre">max)</span></code> – when called on a <code class="docutils literal notranslate"><span class="pre">Random</span></code>, this method call will give you back any random <code class="docutils literal notranslate"><span class="pre">int</span></code> in the range starting at <code class="docutils literal notranslate"><span class="pre">0</span></code> and ending at <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">-</span> <span class="pre">1</span></code>. This range excludes the <code class="docutils literal notranslate"><span class="pre">max</span></code> value that is placed in between the parentheses.</p>
+<ul>
+<li><p>As an example, if I called <code class="docutils literal notranslate"><span class="pre">nextInt(10)</span></code>, there is an equally likely probability that I’ll get any value starting with <code class="docutils literal notranslate"><span class="pre">0</span></code> and ending at <code class="docutils literal notranslate"><span class="pre">9</span></code> (does <strong>not</strong> include <code class="docutils literal notranslate"><span class="pre">10</span></code>).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nextDouble()</span></code> – when called on a <code class="docutils literal notranslate"><span class="pre">Random</span></code>, this method call will give you back any random <code class="docutils literal notranslate"><span class="pre">double</span></code> between <code class="docutils literal notranslate"><span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">1.0</span></code> (exclusive).</p></li>
+</ul>
+<p>Run the code below to see how we can use these methods:</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Try running the code block multiple times to see how these values change!</p>
+</div>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span><span class="w"> </span><span class="c1">// make sure to have this whenever you are using Random</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Example</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// code below to create a new Random variable</span>
+<span class="w">        </span><span class="n">Random</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Random</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// generating a random value as an int</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">randInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;value from call to nextInt(): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">randInt</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// generating a random value as an int between 0 and 10 (exclusive)</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">randIntRange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;value from call to nextInt(10): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">randIntRange</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// generating a random value as a double</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">randDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;value from call to nextDouble(): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">randDouble</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="generating-an-arbitrary-range-of-values">
+<h2>Generating an Arbitrary Range of Values 📚<a class="headerlink" href="#generating-an-arbitrary-range-of-values" title="Permalink to this heading">#</a></h2>
+<p>Notice that when calling <code class="docutils literal notranslate"><span class="pre">nextInt(int</span> <span class="pre">max)</span></code>, we get a range that will always start at <code class="docutils literal notranslate"><span class="pre">0</span></code> (called <strong>zero-inclusive</strong>) and will end right just before <code class="docutils literal notranslate"><span class="pre">max</span></code> (called <strong>max-exclusive</strong>).</p>
+<p>But what if we want to generate a random value from a range that starts at 1 and ends exactly at <code class="docutils literal notranslate"><span class="pre">max</span></code>? Or what if I wanted a range that starts at 5 and ends at 15?</p>
+<p>We can generate any random range of values we want using a call to <code class="docutils literal notranslate"><span class="pre">nextInt(int</span> <span class="pre">max)</span></code> and manipulating these values slightly.</p>
+<p>For example, to get a random number from 1 to <code class="docutils literal notranslate"><span class="pre">max</span></code> inclusive, all we have to do is add 1 to the call to <code class="docutils literal notranslate"><span class="pre">nextInt()</span></code> and this will shift the range of random values ranging between 0 and <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">-</span> <span class="pre">1</span></code> to between 1 and <code class="docutils literal notranslate"><span class="pre">max</span></code>:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="c1">// generating a value in the range of 1 to max</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If you wanted to generate a value in any range where you know the minimum (<code class="docutils literal notranslate"><span class="pre">min</span></code>) value and the maximum (<code class="docutils literal notranslate"><span class="pre">max</span></code>) value, you can use the following template:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="c1">// generating a value in the range of min to max</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">range</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">min</span><span class="p">;</span><span class="w"> </span><span class="c1">// where range = max - min + 1</span>
+</pre></div>
+</div>
+<p>Another example, to get a random integer in the range of 4 to 10 inclusive:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="c1">// min = 4</span>
+<span class="c1">// max = 10</span>
+<span class="c1">// range = max - min + 1 = 10 - 4 + 1 = 7</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="main-points">
+<h2>Main Points:<a class="headerlink" href="#main-points" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In Java, the <code class="docutils literal notranslate"><span class="pre">Random</span></code> class is used to generate pseudorandom numbers.</p></li>
+<li><p>To use <code class="docutils literal notranslate"><span class="pre">Random</span></code>, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">java.util.*</span></code> and create a new instance of <code class="docutils literal notranslate"><span class="pre">Random</span></code> with the syntax <code class="docutils literal notranslate"><span class="pre">Random</span> <span class="pre">rand</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Random();</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Random</span></code> class has methods like <code class="docutils literal notranslate"><span class="pre">nextInt()</span></code> (returns any random <code class="docutils literal notranslate"><span class="pre">int</span></code>), <code class="docutils literal notranslate"><span class="pre">nextInt(int</span> <span class="pre">max)</span></code> (returns a random <code class="docutils literal notranslate"><span class="pre">int</span></code> in the range 0 to <code class="docutils literal notranslate"><span class="pre">max-1</span></code>), and <code class="docutils literal notranslate"><span class="pre">nextDouble()</span></code> (returns any random double between <code class="docutils literal notranslate"><span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">1.0</span></code> exclusive).</p></li>
+<li><p>To generate an arbitrary range of values starting from <code class="docutils literal notranslate"><span class="pre">min</span></code> to <code class="docutils literal notranslate"><span class="pre">max</span></code>, use the formula <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">num</span> <span class="pre">=</span> <span class="pre">rand.nextInt(range)</span> <span class="pre">+</span> <span class="pre">min;</span></code>, where <code class="docutils literal notranslate"><span class="pre">range</span> <span class="pre">=</span> <span class="pre">max</span> <span class="pre">-</span> <span class="pre">min</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/unit-2/lesson-5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-in-java"><code class="docutils literal notranslate"><span class="pre">Random</span></code> in Java 🎲</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-random">Creating <code class="docutils literal notranslate"><span class="pre">Random</span></code> ✏️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-methods"><code class="docutils literal notranslate"><span class="pre">Random</span></code> Methods 🧮</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-an-arbitrary-range-of-values">Generating an Arbitrary Range of Values 📚</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-points">Main Points:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Parker Gustafson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

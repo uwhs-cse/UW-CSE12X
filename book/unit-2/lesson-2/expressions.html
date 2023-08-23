@@ -1,0 +1,827 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Expressions &#8212; UW CSE 12X Open Access Prototype</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-2/lesson-2/expressions';</script>
+    <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-2/lesson-2/expressions.html" />
+    <link rel="shortcut icon" href="../../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../welcome.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-1/index.html">Unit 1: Hello World!</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-1/lesson-2/index.html">1.2: Printing</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printlns.html">Printlns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printing-practice.html">Println’s Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-3/index.html">Unit 3: Introduction to Iteration</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-1/index.html">3.1: For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/intro-to-for-loops.html">Introduction to For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loops-for-string-traversals.html">For Loops for String Traversals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loop-review.html">For Loop Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/strings-and-character-practice.html">Strings and Characters Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-2/index.html">3.2: Nested For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops.html">Nested For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops-review.html">Nested For Loops Review Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-4/index.html">Unit 4: Methods, Parameters, and Returns!</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-4/lesson-1/index.html">4.1: Methods</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods.html">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods-review.html">Methods Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-2/index.html">4.2: Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-3/index.html">4.3: Return Values</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/edit/main/book/unit-2/lesson-2/expressions.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/issues/new?title=Issue%20on%20page%20%2Fbook/unit-2/lesson-2/expressions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/book/unit-2/lesson-2/expressions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Expressions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔢 Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">➕ Operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-division">➗ Integer Division</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulo-or-mod">😲 Modulo or “Mod” (%)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-strings">🧵 Dealing with Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-and-logical-operators">⚙️ Relational and Logical Operators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-using-different-types">🤔 Expressions Using Different Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precedence-order-of-operations">📄 Precedence (Order of Operations)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-of-precedence">🎚 Levels of Precedence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precedence-with-booleans">❗ Precedence with <code class="docutils literal notranslate"><span class="pre">boolean</span></code>s</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-points">Main Points:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="expressions">
+<h1>Expressions<a class="headerlink" href="#expressions" title="Permalink to this heading">#</a></h1>
+<div style="position: relative; padding-bottom: 62.5%; height: 0;">
+    <iframe src="https://www.youtube.com/embed/JgddtwEvTx8" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Above, you’ll see there’s a video titled <strong>Expressions [Video Walkthrough]</strong>. The video and the reading both have the same information! You’re not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!</p>
+</div>
+<section id="id1">
+<h2>🔢 Expressions<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>By now, you’ve worked a bit with data types such as <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, and <code class="docutils literal notranslate"><span class="pre">boolean</span></code>.  In this lesson, we’ll learn about how else we can use these values!</p>
+<p>Specifically, now that we can have notions of <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">3.14</span></code> in our programs, something you may be inclined to do is write a simple mathematical <em>expression</em> such as <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">3.14</span></code>.  Good news!  Java knows about math, and works the way you might expect!  (For the most part… more to come on this a bit further down the page.)</p>
+</section>
+<section id="operators">
+<h2>➕ Operators<a class="headerlink" href="#operators" title="Permalink to this heading">#</a></h2>
+<p>The basic mathematical operators for addition (using <code class="docutils literal notranslate"><span class="pre">+</span></code>), subtraction (using <code class="docutils literal notranslate"><span class="pre">-</span></code>), multiplication (using <code class="docutils literal notranslate"><span class="pre">*</span></code>), and division (using <code class="docutils literal notranslate"><span class="pre">/</span></code>) are available in Java.  Each of these mathematical operators are <strong>binary operators</strong>, meaning they are used to combine two values (or operands) and each operation <em><strong>evaluates</strong></em> to a new value.</p>
+<p>Let’s take a look at a few examples!  You’ll see a code snippet below with expressions inside of <code class="docutils literal notranslate"><span class="pre">System.out.println</span></code> statements. Each expression <em>evaluates</em> to a resulting value, which is then printed out using the <code class="docutils literal notranslate"><span class="pre">println</span></code> statements!</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExpressionPractice</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mf">6.9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.145</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mf">18.5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.5</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Hit the “Run” button and take a look at the output. Are all of the results that are printed what you expected?  Take a close look at the last line…🤔 huh?  (keep reading ⬇️)</p>
+<section id="integer-division">
+<h3>➗ Integer Division<a class="headerlink" href="#integer-division" title="Permalink to this heading">#</a></h3>
+<p>The basic mathematical operators work as you would expect, <em>except</em> for the division operator when working with two <code class="docutils literal notranslate"><span class="pre">int</span></code> operands.  In the <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">/</span> <span class="pre">3</span></code> example shown above, you may have expected to see something like <code class="docutils literal notranslate"><span class="pre">3.333</span></code>, but instead we see that the result evaluates to <code class="docutils literal notranslate"><span class="pre">3</span></code>. In this scenario, “int division” or “truncating division” is performed—-you can instead think of this as answering the question of “How many times does 3 fit evenly into 10?” where the answer is 3. Alternatively, you can do mathematical division and get an answer of <code class="docutils literal notranslate"><span class="pre">3.333</span></code>… , then remember that in this case we truncate everything to the right of the decimal point, giving us the final answer <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<div class="caution admonition">
+<p class="admonition-title">Caution</p>
+<p>Forgetting about integer division when working with <code class="docutils literal notranslate"><span class="pre">int</span></code>s is a <strong>very common</strong> source of bugs (bugs are coding errors in programs) when you’re first starting out (and frequently comes back to haunt even the most experienced programmers).</p>
+<p>If you’re noticing some strange <code class="docutils literal notranslate"><span class="pre">0</span></code>’s showing up where they shouldn’t or some of your numerical results look off, check anywhere you’re using division to make sure you’re getting the results you expect! 🐛🐞</p>
+</div>
+</section>
+<section id="modulo-or-mod">
+<h3>😲 Modulo or “Mod” (%)<a class="headerlink" href="#modulo-or-mod" title="Permalink to this heading">#</a></h3>
+<p>Java actually provides another mathematical operator that you may not have seen before: the <strong>modulo</strong> (or “mod” for short) operator, which uses the <code class="docutils literal notranslate"><span class="pre">%</span></code> character. This operator’s result is what would be the <em>remainder</em> of an <code class="docutils literal notranslate"><span class="pre">int</span></code> division using the same two operands. For example, if we were to evaluate <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">%</span> <span class="pre">3</span></code>, we would get <code class="docutils literal notranslate"><span class="pre">s</span></code> which is the <em>remainder</em> we get when evaluating <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">/</span> <span class="pre">3</span></code>. Given this description, what do you expect <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">%</span> <span class="pre">2</span></code>’s result to be? Take a moment to think before running the code below:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModuloPractice</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="dealing-with-strings">
+<h3>🧵 Dealing with Strings<a class="headerlink" href="#dealing-with-strings" title="Permalink to this heading">#</a></h3>
+<p>So far we’ve only been talking about <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">double</span></code> types, but you’ve also been working with values of type <code class="docutils literal notranslate"><span class="pre">String</span></code>!  <code class="docutils literal notranslate"><span class="pre">String</span></code> values aren’t able to work with the <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, or <code class="docutils literal notranslate"><span class="pre">%</span></code> operators (if you try to use them, you will get a compiler error), but they do work with <code class="docutils literal notranslate"><span class="pre">+</span></code>!  When dealing with String values, <code class="docutils literal notranslate"><span class="pre">+</span></code> denotes concatenation which is a fancy way of saying “squishing <code class="docutils literal notranslate"><span class="pre">String</span></code>s together”!  Try running the code below to understand how <code class="docutils literal notranslate"><span class="pre">String</span></code> concatenation works!</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ConcatenationPractice</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;everyone!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Java i&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;s so co&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;ol&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="relational-and-logical-operators">
+<h3>⚙️ Relational and Logical Operators<a class="headerlink" href="#relational-and-logical-operators" title="Permalink to this heading">#</a></h3>
+<p><strong>Relational operators</strong> allow us to check the relationship between two <strong>operands</strong> (or values). We evaluate the expression using the relational operators to see if that relationship is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. Some of the basic relational operators can be seen below:</p>
+<link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;700&family=Open+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet"
+/>
+<style>
+table {
+    width: 100%;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-weight: 200;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+</style>
+<table>
+    <tr>
+        <th>Operator</th>
+        <th>Description</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td><code>==</code></td>
+        <td>equal to</td>
+        <td><code>3 == 9</code> returns <code>false</code></td>
+    </tr>
+    <tr>
+        <td><code>!=</code></td>
+        <td>not equal to</td>
+        <td><code>3 != 9</code> returns <code>true</code></td>
+    </tr>
+    <tr>
+        <td><code>></code></td>
+        <td>greater than</td>
+        <td><code>10 > 5</code> returns <code>true</code></td>
+    </tr>
+    <tr>
+        <td><code><</code></td>
+        <td>less than</td>
+        <td><code>7 < 3</code> returns <code>false</code></td>
+    </tr>
+    <tr>
+        <td><code>>=</code></td>
+        <td>greater than or equal to</td>
+        <td><code>2 <= 2</code> returns <code>true</code></td>
+    </tr>
+    <tr>
+        <td><code><=</code></td>
+        <td>less than or equal to</td>
+        <td><code>10 <= 5</code> returns <code>false</code></td>
+    </tr>
+</table>
+<br></br>
+<p>Alongside relational operators, we also have <strong>logical operators</strong>. Just like relational operators, they evaluate some expression to either <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. But we can use logical operators to combine two or more <strong><code class="docutils literal notranslate"><span class="pre">boolean</span></code> expressions</strong> or to get the opposite value of a particular <strong><code class="docutils literal notranslate"><span class="pre">boolean</span></code> expression</strong>! Check out some logical operators below:</p>
+<link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;700&family=Open+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet"
+/>
+<style>
+table {
+    width: 100%;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-weight: 200;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+</style>
+<table>
+    <tr>
+        <th>Operator</th>
+        <th>Syntax</th>
+        <th>Description</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td><code>&&</code> (logical AND)</td>
+        <td><code>expression1 && expression2</code></td>
+        <td>returns <code>true</code> if both expressions evaluate to <code>true</code></td>
+        <th><code>8 > 4 && 14 != 7</code></th>
+    </tr>
+    <tr>
+        <td><code>||</code> (logical OR)</td>
+        <td><code>expression1 || expression2</code></td>
+        <td>returns <code>true</code> if at least one of the expressions evaluates to <code>true</code></td>
+        <th><code>8 % 2 == 0 || -8 < 0</code></th>
+    </tr>
+    <tr>
+        <td><code>!</code> (logical NOT)</td>
+        <td><code>!expression</code></td>
+        <td>returns <code>true</code> if the expression is <code>false</code> and vice versa</td>
+        <th><code>!(8.5 < -9.716)</code></th>
+    </tr>
+</table>
+</section>
+</section>
+<section id="expressions-using-different-types">
+<h2>🤔 Expressions Using Different Types<a class="headerlink" href="#expressions-using-different-types" title="Permalink to this heading">#</a></h2>
+<p>We’ve notably only trying out examples where both of the operands share the same type.  What do you think would happen if we tried to use these operators using values of different types in an expression? Take a moment to think about some reasonable things Java could do given this scenario before clicking “Expand” below!</p>
+<details>
+<summary>Expand</summary>
+Java will *convert* one of the operands to the other operand's type, then it will perform the operation!  Here are how the conversions work: 
+<ul class="simple">
+<li><p>ints can be converted to doubles</p>
+<ul>
+<li><p>e.g., 5.0 * 2 ➡️ 5.0 * 2.0</p></li>
+</ul>
+</li>
+<li><p>ints can be converted to Strings</p>
+<ul>
+<li><p>e.g., 5 + “hello” ➡️ “5” + “hello”</p></li>
+</ul>
+</li>
+<li><p>doubles can be converted to Strings</p>
+<ul>
+<li><p>e.g., “pickle” + 4.9 ➡️ “pickle” + “4.9”</p></li>
+</ul>
+</li>
+</ul>
+<p>You can think of these conversion rules like a waterfall: when two types are involved in an operation, the one higher up in the waterfall overtakes the one lower down!</p>
+<p><img alt="image of a waterfall with Strings at the top, doubles in the middle, and ints at the bottom." src="../../../_images/waterfall.png" /></p>
+<div class="danger admonition">
+<p class="admonition-title">Danger</p>
+<p>You cannot combine values of type boolean with other types in an expression!  Java will give you a compiler error if you try.</p>
+</div>
+</details>
+</section>
+<section id="precedence-order-of-operations">
+<h2>📄 Precedence (Order of Operations)<a class="headerlink" href="#precedence-order-of-operations" title="Permalink to this heading">#</a></h2>
+<p>Now that we’ve got a grasp of the basics, let’s think about some more complicated expressions. When there are multiple operators involved in an expression (like <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">14.5</span> <span class="pre">+</span> <span class="pre">6</span> <span class="pre">+</span> <span class="pre">&quot;hi&quot;</span></code>)  you have to think about <strong>precedence</strong>, or what order the parts of the expression (or <strong>subexpressions</strong>) are evaluated in. The PEMDAS order-of-operations trick that you may have learned in earlier school years applies here (with a few small tweaks) for non-boolean expressions.</p>
+<p><img alt="PEMDAS text with the E crossed out and replaced with an M. Underneath, () under the P, % under the first M, * under the next M, / under the D, + under the A, - under the S. The P and () are underlined with pink, the MMD and %*/ are underlined with yellow, and the AS and +- are underlined with blue." src="../../../_images/precedence.jpeg" /></p>
+<ul class="simple">
+<li><p>**[P]**arentheses (<code class="docutils literal notranslate"><span class="pre">()</span></code>) - You can use parentheses in a Java expression in the same way that you can in a mathematical expression. Any subexpression that is inside of parentheses is performed before any other part of the expression.</p></li>
+<li><p><strong>[<strike>E</strike> M M D]</strong></p>
+<ul>
+<li><p><strong><strike>E</strike> M</strong>odulo (<code class="docutils literal notranslate"><span class="pre">%</span></code>) - There isn’t a Java operator for “<strong>e</strong>xponents” (<code class="docutils literal notranslate"><span class="pre">^</span></code> actually does something different), but we can instead replace this with the <strong>m</strong>od operator.</p></li>
+<li><p><strong>M</strong>ultiplication (<code class="docutils literal notranslate"><span class="pre">*</span></code>)</p></li>
+<li><p><strong>D</strong>ivision (<code class="docutils literal notranslate"><span class="pre">/</span></code>)</p></li>
+</ul>
+</li>
+<li><p><strong>[A S]</strong></p>
+<ul>
+<li><p><strong>A</strong>ddition (<code class="docutils literal notranslate"><span class="pre">+</span></code>) - This really applies to the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator, so both <em>addition</em> and <code class="docutils literal notranslate"><span class="pre">String</span></code> <em>concatenation</em> share this level of precedence!</p></li>
+<li><p><strong>S</strong>ubtraction (<code class="docutils literal notranslate"><span class="pre">-</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+<section id="levels-of-precedence">
+<h3>🎚 Levels of Precedence<a class="headerlink" href="#levels-of-precedence" title="Permalink to this heading">#</a></h3>
+<p>Notice that we’ve grouped <strong>m</strong>od, <strong>m</strong>ultiplication, and <strong>d</strong>ivision together, and <strong>a</strong>ddition and <strong>s</strong>ubtraction have their own group. These groupings indicate the <em>levels of precedence</em>.  In other words, all of the operators within a level of precedence don’t have priority over the others—in Java, when there are multiple subexpressions with the same level of precedence, they are executed <strong>from left to right</strong>.</p>
+<div class="caution admonition">
+<p class="admonition-title">Caution</p>
+<p>In classical mathematics, the order of doing multiplication and division in an expression didn’t matter - the result would be the same. However, because in Java we are dealing not only with each subexpression’s resulting value, but also its resulting type, the order of evaluation <em>does</em> matter!</p>
+</div>
+</section>
+<section id="precedence-with-booleans">
+<h3>❗ Precedence with <code class="docutils literal notranslate"><span class="pre">boolean</span></code>s<a class="headerlink" href="#precedence-with-booleans" title="Permalink to this heading">#</a></h3>
+<p>All of the operators discussed above (PMMDAS) have higher precedence than the relational and logical operators we’ve introduced <strong>except for the “logical NOT” operator (<code class="docutils literal notranslate"><span class="pre">!</span></code>)</strong>.  So specifically, the full list in their order of precedence, we have:</p>
+<ul class="simple">
+<li><p>Logical NOT <strong><code class="docutils literal notranslate"><span class="pre">!</span></code></strong></p></li>
+<li><p>Parentheses <strong><code class="docutils literal notranslate"><span class="pre">()</span></code></strong></p></li>
+<li><p>Mod, Multiplication, and Division <strong><code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code></strong></p></li>
+<li><p>Addition and Subtraction <strong><code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code></strong></p></li>
+<li><p>Relational operators <strong><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></strong> (at the same level of precedence)</p></li>
+<li><p>Relational operators <strong><code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code></strong> (at the same level of precedence)</p></li>
+<li><p>Logical AND <strong><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code></strong></p></li>
+<li><p>Logical OR <strong><code class="docutils literal notranslate"><span class="pre">||</span></code></strong></p></li>
+</ul>
+<p>So you can generally evaluate any logical NOT operators, then perform all of the <em>non</em>-Boolean operations according to the PMMDAS precedence described above, and then evaluate each of the subexpressions involving relational operators (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> before <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code>), then the subexpressions involving logical AND <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, and finally any remaining subexpressions involving logical OR <code class="docutils literal notranslate"><span class="pre">||</span></code>.  As described above, when there are multiple subexpressions with the same level of precedence, they are executed from left to right.</p>
+<p>Try running the code below to understand how these different operators work when used together!</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BooleanOperators</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;5 &lt; 20: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;29.8 == 14825.7942: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mf">29.8</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">14825.7942</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;18 % 2 != 0: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">18</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;-6 &lt; -6: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;-6 &lt;= -6: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;5 &lt; 20 &amp;&amp; -6 &lt;= -6: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;5 &lt; 20 &amp;&amp; -6 &lt; -6: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;5 &lt; 20 || -6 &lt;= -6: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;5 &lt; 20 || -6 &lt; -6: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;!(7.162 &gt;= 7): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="mf">7.162</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">7</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="main-points">
+<h2>Main Points:<a class="headerlink" href="#main-points" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Java can combine data into expressions - many mathematical operators work as you expect (+, -, /, *, &lt;, &gt;).</p></li>
+<li><p>There are additional operators that Java supports that you may not be familiar with (e.g., %, ==, !=, &lt;=, &gt;=, &amp;&amp;, ||, !).</p></li>
+<li><p>When evaluating Java expressions, you also need to keep track of the types that are involved in each subexpression, as they sometimes affect how operators behave (e.g., int division).</p></li>
+<li><p>Java obeys strict rules about precedence, and when there are multiple operators in an expression at the same level of precedence, subexpressions are evaluated in order from left to right.</p>
+<ul>
+<li><p>Java levels of precedence: [!] [P] [MMD] [AS] [&lt;&gt;&lt;=&gt;=] [== !=] [&amp;&amp;] [||]</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/unit-2/lesson-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔢 Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">➕ Operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-division">➗ Integer Division</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulo-or-mod">😲 Modulo or “Mod” (%)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-strings">🧵 Dealing with Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-and-logical-operators">⚙️ Relational and Logical Operators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-using-different-types">🤔 Expressions Using Different Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precedence-order-of-operations">📄 Precedence (Order of Operations)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#levels-of-precedence">🎚 Levels of Precedence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precedence-with-booleans">❗ Precedence with <code class="docutils literal notranslate"><span class="pre">boolean</span></code>s</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-points">Main Points:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Parker Gustafson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
