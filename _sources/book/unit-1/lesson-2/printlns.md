@@ -33,7 +33,9 @@ It might help to remember this by reading `println` as "print line"
 
 What does this mean and how do we use this method? Suppose we wanted to display the text "Welcome to CSE 121!" on the screen, we would do so with the following statement:
 
-``` java System.out.println("Welcome to CSE 121!"); ```
+``` java 
+System.out.println("Welcome to CSE 121!"); 
+```
 
 
 Let's see this in the context of a full Java program. Press the "Run" button on the code block below to run the program and see the output.
