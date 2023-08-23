@@ -4,33 +4,52 @@
 format: jb-book
 root: book/welcome
 chapters:
-  - file: book/unit-2/lesson-1/index
-    title: "2.1: Data Types"
+  - file: book/unit-1/index
     sections:
-    - file: book/unit-2/lesson-1/data-types
-  - file: book/unit-2/lesson-2/index
-    title: "2.2: Expressions"
+      - file: book/unit-1/lesson-2/index
+        sections:
+          - file: book/unit-1/lesson-2/printlns
+          - file: book/unit-1/lesson-2/printing-practice
+  - file: book/unit-2/index
     sections:
-    - file: book/unit-2/lesson-2/expressions
-    - file: book/unit-2/lesson-2/walkthrough-of-expression-problems
-  - file: book/unit-2/lesson-3/index
-    title: "2.3: Variables"
+      - file: book/unit-2/lesson-1/index
+        sections:
+          - file: book/unit-2/lesson-1/data-types
+      - file: book/unit-2/lesson-2/index
+        sections:
+          - file: book/unit-2/lesson-2/expressions
+          - file: book/unit-2/lesson-2/walkthrough-of-expression-problems
+      - file: book/unit-2/lesson-3/index
+        sections:
+          - file: book/unit-2/lesson-3/variables
+      - file: book/unit-2/lesson-4/index
+        sections:
+          - file: book/unit-2/lesson-4/strings-and-characters
+      - file: book/unit-2/lesson-5/index
+        sections:
+          - file: book/unit-2/lesson-5/random
+  - file: book/unit-3/index
     sections:
-    - file: book/unit-2/lesson-3/variables
-  - file: book/unit-2/lesson-4/index
-    title: "2.4: Strings"
+      - file: book/unit-3/lesson-1/index
+        sections:
+          - file: book/unit-3/lesson-1/intro-to-for-loops
+          - file: book/unit-3/lesson-1/for-loops-for-string-traversals
+          - file: book/unit-3/lesson-1/for-loop-review
+          - file: book/unit-3/lesson-1/strings-and-character-practice
+      - file: book/unit-3/lesson-2/index
+        sections:
+          - file: book/unit-3/lesson-2/nested-for-loops
+          - file: book/unit-3/lesson-2/nested-for-loops-review
+  - file: book/unit-4/index
     sections:
-    - file: book/unit-2/lesson-4/strings-and-characters
-  - file: book/unit-2/lesson-5/index
-    title: "2.5: Random"
-    sections:
-    - file: book/unit-2/lesson-5/random
-  - file: book/unit-3/lesson-1/index
-    title: "3.1: For Loops"
-    sections:
-    - file: book/unit-3/lesson-1/intro-to-for-loops
-    - file: book/unit-3/lesson-1/for-loops-for-string-traversals
-    - file: book/unit-3/lesson-1/strings-and-character-practice
+      - file: book/unit-4/lesson-1/index
+        sections: 
+          - file: book/unit-4/lesson-1/methods
+          - file: book/unit-4/lesson-1/methods-review
+      - file: book/unit-4/lesson-2/index
+      # sections: 
+      - file: book/unit-4/lesson-3/index
+      # sections: 
 
 
 

@@ -14,6 +14,26 @@ exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 # Auto-exclude files not in the toc
 only_build_toc_files: true
 
+parser:
+  myst_enable_extensions: [
+      "amsmath",
+      "attrs_inline",
+      "attrs_block",
+      "colon_fence",
+      "deflist",
+      "dollarmath",
+      "fieldlist",
+      "html_admonition",
+      "html_image",
+      "linkify",
+      "replacements",
+      "smartquotes",
+      "strikethrough",
+      "substitution",
+      "tasklist",
+  ]
+
+
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
@@ -34,7 +54,8 @@ launch_buttons:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/pgusto34/uw-cse-12x-open-access-prototype # Online location of your book
+  # url: https://github.com/pgusto34/uw-cse-12x-open-access-prototype
+  url: https://github.com/uwhs-cse/UW-CSE12X # Online location of your book
   # path_to_book: docs # Optional path to your book, relative to the repository root
   branch: main # Which branch of the repository should be used when creating links (optional)
 
@@ -42,7 +63,7 @@ repository:
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   favicon: "fav.ico"
-  baseurl: https://pgusto34.github.io/uw-cse-12x-open-access-prototype # The base URL where your book will be hosted.
+  baseurl: https://uwhs-cse.github.io/UW-CSE12X # The base URL where your book will be hosted.
   use_repository_button: true
   use_issues_button: true
   use_edit_page_button: true
@@ -58,7 +79,7 @@ sphinx:
     # html_extra_path: ["CNAME", "robots.txt"]
     html_theme_options:
       use_download_button: true
-      repository_url: https://github.com/pgusto34/uw-cse-12x-open-access-prototype
+      repository_url: https://github.com/uwhs-cse/UW-CSE12X
       use_issues_button: true
       use_repository_button: true
       use_edit_page_button: true
