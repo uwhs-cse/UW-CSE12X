@@ -7,7 +7,7 @@
 :::{admonition} Note
 :class: note
 
-Above, you'll see there's a lesson titled **Expressions [Video Walkthrough]**. The video and the reading both have the same information! You're not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!
+Above, you'll see there's a video titled **Expressions [Video Walkthrough]**. The video and the reading both have the same information! You're not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!
 :::
 
 ## 🔢 Expressions
@@ -121,43 +121,38 @@ td {
         <th>Description</th>
         <th>Example</th>
     </tr>
-
     <tr>
         <td><code>==</code></td>
         <td>equal to</td>
         <td><code>3 == 9</code> returns <code>false</code></td>
     </tr>
-
     <tr>
         <td><code>!=</code></td>
         <td>not equal to</td>
         <td><code>3 != 9</code> returns <code>true</code></td>
     </tr>
-
     <tr>
         <td><code>></code></td>
         <td>greater than</td>
         <td><code>10 > 5</code> returns <code>true</code></td>
     </tr>
-
     <tr>
         <td><code><</code></td>
         <td>less than</td>
         <td><code>7 < 3</code> returns <code>false</code></td>
     </tr>
-
     <tr>
         <td><code>>=</code></td>
         <td>greater than or equal to</td>
         <td><code>2 <= 2</code> returns <code>true</code></td>
     </tr>
-
     <tr>
         <td><code><=</code></td>
         <td>less than or equal to</td>
         <td><code>10 <= 5</code> returns <code>false</code></td>
     </tr>
 </table>
+<br></br>
 
 Alongside relational operators, we also have **logical operators**. Just like relational operators, they evaluate some expression to either `true` or `false`. But we can use logical operators to combine two or more **`boolean` expressions** or to get the opposite value of a particular **`boolean` expression**! Check out some logical operators below:
 
@@ -194,21 +189,18 @@ td {
         <th>Description</th>
         <th>Example</th>
     </tr>
-
     <tr>
         <td><code>&&</code> (logical AND)</td>
         <td><code>expression1 && expression2</code></td>
         <td>returns <code>true</code> if both expressions evaluate to <code>true</code></td>
         <th><code>8 > 4 && 14 != 7</code></th>
     </tr>
-
     <tr>
         <td><code>||</code> (logical OR)</td>
         <td><code>expression1 || expression2</code></td>
         <td>returns <code>true</code> if at least one of the expressions evaluates to <code>true</code></td>
         <th><code>8 % 2 == 0 || -8 < 0</code></th>
     </tr>
-
     <tr>
         <td><code>!</code> (logical NOT)</td>
         <td><code>!expression</code></td>

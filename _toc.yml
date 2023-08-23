@@ -4,6 +4,27 @@
 format: jb-book
 root: book/welcome
 chapters:
+  - file: book/unit-2/lesson-1/index
+    title: "2.1: Data Types"
+    sections:
+    - file: book/unit-2/lesson-1/data-types
+  - file: book/unit-2/lesson-2/index
+    title: "2.2: Expressions"
+    sections:
+    - file: book/unit-2/lesson-2/expressions
+    - file: book/unit-2/lesson-2/walkthrough-of-expression-problems
+  - file: book/unit-2/lesson-3/index
+    title: "2.3: Variables"
+    sections:
+    - file: book/unit-2/lesson-3/variables
+  - file: book/unit-2/lesson-4/index
+    title: "2.4: Strings"
+    sections:
+    - file: book/unit-2/lesson-4/strings-and-characters
+  - file: book/unit-2/lesson-5/index
+    title: "2.5: Random"
+    sections:
+    - file: book/unit-2/lesson-5/random
   - file: book/unit-3/lesson-1/index
     title: "3.1: For Loops"
     sections:
