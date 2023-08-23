@@ -22,6 +22,14 @@ chapters:
         sections:
           - file: book/unit-3/lesson-2/nested-for-loops
           - file: book/unit-3/lesson-2/nested-for-loops-review
+  - file: book/unit-4/index
+    sections:
+      - file: book/unit-4/lesson-1/index
+      # sections: 
+      - file: book/unit-4/lesson-2/index
+      # sections: 
+      - file: book/unit-4/lesson-3/index
+      # sections: 
 
 
 
