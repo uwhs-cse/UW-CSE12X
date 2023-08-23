@@ -14,6 +14,26 @@ exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 # Auto-exclude files not in the toc
 only_build_toc_files: true
 
+parser:
+  myst_enable_extensions: [
+      "amsmath",
+      "attrs_inline",
+      "attrs_block",
+      "colon_fence",
+      "deflist",
+      "dollarmath",
+      "fieldlist",
+      "html_admonition",
+      "html_image",
+      "linkify",
+      "replacements",
+      "smartquotes",
+      "strikethrough",
+      "substitution",
+      "tasklist",
+  ]
+
+
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:

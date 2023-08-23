@@ -9,6 +9,7 @@ chapters:
       - file: book/unit-1/lesson-2/index
         sections:
           - file: book/unit-1/lesson-2/printlns
+          - file: book/unit-1/lesson-2/printing-practice
   - file: book/unit-3/index
     sections:
       - file: book/unit-3/lesson-1/index
