@@ -16,6 +16,7 @@ chapters:
         sections:
           - file: book/unit-3/lesson-1/intro-to-for-loops
           - file: book/unit-3/lesson-1/for-loops-for-string-traversals
+          - file: book/unit-3/lesson-1/for-loop-review
           - file: book/unit-3/lesson-1/strings-and-character-practice
 
 
