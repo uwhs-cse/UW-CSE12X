@@ -1,2 +1,2 @@
-# CSE 12X Open Access Prototype
+# CSE 12X
 
