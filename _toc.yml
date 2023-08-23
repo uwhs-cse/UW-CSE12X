@@ -25,7 +25,9 @@ chapters:
   - file: book/unit-4/index
     sections:
       - file: book/unit-4/lesson-1/index
-      # sections: 
+        sections: 
+          - file: book/unit-4/lesson-1/methods
+          - file: book/unit-4/lesson-1/methods-review
       - file: book/unit-4/lesson-2/index
       # sections: 
       - file: book/unit-4/lesson-3/index
