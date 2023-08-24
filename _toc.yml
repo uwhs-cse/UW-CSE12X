@@ -15,19 +15,25 @@ chapters:
       - file: book/unit-2/lesson-1/index
         sections:
           - file: book/unit-2/lesson-1/data-types
+          - file: book/unit-2/lesson-1/data-types-practice
       - file: book/unit-2/lesson-2/index
         sections:
           - file: book/unit-2/lesson-2/expressions
           - file: book/unit-2/lesson-2/walkthrough-of-expression-problems
+          - file: book/unit-2/lesson-2/expressions-practice
       - file: book/unit-2/lesson-3/index
         sections:
           - file: book/unit-2/lesson-3/variables
+          - file: book/unit-2/lesson-3/variables-practice
       - file: book/unit-2/lesson-4/index
         sections:
           - file: book/unit-2/lesson-4/strings-and-characters
+          - file: book/unit-2/lesson-4/string-methods-practice
       - file: book/unit-2/lesson-5/index
         sections:
           - file: book/unit-2/lesson-5/random
+          - file: book/unit-2/lesson-5/random-review-problems
+          - file: book/unit-2/lesson-5/random-challenge-problem
   - file: book/unit-3/index
     sections:
       - file: book/unit-3/lesson-1/index

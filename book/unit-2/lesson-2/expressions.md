@@ -321,6 +321,4 @@ public class BooleanOperators {
 - Java obeys strict rules about precedence, and when there are multiple operators in an expression at the same level of precedence, subexpressions are evaluated in order from left to right. 
 
   - Java levels of precedence: \[!\] \[P\] \[MMD\] \[AS\] \[<><=>=\] \[== !=\] \[&&\] \[||\]
-
-
-
+  
