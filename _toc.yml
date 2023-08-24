@@ -56,6 +56,19 @@ chapters:
       # sections: 
       - file: book/unit-4/lesson-3/index
       # sections: 
+  - file: book/unit-6/index
+    sections:
+      - file: book/unit-6/lesson-1/index
+        sections:
+          - file: book/unit-6/lesson-1/reading-from-a-file
+          - file: book/unit-6/lesson-1/scanner-methods
+          - file: book/unit-6/lesson-1/string-scanners
+      - file: book/unit-6/lesson-2/index
+        sections:
+          - file: book/unit-6/lesson-2/scanning-numeric-data
+      - file: book/unit-6/lesson-3/index
+        sections:
+          - file: book/unit-6/lesson-3/printing-to-a-file
 
 
 
