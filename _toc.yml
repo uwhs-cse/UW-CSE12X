@@ -62,13 +62,17 @@ chapters:
         sections:
           - file: book/unit-6/lesson-1/reading-from-a-file
           - file: book/unit-6/lesson-1/scanner-methods
+          - file: book/unit-6/lesson-1/using-a-file-scanner
           - file: book/unit-6/lesson-1/string-scanners
+          - file: book/unit-6/lesson-1/line-and-token-processing-practice
       - file: book/unit-6/lesson-2/index
         sections:
           - file: book/unit-6/lesson-2/scanning-numeric-data
+          - file: book/unit-6/lesson-2/negative-sum
       - file: book/unit-6/lesson-3/index
         sections:
           - file: book/unit-6/lesson-3/printing-to-a-file
+          - file: book/unit-6/lesson-3/print-product
 
 
 
