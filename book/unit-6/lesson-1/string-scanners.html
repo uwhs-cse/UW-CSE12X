@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Data Types &#8212; UW CSE 12X Open Access Prototype</title>
+    <title>String Scanners and Line Based Processing &#8212; UW CSE 12X Open Access Prototype</title>
   
   
   
@@ -61,13 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-2/lesson-1/data-types';</script>
-    <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-2/lesson-1/data-types.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-6/lesson-1/string-scanners';</script>
+    <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-6/lesson-1/string-scanners.html" />
     <link rel="shortcut icon" href="../../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="2.2 Expressions" href="../lesson-2/index.html" />
-    <link rel="prev" title="2.1 Data Types" href="index.html" />
+    <link rel="next" title="6.2: Processing Numerical Data" href="../lesson-2/index.html" />
+    <link rel="prev" title="Scanner Methods and Processing Tokens" href="scanner-methods.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -159,26 +159,26 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Unit 2: Data Types, Expressions, and Variables</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">2.1 Data Types</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Data Types</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-2/index.html">Unit 2: Data Types, Expressions, and Variables</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-1/index.html">2.1 Data Types</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-1/data-types.html">Data Types</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-2/index.html">2.2 Expressions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lesson-2/expressions.html">Expressions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lesson-2/walkthrough-of-expression-problems.html">👣 Walkthrough of Expression Problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-2/index.html">2.2 Expressions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/expressions.html">Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/walkthrough-of-expression-problems.html">👣 Walkthrough of Expression Problems</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-3/index.html">2.3 Variables</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lesson-3/variables.html">Variables</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-3/index.html">2.3 Variables</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-3/variables.html">Variables</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-4/index.html">2.4 Strings</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lesson-4/strings-and-characters.html">Strings and Characters</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-4/index.html">2.4 Strings</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-4/strings-and-characters.html">Strings and Characters</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-5/index.html">2.5 Random</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../lesson-5/random.html">Random</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-5/index.html">2.5 Random</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-5/random.html">Random</a></li>
 </ul>
 </li>
 </ul>
@@ -208,19 +208,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-3/index.html">4.3: Return Values</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-6/index.html">Unit 6: Reading and Writing to Files</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-1/index.html">6.1: Reading from a File: Token and Line Based Processing</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/reading-from-a-file.html">Reading From a File Using Scanners</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/scanner-methods.html">Scanner Methods and Processing Tokens</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/string-scanners.html">String Scanners and Line Based Processing</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Unit 6: Reading and Writing to Files</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">6.1: Reading from a File: Token and Line Based Processing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="reading-from-a-file.html">Reading From a File Using Scanners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scanner-methods.html">Scanner Methods and Processing Tokens</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">String Scanners and Line Based Processing</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-2/index.html">6.2: Processing Numerical Data</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-2/scanning-numeric-data.html">Scanning Numeric Data From Files</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-2/index.html">6.2: Processing Numerical Data</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-2/scanning-numeric-data.html">Scanning Numeric Data From Files</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-3/index.html">6.3: Writing to a File: PrintStream</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-3/printing-to-a-file.html">Scanning Numeric Data From Files</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-3/index.html">6.3: Writing to a File: PrintStream</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-3/printing-to-a-file.html">Scanning Numeric Data From Files</a></li>
 </ul>
 </li>
 </ul>
@@ -296,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/edit/main/book/unit-2/lesson-1/data-types.md" target="_blank"
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/edit/main/book/unit-6/lesson-1/string-scanners.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +313,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/issues/new?title=Issue%20on%20page%20%2Fbook/unit-2/lesson-1/data-types.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/issues/new?title=Issue%20on%20page%20%2Fbook/unit-6/lesson-1/string-scanners.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -343,7 +343,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../../_sources/book/unit-2/lesson-1/data-types.md" target="_blank"
+      <li><a href="../../../_sources/book/unit-6/lesson-1/string-scanners.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +425,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Types</h1>
+    <h1>String Scanners and Line Based Processing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -435,14 +435,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🧠 Data Types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integers">Integers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doubles">Doubles</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-points">Main Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-scanners">String Scanners</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maintaining-line-structure-while-reading-from-a-file">Maintaining Line Structure While Reading From a File</a></li>
 </ul>
             </nav>
         </div>
@@ -454,65 +448,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-types">
-<h1>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="string-scanners-and-line-based-processing">
+<h1>String Scanners and Line Based Processing<a class="headerlink" href="#string-scanners-and-line-based-processing" title="Permalink to this heading">#</a></h1>
 <div style="position: relative; padding-bottom: 62.5%; height: 0;">
-    <iframe src="https://www.youtube.com/embed/PWoC6F2ldgw" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    <iframe src="https://www.youtube.com/embed/yBnYapHLuvY" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>Above, you’ll see there’s a video titled <strong>CSE 121: Data Types Video Walkthrough</strong>.The video and the reading both have the same information. You’re not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!</p>
+<p>Above, you’ll see there’s a video titled <strong>CSE 121: Reading From a File &amp; Scanner Methods and Processing Tokens Video Walkthrough</strong>. The video and the reading both have the same information! You’re not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!</p>
 </div>
-<p>Aside from displaying text to the console, one of the most important needs for a programmer is the ability to store information. Whether it’s storing the name of a user, the balance of a bank account, or the current year, it is very useful to be able to give information a label, and reference it. We can do this in Java using <strong>variables</strong> (more on <em>variables</em> in the next lesson).</p>
-<section id="id1">
-<h2>🧠 Data Types<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>When deciding what information to store, you first need to decide what <em>type</em> of data it should be so that Java can be prepared for what you want to give it. This could be something like a number, word, or letter! Java has formal names for each of these types.</p>
+<p>In the example we gave on the previous slide, despite our file containing multiple separate lines of input, our output was all on a single line. One thing to pay attention to when scanning a file token by token is that we cannot easily tell when we have crossed onto a new line, making it hard to tell when to print on a new line and maintain the structure of our input file.</p>
+<p>One way we can get around this is by using the <code class="docutils literal notranslate"><span class="pre">nextLine()</span></code> <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> method to scan in an entire line from the file at a time. Given we then have the whole line as a variable, we can process it in its entirety and print it on its own line. We still might want to process this line token by token though, and so this is when making a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> over a <code class="docutils literal notranslate"><span class="pre">String</span></code>, as mentioned earlier in the lesson, becomes useful.</p>
+<section id="string-scanners">
+<h2>String Scanners<a class="headerlink" href="#string-scanners" title="Permalink to this heading">#</a></h2>
+<p>When creating a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>, if you pass a <code class="docutils literal notranslate"><span class="pre">String</span></code> as the argument into the <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">Scanner()</span></code> call, you actually create a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> over that <code class="docutils literal notranslate"><span class="pre">String</span></code>, allowing you to process the tokens within that <code class="docutils literal notranslate"><span class="pre">String</span></code> as if they were in a <code class="docutils literal notranslate"><span class="pre">File</span></code> or coming from the console. For example, you might create a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> over a <code class="docutils literal notranslate"><span class="pre">String</span></code> like this:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">lineOfText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Four score and seven years ago&quot;</span><span class="p">;</span>
+<span class="n">Scanner</span><span class="w"> </span><span class="n">lineScan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">lineOfText</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Just like with the previous <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>s we’ve looked at in this course, we can use all of the usual methods to process the <code class="docutils literal notranslate"><span class="pre">String</span></code>. Now that we have a third type of <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> that could exist in the same program as the others, our variable naming schema is even more important. We suggest giving this <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> a name such as <code class="docutils literal notranslate"><span class="pre">&quot;lineScan&quot;</span></code>, as we are processing a line of text, or <code class="docutils literal notranslate"><span class="pre">&quot;stringScan&quot;</span></code> etc… .  In general, the more obvious the name, the better.</p>
+</section>
+<section id="maintaining-line-structure-while-reading-from-a-file">
+<h2>Maintaining Line Structure While Reading From a File<a class="headerlink" href="#maintaining-line-structure-while-reading-from-a-file" title="Permalink to this heading">#</a></h2>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
-<p>We’ll see examples on how to use these data types in the next section!</p>
+<p>For the following section, <code class="docutils literal notranslate"><span class="pre">fileScan</span></code> refers to a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> created over a <code class="docutils literal notranslate"><span class="pre">File</span></code> in the following manner:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">Scanner</span><span class="w"> </span><span class="n">fileScan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;inputFile.txt&quot;</span><span class="p">));</span>
+</pre></div>
 </div>
-<section id="integers">
-<h3>Integers<a class="headerlink" href="#integers" title="Permalink to this heading">#</a></h3>
-<p><strong>Integers</strong> are <em>whole numbers</em> such as 1, 2, 3, 0, -1, -50, etc. We can tell Java that we want to store an integer using the <code class="docutils literal notranslate"><span class="pre">int</span></code> keyword. Integers are useful for representing quantities like the number of people in a room, your age, or other discrete (whole number) quantities.</p>
-<div class="caution admonition">
-<p class="admonition-title">Caution</p>
-<p>✅ <strong>Valid Integers:</strong> 121, 2022, 10, 75</p>
-<p>❌ <strong>Not Valid Integers:</strong> 3.14, 0.5, “Hello”, “10000” (even though the last example is an integer, note it has quotes!)</p>
+<p>And <code class="docutils literal notranslate"><span class="pre">lineScan</span></code> refers to a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> created over a <code class="docutils literal notranslate"><span class="pre">String</span></code> in the following manner:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fileScan</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+<span class="n">Scanner</span><span class="w"> </span><span class="n">lineScan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+</pre></div>
 </div>
-</section>
-<section id="doubles">
-<h3>Doubles<a class="headerlink" href="#doubles" title="Permalink to this heading">#</a></h3>
-<p><strong>Doubles</strong> are decimal numbers such as 0.25, -3.56, 3.14, 500.0, etc. We can tell Java that we want to store a decimal number using the <code class="docutils literal notranslate"><span class="pre">double</span></code> keyword. Doubles are useful for representing quantities like money (dollars and cents), weight, and so on. Doubles are typically used in situations where we need more precision than simple integers (whole numbers).</p>
-<div class="caution admonition">
-<p class="admonition-title">Caution</p>
-<p>✅ <strong>Valid Doubles:</strong> 9.81, 98.6, 1.0,10.5772984</p>
-<p>❌ <strong>Not Valid Doubles:</strong> “Hello”, “10.5” (even though the last example is a double, note it has quotes!)</p>
 </div>
-</section>
-<section id="strings">
-<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
-<p><strong>Strings</strong> represent text such as “Hello”, “Bye”, “CSE 121”, etc. You can think of strings as a collection of letters, digits, or other characters that are strung together to form a word or a sentence. We can tell Java that we want to store text using the <code class="docutils literal notranslate"><span class="pre">String</span></code> keyword (notice the capital S), typically with double quotes around the text.</p>
-<div class="caution admonition">
-<p class="admonition-title">Caution</p>
-<p>✅ <strong>Valid Strings:</strong> “java-!”, “a longer string”</p>
-<p>❌ <strong>Not Valid Strings:</strong> 10000 (notice no quotes)</p>
-</div>
-</section>
-<section id="booleans">
-<h3>Booleans<a class="headerlink" href="#booleans" title="Permalink to this heading">#</a></h3>
-<p>A <strong>boolean</strong> is a data type that has only two possible values: <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. Booleans are intended to represent the output of a <em>logical</em> calculation. We can tell Java that we want to store a <code class="docutils literal notranslate"><span class="pre">true</span></code>/<code class="docutils literal notranslate"><span class="pre">false</span></code> value using the <code class="docutils literal notranslate"><span class="pre">boolean</span></code> keyword.  You probably won’t use boolean values much for now, but as we continue to build on our Java knowledge, they will indeed become more useful!</p>
-<div class="caution admonition">
-<p class="admonition-title">Caution</p>
-<p>✅ <strong>Valid Booleans:</strong> true, false (these are the only two values that a boolean can be)</p>
-<p>❌ <strong>Not Valid Booleans:</strong> “true”, “false”, 10, 100.5, “hi”</p>
-</div>
-</section>
-</section>
-<section id="main-points">
-<h2>Main Points<a class="headerlink" href="#main-points" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>We’ve learned about 4 <em>data</em> types in Java: integers (<code class="docutils literal notranslate"><span class="pre">int</span></code>) which represent whole numbers, doubles (<code class="docutils literal notranslate"><span class="pre">double</span></code>) which represent real numbers, strings (<code class="docutils literal notranslate"><span class="pre">String</span></code>) which represent text or a sequence of characters, and booleans (<code class="docutils literal notranslate"><span class="pre">boolean</span></code>) which represent truth value (i.e., <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>).</p></li>
-</ul>
+<p>By using <code class="docutils literal notranslate"><span class="pre">fileScan.nextLine()</span></code> and creating a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> over the resulting <code class="docutils literal notranslate"><span class="pre">String</span></code>, we can now process <code class="docutils literal notranslate"><span class="pre">File</span></code>s line by line, as opposed to token by token, and maintain line structure when printing from a <code class="docutils literal notranslate"><span class="pre">File</span></code>. In practice, our program will look quite different now. We will still need a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop to check for existing lines using <code class="docutils literal notranslate"><span class="pre">fileScan.hasNextLine()</span></code>, and a call to <code class="docutils literal notranslate"><span class="pre">fileScan.nextLine()</span></code> to read said line in if it exists, but inside that loop we will need a new <code class="docutils literal notranslate"><span class="pre">while</span></code> loop to process the line we’ve just scanned in token by token. We can use our previous knowledge of token based processing to do this though, and the same principals of using <code class="docutils literal notranslate"><span class="pre">lineScan.hasNext()</span></code> and <code class="docutils literal notranslate"><span class="pre">lineScan.next()</span></code> to process the line token by token apply.</p>
+<p>It is worth noting that you do not need to process a <code class="docutils literal notranslate"><span class="pre">File</span></code> in this mixed line and token based approach. We now have the tools to approach reading from a <code class="docutils literal notranslate"><span class="pre">File</span></code> in 3 general ways:</p>
+<ol class="arabic simple">
+<li><p>Token by Token. We can use the <code class="docutils literal notranslate"><span class="pre">.hasNext()</span></code> and <code class="docutils literal notranslate"><span class="pre">.next()</span></code> methods from a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> to ignore line breaks and pull a File apart token by token.</p></li>
+<li><p>Line by Line. We can use the <code class="docutils literal notranslate"><span class="pre">.hasNextLine()</span></code> and <code class="docutils literal notranslate"><span class="pre">.nextLine()</span></code> methods from a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> to ignore the individual tokens and simply process each line as a whole.</p></li>
+<li><p>Hybrid. As explained in this slide, by combining the methods and techniques from both previous approaches to <code class="docutils literal notranslate"><span class="pre">File</span></code> handling we can process a <code class="docutils literal notranslate"><span class="pre">File</span></code> token by token while still maintaining the contents and structure of each line from our <code class="docutils literal notranslate"><span class="pre">File</span></code>.</p></li>
+</ol>
+<p>We now know all that we need to read a <code class="docutils literal notranslate"><span class="pre">File</span></code> token by token while still maintaining the structure of each line! On the next slide we have a code challenge for you to test these new skills. Make sure to read the description on the left side of the screen for information on what to do before starting the challenge.</p>
 </section>
 </section>
 
@@ -529,7 +506,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./book/unit-2/lesson-1"
+            path: "./book/unit-6/lesson-1"
         },
         predefinedOutput: true
     }
@@ -548,12 +525,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="scanner-methods.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2.1 Data Types</p>
+        <p class="prev-next-title">Scanner Methods and Processing Tokens</p>
       </div>
     </a>
     <a class="right-next"
@@ -561,7 +538,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2.2 Expressions</p>
+        <p class="prev-next-title">6.2: Processing Numerical Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -583,14 +560,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🧠 Data Types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integers">Integers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doubles">Doubles</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-points">Main Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-scanners">String Scanners</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maintaining-line-structure-while-reading-from-a-file">Maintaining Line Structure While Reading From a File</a></li>
 </ul>
   </nav></div>
 
