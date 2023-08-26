@@ -73,6 +73,21 @@ chapters:
         sections:
           - file: book/unit-6/lesson-3/printing-to-a-file
           - file: book/unit-6/lesson-3/print-product
+  - file: book/unit-7/index
+    sections:
+      - file: book/unit-7/lesson-1/index
+        sections:
+          - file: book/unit-7/lesson-1/array-basics
+          - file: book/unit-7/lesson-1/array-traversal-pattern
+          - file: book/unit-7/lesson-1/array-practice
+      - file: book/unit-7/lesson-2/index
+        sections:
+          - file: book/unit-7/lesson-2/value-vs-reference-semantics
+          - file: book/unit-7/lesson-2/array-reference-semantics-mystery
+      - file: book/unit-7/lesson-3/index
+        sections:
+          - file: book/unit-7/lesson-3/array-patterns
+          - file: book/unit-7/lesson-3/review-questions
 
 
 
