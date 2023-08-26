@@ -1,0 +1,1080 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Array Patterns &#8212; UW CSE 12X Open Access Prototype</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-7/lesson-3/array-patterns';</script>
+    <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-7/lesson-3/array-patterns.html" />
+    <link rel="shortcut icon" href="../../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Review Questions" href="review-questions.html" />
+    <link rel="prev" title="7.3: Common Array Patterns and Algorithms" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../welcome.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-1/index.html">Unit 1: Hello World!</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-1/lesson-2/index.html">1.2: Printing</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printlns.html">Printlns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printing-practice.html">Println’s Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-2/index.html">Unit 2: Data Types, Expressions, and Variables</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-1/index.html">2.1 Data Types</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-1/data-types.html">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-1/data-types-practice.html">Data Types Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-2/index.html">2.2 Expressions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/expressions.html">Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/walkthrough-of-expression-problems.html">👣 Walkthrough of Expression Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/expressions-practice.html">Expressions Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-3/index.html">2.3 Variables</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-3/variables.html">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-3/variables-practice.html">Variables Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-4/index.html">2.4 Strings</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-4/strings-and-characters.html">Strings and Characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-4/string-methods-practice.html">String Methods Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-5/index.html">2.5 Random</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-5/random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-5/random-review-problems.html">Random Revie Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-5/random-challenge-problem.html">Challenge Problem [Optional]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-3/index.html">Unit 3: Introduction to Iteration</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-1/index.html">3.1: For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/intro-to-for-loops.html">Introduction to For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loops-for-string-traversals.html">For Loops for String Traversals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loop-review.html">For Loop Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/strings-and-character-practice.html">Strings and Characters Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-2/index.html">3.2: Nested For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops.html">Nested For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops-review.html">Nested For Loops Review Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-4/index.html">Unit 4: Methods, Parameters, and Returns!</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-4/lesson-1/index.html">4.1: Methods</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods.html">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods-review.html">Methods Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-2/index.html">4.2: Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-3/index.html">4.3: Return Values</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-6/index.html">Unit 6: Reading and Writing to Files</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-1/index.html">6.1: Reading from a File: Token and Line Based Processing</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/reading-from-a-file.html">Reading From a File Using Scanners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/scanner-methods.html">Scanner Methods and Processing Tokens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/using-a-file-scanner.html">Using a File Scanner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/string-scanners.html">String Scanners and Line Based Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/line-and-token-processing-practice.html">Combining Line and Token Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-2/index.html">6.2: Processing Numerical Data</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-2/scanning-numeric-data.html">Scanning Numeric Data From Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-2/negative-sum.html">negativeSum</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-3/index.html">6.3: Writing to a File: PrintStream</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-3/printing-to-a-file.html">Printing to a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-3/print-product.html">Print Product</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Unit 7: Arrays and References</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-1/index.html">7.1: Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-1/array-basics.html">Array Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-1/array-traversal-pattern.html">Array Traversal Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-1/array-practice.html">Array Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-2/index.html">7.2: Reference Semantics</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-2/value-vs-reference-semantics.html">Value vs. Reference Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-2/array-reference-semantics-mystery.html">Array Reference Semantics Mystery</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">7.3: Common Array Patterns and Algorithms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Array Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="review-questions.html">Review Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/edit/main/book/unit-7/lesson-3/array-patterns.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/issues/new?title=Issue%20on%20page%20%2Fbook/unit-7/lesson-3/array-patterns.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/book/unit-7/lesson-3/array-patterns.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Array Patterns</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-array-traversals">📖 Review: Array Traversals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#patterns">🎒 Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#counting-elements-that-meet-a-condition">🔢 Counting Elements that Meet a Condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-elements-of-an-array">🪄 Modifying Elements of an Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-an-element">🔎 Searching for an Element</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shifting-elements">↔️ Shifting Elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-at-multiple-elements-in-an-array">👓 Looking at Multiple Elements in an Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-of-counters-or-tallying">🧮 Array of Counters or “Tallying”</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-ideas-in-array-patterns">💭 Common Ideas in Array Patterns</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="array-patterns">
+<h1>Array Patterns<a class="headerlink" href="#array-patterns" title="Permalink to this heading">#</a></h1>
+<div style="position: relative; padding-bottom: 62.5%; height: 0;">
+    <iframe src="https://www.youtube.com/embed/EfNmCXt3cBc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Above, you’ll see there’s a video titled <strong>CSE 121: Array Patterns Video Walkthrough</strong>. The video and the reading both have the same information! You’re not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>✋  Before you begin: This pre-class work will appear longer than others, because it’s really meant to be used as a reference! You’ve learned all you really need to about arrays by now, but now we want you to get some more practice with them.  To that end, this pre-class work shows you some common patterns of ways to use arrays!  No real new concepts or material, but lots of examples!</p>
+</div>
+<section id="review-array-traversals">
+<h2>📖 Review: Array Traversals<a class="headerlink" href="#review-array-traversals" title="Permalink to this heading">#</a></h2>
+<p>You’ll notice in the patterns and examples below, almost every single one uses some form of an array traversal!  It’s been a little while, so let’s review a “typical” array traversal pattern:</p>
+<p><img alt="code &quot;for (int i = 0; i &lt; array.length; i++) { // do something with array[i]; }&quot;? with purple highlight on for loop header and light blue highlight on loop body." src="../../../_images/array-traversal.png" /></p>
+<p>Notice the bounds of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.  In this case, the loop variable <code class="docutils literal notranslate"><span class="pre">i</span></code> iterates through <em>each valid index</em> of array.  It starts at 0 (the first valid index of <code class="docutils literal notranslate"><span class="pre">array</span></code> because arrays use 0-based indexing) and the loop test will <strong>fail</strong> when <code class="docutils literal notranslate"><span class="pre">i</span></code> is equal to the length of the array. This means that in the last iteration of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, <code class="docutils literal notranslate"><span class="pre">i</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">array.length</span> <span class="pre">-</span> <span class="pre">1</span></code> which is the last valid index of the array!</p>
+<p>The body of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop indicates that we do something with <code class="docutils literal notranslate"><span class="pre">array[i]</span></code>.  Since we’ve already established that <code class="docutils literal notranslate"><span class="pre">i</span></code> will take on the values of <em>all valid indexes</em> of array, doing something with <code class="docutils literal notranslate"><span class="pre">array[i]</span></code> in the body of the for loop means that we’ll do something with each element of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop!</p>
+</section>
+<section id="patterns">
+<h2>🎒 Patterns<a class="headerlink" href="#patterns" title="Permalink to this heading">#</a></h2>
+<section id="counting-elements-that-meet-a-condition">
+<h3>🔢 Counting Elements that Meet a Condition<a class="headerlink" href="#counting-elements-that-meet-a-condition" title="Permalink to this heading">#</a></h3>
+<p>Say we want to count the number of elements in an array that meet a specific condition. Well in order to do that, we’ll need to examine <em>every element of the array</em> – this is exactly what array traversals are built for! In this case, we’ll just need to have the loop body contain code that only increments our counter <em>sometimes</em> depending on whether the element in question meets the condition.</p>
+<p><strong>Example: <code class="docutils literal notranslate"><span class="pre">evenLength</span></code></strong></p>
+<p>Say we want to write a method that counts the number of <code class="docutils literal notranslate"><span class="pre">String</span></code>s in a <code class="docutils literal notranslate"><span class="pre">String[]</span></code> that have even length, and return that count! We’ve given you a start in the code below with the general pattern for an array traversal and a variable to hold the count – think about what the body of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop should look like!</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EvenLength</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">arr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Lorelai&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rory&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luke&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Logan&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Emily&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Richard&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Dean&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Jess&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sookie&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Lane&quot;</span><span class="p">};</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">arr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;six&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;seven&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;eight&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ten&quot;</span><span class="p">};</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">arr3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;five&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nine&quot;</span><span class="p">};</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;should be 6: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">evenLength</span><span class="p">(</span><span class="n">arr1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;should be 0: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">evenLength</span><span class="p">(</span><span class="n">arr2</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;should be 3: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">evenLength</span><span class="p">(</span><span class="n">arr3</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">evenLength</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">countEven</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// do something with list[i]</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="cm">/* fill me in! */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">countEven</span><span class="o">++</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">countEven</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>🤫 Take some time to attempt the problem above, and when you’re ready click “Expand” below to see one possible solution.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Expand</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">evenLength</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">countEven</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">countEven</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">countEven</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="modifying-elements-of-an-array">
+<h3>🪄 Modifying Elements of an Array<a class="headerlink" href="#modifying-elements-of-an-array" title="Permalink to this heading">#</a></h3>
+<p>Another common pattern is passing over an array and applying some modification to each of its elements. Again, we’ll start with an array traversal to look at each individual element of the array, and in the body of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop we’ll need to apply whatever change is required!</p>
+<p><strong>Example: <code class="docutils literal notranslate"><span class="pre">clamp</span></code></strong></p>
+<p>Let’s write a method that, given a minimum and maximum as parameters, goes through the array of integers that it is given and makes sure that every element is within the range [minimum, maximum]. If a given element is larger than maximum, it is replaced with maximum. If a given element is smaller than minimum, it is replaced with minimum. We’ve given you a start below, fill in the body of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop!</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Clamp</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="n">clamp</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="n">arr1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">arr2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">clamp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">arr3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">arr4</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;arr1 clamped to 5, 15: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arr1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;arr2 clamped to 0, 10: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arr2</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;arr3 clamped to 2, 4: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arr3</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;arr4 clamped to 0, 0: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arr4</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clamp</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// do something with list[i];</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="cm">/* fill me in! */</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="cm">/* fill me in! */</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="cm">/* fill me in! */</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="cm">/* fill me in! */</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>🤫 Take some time to attempt the problem above, and when you’re ready click “Expand” below to see one possible solution.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Expand</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clamp</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">flipSigns</span></code> from the previous pre-class work is another example of a problem that modifies the elements of an array! Notice that in <code class="docutils literal notranslate"><span class="pre">clamp</span></code>, we <em>also</em> don’t need to return the array in order for main to see the changes made because arrays use <strong>reference semantics</strong>!  Feel free to refer back to the previous pre-class work to remind yourself how reference semantics work and understand why we don’t need to utilize a <em>return</em> in this case!</p>
+</div>
+</section>
+<section id="searching-for-an-element">
+<h3>🔎 Searching for an Element<a class="headerlink" href="#searching-for-an-element" title="Permalink to this heading">#</a></h3>
+<p>Because arrays can hold many different values as its elements, sometimes we want to search through an array in order to find a particular value.  In this case, we might not need to look at every single value of the array (once we find the element we’re looking for, we don’t need to keep on searching the array) but we will need to look at elements in a structured way, one at a time.  A slight variation of our array traversal problem is just what we need here!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The “typical” array traversal that we’ve talked about traverses the array from index 0 to the very last index of the array. When using this pattern for searching for an element, we refer to this as <strong>sequential search</strong>, or <strong>linear search</strong>. Remember, there are other ways to traverse an array and consequently other ways to search for elements! We’ll get into this more later on!</p>
+</div>
+<p><strong>Example: <code class="docutils literal notranslate"><span class="pre">indexOfIgnoreCase</span></code></strong></p>
+<p>Suppose we want to write a method that accepts a <code class="docutils literal notranslate"><span class="pre">String</span></code> phrase and a <code class="docutils literal notranslate"><span class="pre">String[]</span></code> list that searches through list to find an element that is equal to phrase (ignoring case) and returns the index of the element, and returns -1 if no such element is found.  If more than one element is equal (ignoring case) to the phrase, then it returns the smaller index.  Again, we’ve given you a start – finish writing the method below!</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IndexOfIgnoreCase</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">arr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Lorelai&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Rory&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luke&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Logan&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Emily&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Richard&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Dean&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Jess&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sookie&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Lane&quot;</span><span class="p">};</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">arr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;six&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;seven&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;eight&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ten&quot;</span><span class="p">};</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">arr3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;five&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nine&quot;</span><span class="p">};</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">idx1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indexOfIgnoreCase</span><span class="p">(</span><span class="s">&quot;lorelai&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be 0: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">idx1</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">idx2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indexOfIgnoreCase</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be -1: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">idx2</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">idx3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indexOfIgnoreCase</span><span class="p">(</span><span class="s">&quot;SIX&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be 3: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">idx3</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">idx4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indexOfIgnoreCase</span><span class="p">(</span><span class="s">&quot;nInE&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be 2: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">idx4</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">idx5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">indexOfIgnoreCase</span><span class="p">(</span><span class="s">&quot;eighttttt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be -1: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">idx5</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">indexOfIgnoreCase</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">phrase</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// do something with list[i]</span>
+<span class="w">            </span><span class="c1">// HINT: remember that Strings have an equalsIgnoreCase method! </span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="cm">/* fill me in! */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="o">??</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">??</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>🤫 Take some time to attempt the problem above, and when you’re ready click “Expand” below to see one possible solution.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Expand</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">indexOfIgnoreCase</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">phrase</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">phrase</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="shifting-elements">
+<h3>↔️ Shifting Elements<a class="headerlink" href="#shifting-elements" title="Permalink to this heading">#</a></h3>
+<p>Another set of array problems involve shifting elements around in an array.  This may involve shifting elements from left or right, or some other reordering.  When moving values within an array, we have to be mindful of losing data.  If we take the value at index <code class="docutils literal notranslate"><span class="pre">i</span></code> and move it to index <code class="docutils literal notranslate"><span class="pre">i+1</span></code>, then we’ll lose the value that was previously at <code class="docutils literal notranslate"><span class="pre">i+1</span></code> unless we save it somehow! Sometimes using local variables strategically can help us ensure that we don’t lose any data, or even traversing the array backwards!</p>
+<p><strong>Example: <code class="docutils literal notranslate"><span class="pre">rotateRight</span></code></strong></p>
+<p>Let’s write a method called <code class="docutils literal notranslate"><span class="pre">rotateRight</span></code> that takes a given <code class="docutils literal notranslate"><span class="pre">double[]</span></code> and rotates all of its elements to the right, meaning that the <em>last</em> element of the array is moved to the front, and all of the other elements are moved over by 1 slot to the right.   For example, if an array were initially <code class="docutils literal notranslate"><span class="pre">{0.0,</span> <span class="pre">0.1,</span> <span class="pre">0.2,</span> <span class="pre">0.3,</span> <span class="pre">0.4}</span></code>, after passing it to <code class="docutils literal notranslate"><span class="pre">rotateRight</span></code> it would be <code class="docutils literal notranslate"><span class="pre">{0.4,</span> <span class="pre">0.0,</span> <span class="pre">0.1,</span> <span class="pre">0.2,</span> <span class="pre">0.3}</span></code>. We’ve given you a partial implementation, fill in the last few bits to complete the method!</p>
+<p>While there are multiple approaches you could use to write a solution for this problem, we have chosen to use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that traverses the array <em>backwards</em> (starting at the last index and moving towards index 0) and makes use of a local variable in order to solve the problem. Below you can find a description of the algorithm that we ask you to help implement in the code box just underneath!</p>
+<ul class="simple">
+<li><p><strong>Save the element in the last index into a local variable named <code class="docutils literal notranslate"><span class="pre">lastElement</span></code></strong> - Because we’ll be copying values over to the right, starting with the last index, we don’t want to lose any data when we store a new value into its place in the array! By saving a copy of the last element in a separate local variable, we are now free to replace it with a new value without losing any data! We’ve written this line of code for you!</p></li>
+<li><p><strong>Write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that traverses the array backwards</strong> - This will allow us to shift values over to the right without needing to worry about losing data. We’ve already written this <code class="docutils literal notranslate"><span class="pre">for</span></code> loop header for you!</p>
+<ul>
+<li><p><strong>Take each element and copy it over to the index directly to its right</strong> - With the way the loop is written, each time we replace an element, its data has already been copied over or saved in some way. We’ve written this line for you!</p></li>
+</ul>
+</li>
+<li><p><strong>Copy the saved element that was previously the <em>last</em> element in the area into the first index</strong> - The last step we need to do is place the element that we saved at the very beginning of the algorithm into the <em>first</em> index of the array. <em>Your job is to write this line in the code box below!</em></p></li>
+</ul>
+<p>You can see a visual representation of these steps by clicking “Expand” below (note that the slides below are purely a visual representation of the steps described above).</p>
+<details>
+<summary>Expand</summary>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFMH2ZkjxE&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFMH2ZkjxE&#x2F;view?utm_content=DAFMH2ZkjxE&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
+</details>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">rotateRight</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">arr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">9.6</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">88</span><span class="p">,</span><span class="w"> </span><span class="mf">4.815</span><span class="p">,</span><span class="w"> </span><span class="mf">0.009</span><span class="p">,</span><span class="w"> </span><span class="mf">7.0184</span><span class="p">,</span><span class="w"> </span><span class="mf">42.9</span><span class="p">};</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">arr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">arr3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">5.5</span><span class="p">,</span><span class="w"> </span><span class="mf">5.5</span><span class="p">,</span><span class="w"> </span><span class="mf">5.5</span><span class="p">,</span><span class="w"> </span><span class="mf">5.5</span><span class="p">,</span><span class="w"> </span><span class="mf">5.5</span><span class="p">,</span><span class="w"> </span><span class="mf">5.5</span><span class="p">};</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">arr4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">-</span><span class="mf">100.7</span><span class="p">,</span><span class="w"> </span><span class="mf">100.7</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">98.6</span><span class="p">,</span><span class="w"> </span><span class="mf">98.61</span><span class="p">,</span><span class="w"> </span><span class="mf">81549.5</span><span class="p">,</span><span class="w"> </span><span class="mf">8.64</span><span class="p">,</span><span class="w"> </span><span class="mf">0.25</span><span class="p">};</span>
+
+<span class="w">        </span><span class="n">rotateRight</span><span class="p">(</span><span class="n">arr1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">rotateRight</span><span class="p">(</span><span class="n">arr2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">rotateRight</span><span class="p">(</span><span class="n">arr3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">rotateRight</span><span class="p">(</span><span class="n">arr4</span><span class="p">);</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;after rotateRight(arr1): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arr1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;after rotateRight(arr2): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arr2</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;after rotateRight(arr3): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arr3</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;after rotateRight(arr4): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arr4</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">rotateRight</span><span class="p">(</span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// We claim that this problem is actually simpler to solve by traversing</span>
+<span class="w">        </span><span class="c1">// the array BACKWARDS (starting with index length - 1, then length - 2, </span>
+<span class="w">        </span><span class="c1">// and so on). </span>
+
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">lastElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// i starts at the last index (list.length - 1), decrements by 1 each </span>
+<span class="w">        </span><span class="c1">// iteration, and goes until i &gt; 0 fails (so i is never 0 in this for loop!)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// takes each element (starting at the second to last element of the array) </span>
+<span class="w">            </span><span class="c1">// and shifts it over one index.</span>
+<span class="w">            </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="c1">// at this point, we&#39;ve *shifted* all of the elements over to make room </span>
+<span class="w">        </span><span class="c1">// for the last element to be placed at the front of the array (index 0). </span>
+<span class="w">        </span><span class="c1">// Do that here! </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>🤫 Take some time to attempt the problem above, and when you’re ready click “Expand” below to see one possible solution.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Expand</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">rotateRight</span><span class="p">(</span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">lastElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">list</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lastElement</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>❓Take a moment to think</strong>: Why is the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop test <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> instead of <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code>? What would happen if we changed the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop so that the loop body executed when <code class="docutils literal notranslate"><span class="pre">i</span></code> is 0?</p>
+</div>
+</section>
+<section id="looking-at-multiple-elements-in-an-array">
+<h3>👓 Looking at Multiple Elements in an Array<a class="headerlink" href="#looking-at-multiple-elements-in-an-array" title="Permalink to this heading">#</a></h3>
+<p>Up until this point, we’ve mostly been looking at one element of an array at a time.  In the <code class="docutils literal notranslate"><span class="pre">rotateRight</span></code> example just above, we were looking at two <em>indexes</em> at a time (taking an element from one index and copying it to another) but we were still only really looking at one element at a time.  But there are some array problems where you want to look at two elements at a time!</p>
+<p><strong>Example: <code class="docutils literal notranslate"><span class="pre">isPalindrome</span></code></strong></p>
+<p>Let’s write a method that accepts an <code class="docutils literal notranslate"><span class="pre">int[]</span></code> that returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if that array is a <em>palindrome</em> (where its sequence of elements is the same read forwards or backwards like <code class="docutils literal notranslate"><span class="pre">{3,</span> <span class="pre">1,</span> <span class="pre">3}</span> </code>or <code class="docutils literal notranslate"><span class="pre">{0,</span> <span class="pre">1,</span> <span class="pre">9,</span> <span class="pre">1,</span> <span class="pre">0}</span></code>) and <code class="docutils literal notranslate"><span class="pre">false</span></code> if it is not a palindrome.  Here, we’ll need to look at two elements at a time to compare them!  We’ve given you a start below.  All that’s left to fill in is what to return on lines 14 and 17 (HINT: one line should <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true;</span></code> and the other line should <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false;</span></code>).</p>
+<p>Below you can find a description of the algorithm that we ask you to help implement in the code box just underneath!</p>
+<ul class="simple">
+<li><p><strong>Write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that runs roughly <em>half as many times</em> as the array’s length</strong> - You can think of this as  iterating once for each <em>pair</em> of elements in the array, because we really need to check pairs of elements to compare them to each other.  We’ve written this loop header for you!</p>
+<ul>
+<li><p><strong>Compare the elements at index <code class="docutils literal notranslate"><span class="pre">i</span></code> and index <code class="docutils literal notranslate"><span class="pre">list.length</span> <span class="pre">-</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">i</span></code> for equality</strong> - These two indices represent pairs of elements that need to be equal in order for the array to be considered a palindrome. Notice that, as <code class="docutils literal notranslate"><span class="pre">i</span></code> increases, <code class="docutils literal notranslate"><span class="pre">list-length</span> <span class="pre">-</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">i</span></code> <em>decreases</em>, so as the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop iterates we examine pairs of elements closer and closer to the middle of the array. We have written this test for you!</p></li>
+<li><p><strong>Depending on whether the compared elements are equal or not, return some value</strong> - <em>You should write this line in the code box below!</em></p></li>
+</ul>
+</li>
+<li><p><strong>After all of the elements have been examined, return some value</strong> - <em>You should write this line in the code box below!</em></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Considering the example array of <code class="docutils literal notranslate"><span class="pre">{0,</span> <span class="pre">1,</span> <span class="pre">9,</span> <span class="pre">1,</span> <span class="pre">0}</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> would take on the values 0 and 1 (because when <code class="docutils literal notranslate"><span class="pre">i</span></code> reaches 2, it will fail the for loop test <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">list.length</span> <span class="pre">/</span> <span class="pre">2</span></code>).  So in the first iteration of the loop, <code class="docutils literal notranslate"><span class="pre">i</span></code> is 0 and we compare the element at index 0 against the element at index 0. In the next iteration, <code class="docutils literal notranslate"><span class="pre">i</span></code> is 1 and we compare the element at index 1 against the element at index 3.</p>
+<p>We don’t look at index 2, but it turns out it doesn’t matter! Because there is only one value left and it is exactly in the middle of the array, we’d just be comparing it to itself so whatever value it holds doesn’t affect whether the entire array is a palindrome or not!</p>
+</div>
+<p>You can see a visual representation of these steps by clicking “Expand” below (note that the slides below are purely a visual representation of the steps described above).</p>
+<details>
+<summary>Expand</summary>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFMIc6s7lQ&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFMIc6s7lQ&#x2F;view?utm_content=DAFMIc6s7lQ&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
+</details>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IsPalindrome</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">};</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be false: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isPalindrome</span><span class="p">(</span><span class="n">arr1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be true: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isPalindrome</span><span class="p">(</span><span class="n">arr2</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be true: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isPalindrome</span><span class="p">(</span><span class="n">arr3</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be false: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isPalindrome</span><span class="p">(</span><span class="n">arr4</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be true: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isPalindrome</span><span class="p">(</span><span class="n">arr5</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be true: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isPalindrome</span><span class="p">(</span><span class="n">arr6</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Should be true: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isPalindrome</span><span class="p">(</span><span class="n">arr7</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isPalindrome</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="o">??</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">??</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>🤫 Take some time to attempt the problem above, and when you’re ready click “Expand” below to see a few possible solutions.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Expand</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isPalindrome</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isPalindrome</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">leftIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">rightIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">leftIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rightIndex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">leftElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">leftIndex</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">rightElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">rightIndex</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">leftElement</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">rightElement</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">leftIndex</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">rightIndex</span><span class="o">--</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="array-of-counters-or-tallying">
+<h3>🧮 Array of Counters or “Tallying”<a class="headerlink" href="#array-of-counters-or-tallying" title="Permalink to this heading">#</a></h3>
+<p>So far we’ve been given arrays to work with, and done some calculation or task using them. However in this pattern, we won’t be given an array to work with – we’ll have to create it ourselves!  Since arrays sort of act like a bunch of variables glued together, we can also use them as a bunch of <em>counters</em> glued together.</p>
+<p><strong>Example: numCount</strong></p>
+<p>Let’s write a method called <code class="docutils literal notranslate"><span class="pre">numCount</span></code> that takes an input <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> as a parameter and reads single-digit numbers from it (0-9), and returns an array with the count of 0’s at index 0, the count of 1’s at index 1, etc.  For example, a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> that contains the data <code class="docutils literal notranslate"><span class="pre">8</span> <span class="pre">3</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">2</span> <span class="pre">2</span> <span class="pre">0</span> <span class="pre">7</span> <span class="pre">2</span></code> would return the array <code class="docutils literal notranslate"><span class="pre">{2,</span> <span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">0}</span></code> because there are two 0’s, one 1, three 2’s, one 3, one 7, one 8, and none of any other single-digit number.  <em>You can assume that the input will only contain single-digit integers.</em></p>
+<p>We’ve given you a partial implementation below, leaving a few lines for you to fill in!  Notice that we are taking advantage of the fact that <code class="docutils literal notranslate"><span class="pre">int[]</span></code> array elements are default initialized to 0 when you first create the array (since we want our counters to start at 0).</p>
+<p>Below you can find a description of the algorithm that we ask you to help implement in the code box just underneath!</p>
+<ul class="simple">
+<li><p><strong>Create an array of <code class="docutils literal notranslate"><span class="pre">int</span></code>s to store the counters named counts</strong> - <em>You should write this line in the code box below!</em> Think about the size of the array you need to create.</p></li>
+<li><p><strong>Use a while loop to continue reading <code class="docutils literal notranslate"><span class="pre">int</span></code>s in from the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> until there are no <code class="docutils literal notranslate"><span class="pre">int</span></code>s left</strong> - This is a standard token-based processing loop that we have written for you!</p>
+<ul>
+<li><p><strong>Read in the next token as an <code class="docutils literal notranslate"><span class="pre">int</span></code> and store it in a local variable <code class="docutils literal notranslate"><span class="pre">num</span></code></strong> - We’ve written this for you!</p></li>
+<li><p><strong>Use <code class="docutils literal notranslate"><span class="pre">num</span></code> to increment the appropriate index in the array of counters (<code class="docutils literal notranslate"><span class="pre">counts</span></code>)</strong> - <em>You should write this line in the code box below!</em> There are some hints to help you with this in comments.</p></li>
+</ul>
+</li>
+<li><p><strong>Return the array of counters</strong> - We’ve written this for you!</p></li>
+</ul>
+<p>You can see a visual representation of these steps by clicking “Expand” below (note that the slides below are purely a visual representation of the steps described above).</p>
+<details>
+<summary>Expand</summary>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFMIjKMGAA&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFMIjKMGAA&#x2F;view?utm_content=DAFMIjKMGAA&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
+<p>Note that the arrow pointing at the bordered box on the right (representing the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>’s input) points just to the left of the <em>next</em> token it will consume.</p>
+</details>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">NumCount</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">input1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="s">&quot;8 3 0 1 2 2 0 7 2&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">input2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="s">&quot;1 2   3 4 5 \n 6 7 8 9 0  &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">input3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">input4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="s">&quot;5 5 5 5 5 5 5 7 0&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;counts from input1: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">numCount</span><span class="p">(</span><span class="n">input1</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;counts from input2: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">numCount</span><span class="p">(</span><span class="n">input2</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;counts from input3: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">numCount</span><span class="p">(</span><span class="n">input3</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;counts from input4: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">numCount</span><span class="p">(</span><span class="n">input4</span><span class="p">)));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">numCount</span><span class="p">(</span><span class="n">Scanner</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// create an array with one slot for each digit (0-9) that we are counting! </span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">counts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* fill me in! */</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="na">hasNextInt</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="w">            </span><span class="cm">/*</span>
+<span class="cm">            if (num == 0) {</span>
+<span class="cm">                counts[0]++;</span>
+<span class="cm">            } else if (num == 1) {</span>
+<span class="cm">                counts[1]++;</span>
+<span class="cm">            } else if (num == 2) {</span>
+<span class="cm">                counts[2]++;</span>
+<span class="cm">            } ...</span>
+<span class="cm">            */</span>
+<span class="w">            </span><span class="c1">// We could write a long conditional like the one above to increment</span>
+<span class="w">            </span><span class="c1">// the appropriate index when we see a given number, but do you see a way</span>
+<span class="w">            </span><span class="c1">// to shorten this into just one line? </span>
+<span class="w">            </span><span class="c1">// HINT: whatever num is, that&#39;s the index we want to increment! </span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">counts</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notice that for numCount we do have to return an int[] reference! This is because we create the array inside of the method, so there is no way for main to see the array if we don’t return it!</p>
+<p>🤫 Take some time to attempt the problem above, and when you’re ready click “Expand” below to see one possible solution.</p>
+<p>public static int[] numCount(Scanner input) {
+int[] counts = new int[10];
+while (input.hasNextInt()) {
+int num = input.nextInt();
+counts[num]++;
+}</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>return counts;
+</pre></div>
+</div>
+<p>}</p>
+</section>
+</section>
+<section id="common-ideas-in-array-patterns">
+<h2>💭 Common Ideas in Array Patterns<a class="headerlink" href="#common-ideas-in-array-patterns" title="Permalink to this heading">#</a></h2>
+<p>Now that you’ve made it through this long list of array patterns (🥳 way to go!!), let’s think about some of the common ideas that were used in each of them.</p>
+<ul class="simple">
+<li><p><strong>loop bounds</strong> - Our “typical” array traversal has the loop variable go from 0 to array.length - 1, which is all valid indices of array. However, we’ve also seen variations of this pattern where we exclude the first or last index, or where we only want the loop to run array.length / 2 times. The exact loop bounds you should use depends on the problem!</p></li>
+<li><p><strong>direction of traversal</strong> - Most of the traversals we have seen have moved “forward” across the array (from index 0 onward).  However, we also saw an example where traversing the array “backwards” (from index array.length - 1 to 0) served our purposes better (it allowed us to “shift” values over without losing any data). You’ll probably most often use “forward” traversals when you encounter array problems, but some it’s worth considering whether a “backwards” traversal!</p></li>
+<li><p><strong>index into array</strong> - Most often, we use i (our loop variable) as the index for our array, but we sometimes used an expression involving i (such as i + 1 or array.length - 1 - i). Again, thinking about using array[i] may be a good place to start, but it’s not always the exact expression we need!</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/unit-7/lesson-3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">7.3: Common Array Patterns and Algorithms</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="review-questions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Review Questions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-array-traversals">📖 Review: Array Traversals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#patterns">🎒 Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#counting-elements-that-meet-a-condition">🔢 Counting Elements that Meet a Condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-elements-of-an-array">🪄 Modifying Elements of an Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-an-element">🔎 Searching for an Element</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shifting-elements">↔️ Shifting Elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-at-multiple-elements-in-an-array">👓 Looking at Multiple Elements in an Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-of-counters-or-tallying">🧮 Array of Counters or “Tallying”</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-ideas-in-array-patterns">💭 Common Ideas in Array Patterns</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Parker Gustafson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

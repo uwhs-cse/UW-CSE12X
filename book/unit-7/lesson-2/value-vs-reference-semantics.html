@@ -1,0 +1,819 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Value vs. Reference Semantics &#8212; UW CSE 12X Open Access Prototype</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-7/lesson-2/value-vs-reference-semantics';</script>
+    <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-7/lesson-2/value-vs-reference-semantics.html" />
+    <link rel="shortcut icon" href="../../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Array Reference Semantics Mystery" href="array-reference-semantics-mystery.html" />
+    <link rel="prev" title="7.2: Reference Semantics" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../welcome.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-1/index.html">Unit 1: Hello World!</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-1/lesson-2/index.html">1.2: Printing</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printlns.html">Printlns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printing-practice.html">Println’s Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-2/index.html">Unit 2: Data Types, Expressions, and Variables</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-1/index.html">2.1 Data Types</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-1/data-types.html">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-1/data-types-practice.html">Data Types Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-2/index.html">2.2 Expressions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/expressions.html">Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/walkthrough-of-expression-problems.html">👣 Walkthrough of Expression Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/expressions-practice.html">Expressions Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-3/index.html">2.3 Variables</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-3/variables.html">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-3/variables-practice.html">Variables Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-4/index.html">2.4 Strings</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-4/strings-and-characters.html">Strings and Characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-4/string-methods-practice.html">String Methods Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-5/index.html">2.5 Random</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-5/random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-5/random-review-problems.html">Random Revie Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-5/random-challenge-problem.html">Challenge Problem [Optional]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-3/index.html">Unit 3: Introduction to Iteration</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-1/index.html">3.1: For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/intro-to-for-loops.html">Introduction to For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loops-for-string-traversals.html">For Loops for String Traversals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loop-review.html">For Loop Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/strings-and-character-practice.html">Strings and Characters Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-2/index.html">3.2: Nested For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops.html">Nested For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops-review.html">Nested For Loops Review Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-4/index.html">Unit 4: Methods, Parameters, and Returns!</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-4/lesson-1/index.html">4.1: Methods</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods.html">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods-review.html">Methods Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-2/index.html">4.2: Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../unit-4/lesson-3/index.html">4.3: Return Values</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-6/index.html">Unit 6: Reading and Writing to Files</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-1/index.html">6.1: Reading from a File: Token and Line Based Processing</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/reading-from-a-file.html">Reading From a File Using Scanners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/scanner-methods.html">Scanner Methods and Processing Tokens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/using-a-file-scanner.html">Using a File Scanner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/string-scanners.html">String Scanners and Line Based Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/line-and-token-processing-practice.html">Combining Line and Token Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-2/index.html">6.2: Processing Numerical Data</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-2/scanning-numeric-data.html">Scanning Numeric Data From Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-2/negative-sum.html">negativeSum</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-3/index.html">6.3: Writing to a File: PrintStream</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-3/printing-to-a-file.html">Printing to a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-3/print-product.html">Print Product</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Unit 7: Arrays and References</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-1/index.html">7.1: Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-1/array-basics.html">Array Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-1/array-traversal-pattern.html">Array Traversal Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-1/array-practice.html">Array Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">7.2: Reference Semantics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Value vs. Reference Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="array-reference-semantics-mystery.html">Array Reference Semantics Mystery</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-3/index.html">7.3: Common Array Patterns and Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-3/array-patterns.html">Array Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-3/review-questions.html">Review Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/edit/main/book/unit-7/lesson-2/value-vs-reference-semantics.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/issues/new?title=Issue%20on%20page%20%2Fbook/unit-7/lesson-2/value-vs-reference-semantics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/book/unit-7/lesson-2/value-vs-reference-semantics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Value vs. Reference Semantics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-semantics">📦 Value Semantics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-semantics">➡️ Reference Semantics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-parameters-and-returns">🤯 Using Parameters and Returns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#value-semantics-with-parameters-and-returns">📘 Value Semantics with Parameters and Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-semantics-with-parameters-and-returns">📗 Reference Semantics with Parameters and Returns</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="value-vs-reference-semantics">
+<h1>Value vs. Reference Semantics<a class="headerlink" href="#value-vs-reference-semantics" title="Permalink to this heading">#</a></h1>
+<div style="position: relative; padding-bottom: 62.5%; height: 0;">
+    <iframe src="https://www.youtube.com/embed/qiZcTMz-k-k" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Above, you’ll see there’s a video titled <strong>CSE 121: Value vs. Reference Semantics Video Walkthrough</strong>. The video and the reading both have the same information! You’re not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!</p>
+</div>
+<p>Remember this diagram from when we first talked about arrays?</p>
+<p><img alt="The text &quot;int[] arr = new int[4];&quot; above a grey box with the label &quot;name: arr (int[])&quot; underneath it. There is an arrow coming out the grey box and pointing to a row of 4 blue boxes, with 0's in each one and numbers 0, 1, 2, 3 underneath the boxes in order from left to right." src="../../../_images/array1.png" /></p>
+<p>We drew it this way on purpose, making sure to include that arrow pointing to the <code class="docutils literal notranslate"><span class="pre">int</span></code> array.  This is important because it turns out array variables work a little bit differently than variables that hold <strong>primitive values</strong> (as a reminder, these are types that are built into Java like <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code>, and <code class="docutils literal notranslate"><span class="pre">char</span></code>).</p>
+<section id="value-semantics">
+<h2>📦 Value Semantics<a class="headerlink" href="#value-semantics" title="Permalink to this heading">#</a></h2>
+<p>It turns out that that that variables holding primitive values obey what we call <strong>value semantics</strong>.  Recall that we’ve talked about thinking of variables as <em>boxes</em>.  When we’re dealing with variables using value semantics, the <em>actual values</em> are stored in these boxes.  This means that when we use primitive variables to <em>assign</em> to other variables, when we pass them as parameters, and when we return them from methods, we’re really making copies of these values and using them.</p>
+<p>Walk through the code in your mind and predict the output you expect to see before you run it!</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ValueSemantics</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;b: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;after assignment to a:&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;b: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Go ahead and run the code above!  Is the output what you expected to see?  Let’s talk about it step by step:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">3;</span></code> - This line creates a new <code class="docutils literal notranslate"><span class="pre">int</span></code> variable named <code class="docutils literal notranslate"><span class="pre">a</span></code> and stores the value <code class="docutils literal notranslate"><span class="pre">3</span></code> in it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">a;</span></code> - Here, we look at the value in <code class="docutils literal notranslate"><span class="pre">a</span></code>, make a copy of it, and store it in a new <code class="docutils literal notranslate"><span class="pre">int</span></code> variable named <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">99;</span></code> - Next, we replace the value that was in the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> with the value <code class="docutils literal notranslate"><span class="pre">99</span></code>.</p></li>
+</ol>
+<p>When you first learned about variables, you may have expected to see <code class="docutils literal notranslate"><span class="pre">b</span></code>’s value change as well when we assigned 99 to <code class="docutils literal notranslate"><span class="pre">a</span></code> because of the line <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">a;</span></code>.  However, you learned that that line didn’t tie <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> together – all it did was take <code class="docutils literal notranslate"><span class="pre">a</span></code>’s value, make a copy of it, and put that copy into <code class="docutils literal notranslate"><span class="pre">b</span></code>. So changing the value in <code class="docutils literal notranslate"><span class="pre">a</span></code> later on has absolutely no effect on <code class="docutils literal notranslate"><span class="pre">b</span></code> because <code class="docutils literal notranslate"><span class="pre">b</span></code> is dealing with a totally separate <em>copy</em> of the value!</p>
+<p>You can see a visual representation of these steps by clicking “Expand” below (note that the slides below are purely a visual representation of the steps described above).</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Expand</p>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFLwBD7IG8&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFLwBD7IG8&#x2F;view?utm_content=DAFLwBD7IG8&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
+</div>
+</section>
+<section id="reference-semantics">
+<h2>➡️ Reference Semantics<a class="headerlink" href="#reference-semantics" title="Permalink to this heading">#</a></h2>
+<p>Now let’s talk about <strong>reference semantics</strong>.  These semantics apply whenever we are dealing with a variable that has an object type.  Let’s start by thinking about some of the objects we’ve seen so far this quarter: <code class="docutils literal notranslate"><span class="pre">Turtle</span></code>, <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>, <code class="docutils literal notranslate"><span class="pre">File</span></code>, <code class="docutils literal notranslate"><span class="pre">PrintStream</span></code>, and arrays!  Each of these objects is rather big and complicated - much more so than any of the primitive types. Because of this, an object variable doesn’t actually store the object itself, but instead stores what we call a <strong>reference</strong> to the object.  You can think of a reference as a “way to find” the object that exists somewhere else on your computer, like a set of directions to get to its address.  Let’s look at a program similar to the one above that instead deals with array variables and thus, reference semantics.</p>
+<p>Walk through the code in your mind and predict the output you expect to see before you run it!</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ReferenceSemantics</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">list1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">};</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">list2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;list1: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">list1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;list2: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">list2</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">list1</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">99</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;after assignment to list[1]:&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;list1: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">list1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;list2: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">list2</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Go ahead and run the code example above.  What is different between the output of this code snippet and the previous one?  Let’s break down what’s happening here…</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int[]</span> <span class="pre">list1</span> <span class="pre">=</span> <span class="pre">{4,</span> <span class="pre">8,</span> <span class="pre">15,</span> <span class="pre">16,</span> <span class="pre">23};</span></code> - This line creates a new array <em>somewhere on your computer</em>, then creates an <code class="docutils literal notranslate"><span class="pre">int[]</span></code> variable named <code class="docutils literal notranslate"><span class="pre">list1</span></code> that contains a <em>reference</em> (indicated by the arrow) to the array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int[]</span> <span class="pre">list2</span> <span class="pre">=</span> <span class="pre">list1;</span></code> - Here, we look at the reference in <code class="docutils literal notranslate"><span class="pre">list1</span></code>, make a copy of it, and store it a new <code class="docutils literal notranslate"><span class="pre">int[]</span></code> variable named <code class="docutils literal notranslate"><span class="pre">list2</span></code>.  This means that <code class="docutils literal notranslate"><span class="pre">list2</span></code> also contains a <em>reference</em> to the exact same array!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list[1]</span> <span class="pre">=</span> <span class="pre">99;</span></code> - Next, we follow the reference in <code class="docutils literal notranslate"><span class="pre">list1</span></code> (which remember, is the same <em>reference</em> that is in <code class="docutils literal notranslate"><span class="pre">list2</span></code>) to assign <code class="docutils literal notranslate"><span class="pre">99</span></code> to the compartment at index 1 in the array.</p></li>
+</ol>
+<p>You can see a visual representation of these steps by clicking “Expand” below (note that the slides below are purely a visual representation of the steps described above).</p>
+<details>
+<summary>Expand</summary>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFLxmqnRb0&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFLxmqnRb0&#x2F;view?utm_content=DAFLxmqnRb0&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
+</details>
+<p>When we print out the contents of <code class="docutils literal notranslate"><span class="pre">list1</span></code> and <code class="docutils literal notranslate"><span class="pre">list2</span></code> afterwards, the array that is printed out is exactly the same because both <code class="docutils literal notranslate"><span class="pre">list1</span></code> and <code class="docutils literal notranslate"><span class="pre">list2</span></code> contain references to the same array!  This means that, even if we modified the array by following <code class="docutils literal notranslate"><span class="pre">list1</span></code>’s reference, printing the array using <code class="docutils literal notranslate"><span class="pre">list2</span></code>’s reference will still reflect that change because they both just contain directions to the exact same location!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that the steps for assigning a variable to another variable (as in <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">a;</span></code> and <code class="docutils literal notranslate"><span class="pre">list2</span> <span class="pre">=</span> <span class="pre">list1;</span></code>) are really the same!</p>
+<ul class="simple">
+<li><p>We look at the variable on the right</p></li>
+<li><p>Make a copy of its contents (regardless of whether it contains a value or a reference)</p></li>
+<li><p>Put that copy into the variable on the left</p></li>
+</ul>
+</div>
+</section>
+<section id="using-parameters-and-returns">
+<h2>🤯 Using Parameters and Returns<a class="headerlink" href="#using-parameters-and-returns" title="Permalink to this heading">#</a></h2>
+<p>Now, how do value and reference semantics affect parameters and returns?  Let’s start by reviewing how they work with value semantics.</p>
+<section id="value-semantics-with-parameters-and-returns">
+<h3>📘 Value Semantics with Parameters and Returns<a class="headerlink" href="#value-semantics-with-parameters-and-returns" title="Permalink to this heading">#</a></h3>
+<p>Take a moment to read through the code below where the method <code class="docutils literal notranslate"><span class="pre">flipValue()</span></code> accepts a <code class="docutils literal notranslate"><span class="pre">boolean</span></code> parameter (remember that <code class="docutils literal notranslate"><span class="pre">boolean</span></code> is a primitive type, so this parameter uses value semantics).</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ValueSemanticsInfoFlow</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="n">flipValue</span><span class="p">(</span><span class="n">test</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;value of test after call: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">test</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">flipValue</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">        if (b == true) {</span>
+<span class="cm">            b = false;</span>
+<span class="cm">        } else {</span>
+<span class="cm">            b = true;</span>
+<span class="cm">        }</span>
+<span class="cm">        */</span>
+<span class="w">        </span><span class="c1">// this is equivalent to the code above, but is a lot cleaner!</span>
+<span class="w">        </span><span class="c1">// Remember that the ! operator negates the boolean value </span>
+<span class="w">        </span><span class="c1">// (so F becomes T, and T becomes F)</span>
+<span class="w">        </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Take a moment to think about what you expect the output to be before running it.  You’ll notice that the <code class="docutils literal notranslate"><span class="pre">test</span></code> variable’s value in main doesn’t change when the parameter <code class="docutils literal notranslate"><span class="pre">b</span></code> in the <code class="docutils literal notranslate"><span class="pre">flipValue()</span></code> method is negated.  This is because, due to value semantics, the parameter that <code class="docutils literal notranslate"><span class="pre">flipValue()</span></code> accepts is a <em>copy</em> of the <code class="docutils literal notranslate"><span class="pre">test</span></code>’s value, and when that copy is negated, it doesn’t have any effect on the <code class="docutils literal notranslate"><span class="pre">test</span></code> variable in <code class="docutils literal notranslate"><span class="pre">main</span></code>’s scope.</p>
+<p>Let’s break down what’s happening here step-by-step:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">boolean</span> <span class="pre">test</span> <span class="pre">=</span> <span class="pre">true;</span></code> - This line creates a <code class="docutils literal notranslate"><span class="pre">boolean</span></code> variable in <code class="docutils literal notranslate"><span class="pre">main</span></code>’s scope that holds the value <code class="docutils literal notranslate"><span class="pre">true</span></code>. Remember, <code class="docutils literal notranslate"><span class="pre">boolean</span></code>s are primitive types, and so they obey value semantics!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flipValue(test);</span></code> - Here we begin to execute the <code class="docutils literal notranslate"><span class="pre">flipValue()</span></code> method call, passing in a copy of the value held in the <code class="docutils literal notranslate"><span class="pre">test</span></code> variable (which is <code class="docutils literal notranslate"><span class="pre">true</span></code>) to <code class="docutils literal notranslate"><span class="pre">flipValue()</span></code>’s parameter <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">!=</span> <span class="pre">b;</span></code> - Here, we look at the value in <code class="docutils literal notranslate"><span class="pre">b</span></code> (which is <code class="docutils literal notranslate"><span class="pre">true</span></code>), negate it with the <code class="docutils literal notranslate"><span class="pre">!</span></code> operator (making it <code class="docutils literal notranslate"><span class="pre">false</span></code>), and then store it back into the parameter <code class="docutils literal notranslate"><span class="pre">b</span></code> in <code class="docutils literal notranslate"><span class="pre">flipValue()</span></code>’s scope.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">System.out.println(...</span> <span class="pre">+</span> <span class="pre">test);</span></code> - Here we return to <code class="docutils literal notranslate"><span class="pre">main</span></code>’s scope, and print out some text along with the value stored in <code class="docutils literal notranslate"><span class="pre">test</span></code>. This value hasn’t been changed since its initialization, so we print out the value <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Recall that we made a copy of the value in <code class="docutils literal notranslate"><span class="pre">test</span></code> before passing it into <code class="docutils literal notranslate"><span class="pre">flipValue()</span></code>’s parameter, so when we modified <code class="docutils literal notranslate"><span class="pre">b</span></code> in <code class="docutils literal notranslate"><span class="pre">flipValue</span></code>’s scope, <code class="docutils literal notranslate"><span class="pre">test</span></code> remained <strong>unchanged</strong>.</p></li>
+</ul>
+<p>You can see a visual representation of these steps by clicking “Expand” below (note that the slides below are purely a visual representation of the steps described above).</p>
+<details>
+<summary>Expand</summary>
+<p>Notice how b and test are represented with completely separate boxes in the visual below.</p>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFLxmzOPKY&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFLxmzOPKY&#x2F;view?utm_content=DAFLxmzOPKY&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You may have run into this issue when you first started working with returns! When dealing with value semantics, if we wanted <code class="docutils literal notranslate"><span class="pre">test</span></code> to hold the updated value from <code class="docutils literal notranslate"><span class="pre">flipValue()</span></code>, we’d need to <strong><code class="docutils literal notranslate"><span class="pre">return</span></code></strong> the value in the <code class="docutils literal notranslate"><span class="pre">flipValue()</span></code> method body and catch the return by storing it in <code class="docutils literal notranslate"><span class="pre">test</span></code> in main with <code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">=</span> <span class="pre">flipValue(test);</span></code>!</p>
+</div>
+</section>
+<section id="reference-semantics-with-parameters-and-returns">
+<h3>📗 Reference Semantics with Parameters and Returns<a class="headerlink" href="#reference-semantics-with-parameters-and-returns" title="Permalink to this heading">#</a></h3>
+<p>Read through the following code which is similar to the code above, but instead deals with arrays (which obey the rules of reference semantics).</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ReferenceSemanticsInfoFlow</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">boolean</span><span class="o">[]</span><span class="w"> </span><span class="n">tests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">};</span>
+<span class="w">        </span><span class="n">flipValues</span><span class="p">(</span><span class="n">tests</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;value of test after call: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">tests</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">flipValues</span><span class="p">(</span><span class="kt">boolean</span><span class="o">[]</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Take a moment to think about what you expect the output to be before running it. This time, you will see that the values in <code class="docutils literal notranslate"><span class="pre">tests</span></code> are affected by the call to <code class="docutils literal notranslate"><span class="pre">flipValues()</span></code> even though there is no <code class="docutils literal notranslate"><span class="pre">return</span></code>, due to the beauty of reference semantics!  <code class="docutils literal notranslate"><span class="pre">tests</span></code> holds a reference to the array, so it passes a copy of that reference (which points to the same array) to <code class="docutils literal notranslate"><span class="pre">flipValues()</span></code>’s parameter <code class="docutils literal notranslate"><span class="pre">b</span></code>.  Then, inside of <code class="docutils literal notranslate"><span class="pre">flipValues()</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> is used to update the values in that array and when we return to <code class="docutils literal notranslate"><span class="pre">main</span></code>, <code class="docutils literal notranslate"><span class="pre">tests</span></code> will see those updated values!  Notice how the separate <code class="docutils literal notranslate"><span class="pre">tests</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> boxes both have arrows pointing to the <strong>same</strong> array in your computer!</p>
+<p>Let’s break down what’s happening here step-by-step:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">boolean[]</span> <span class="pre">tests</span> <span class="pre">=</span> <span class="pre">{true,</span> <span class="pre">true,</span> <span class="pre">false,</span> <span class="pre">true,</span> <span class="pre">false,</span> <span class="pre">false};</span></code> - This line creates an array of <code class="docutils literal notranslate"><span class="pre">boolean</span></code> values stored somewhere on your computer, and <em>stores a reference to the array</em> in the variable <code class="docutils literal notranslate"><span class="pre">tests</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flipValues(tests);</span></code> - Here we call the method <code class="docutils literal notranslate"><span class="pre">flipValues()</span></code> and pass in a copy of the reference stored in <code class="docutils literal notranslate"><span class="pre">tests</span></code>, which refers to the same array of <code class="docutils literal notranslate"><span class="pre">boolean</span></code> values stored on your computer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">(...)</span> <span class="pre">{</span> <span class="pre">b[i]</span> <span class="pre">=</span> <span class="pre">!b[i];</span> <span class="pre">}</span> </code>- Next, inside of the <code class="docutils literal notranslate"><span class="pre">flipValues()</span></code> method, we <em>traverse</em> the array whose reference is passed in as a parameter and negate each of its elements (turning <code class="docutils literal notranslate"><span class="pre">true</span></code> elements to <code class="docutils literal notranslate"><span class="pre">false</span></code>, and <code class="docutils literal notranslate"><span class="pre">false</span></code> elements to <code class="docutils literal notranslate"><span class="pre">true</span></code>). Remember, our program has only created one array and otherwise has just made copies of references to it!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">System.out.println(...</span> <span class="pre">+</span> <span class="pre">Arrays.toString(tests));</span></code> - This line prints out some text along with the String representation of the array referenced by <code class="docutils literal notranslate"><span class="pre">tests</span></code> (using the <code class="docutils literal notranslate"><span class="pre">Arrays.toString</span></code> method call). Note that this array reflects the changes made in the <code class="docutils literal notranslate"><span class="pre">flipValues()</span></code> method, even though it did not return anything!</p></li>
+</ol>
+<p>You can see a visual representation of these steps by clicking “Expand” below (note that the slides below are purely a visual representation of the steps described above).</p>
+<details>
+<summary>Expand</summary>
+<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFLx0fCQok&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFLx0fCQok&#x2F;view?utm_content=DAFLx0fCQok&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Click to 13:26 in the walkthrough video to see an explanation of each step of the <code class="docutils literal notranslate"><span class="pre">flipValue()</span></code> and <code class="docutils literal notranslate"><span class="pre">flipValues()</span></code> methods!</p>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/unit-7/lesson-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">7.2: Reference Semantics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="array-reference-semantics-mystery.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Array Reference Semantics Mystery</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-semantics">📦 Value Semantics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-semantics">➡️ Reference Semantics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-parameters-and-returns">🤯 Using Parameters and Returns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#value-semantics-with-parameters-and-returns">📘 Value Semantics with Parameters and Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-semantics-with-parameters-and-returns">📗 Reference Semantics with Parameters and Returns</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Parker Gustafson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
