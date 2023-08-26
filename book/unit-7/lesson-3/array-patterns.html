@@ -923,16 +923,20 @@ document.write(`
 </div>
 <p>Notice that for numCount we do have to return an int[] reference! This is because we create the array inside of the method, so there is no way for main to see the array if we don’t return it!</p>
 <p>🤫 Take some time to attempt the problem above, and when you’re ready click “Expand” below to see one possible solution.</p>
-<p>public static int[] numCount(Scanner input) {
-int[] counts = new int[10];
-while (input.hasNextInt()) {
-int num = input.nextInt();
-counts[num]++;
-}</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>return counts;
+<div class="dropdown admonition">
+<p class="admonition-title">Expand</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">numCount</span><span class="p">(</span><span class="n">Scanner</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">counts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="na">hasNextInt</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">counts</span><span class="o">[</span><span class="n">num</span><span class="o">]++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">counts</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>}</p>
+</div>
 </section>
 </section>
 <section id="common-ideas-in-array-patterns">

@@ -491,6 +491,10 @@ Notice that for numCount we do have to return an int[] reference! This is becaus
 
 🤫 Take some time to attempt the problem above, and when you're ready click "Expand" below to see one possible solution. 
 
+:::{admonition} Expand
+:class: dropdown
+
+``` Java
 public static int[] numCount(Scanner input) {
     int[] counts = new int[10];
     while (input.hasNextInt()) {
@@ -500,6 +504,8 @@ public static int[] numCount(Scanner input) {
     
     return counts;
 }
+```
+:::
 
 ## 💭 Common Ideas in Array Patterns
 
