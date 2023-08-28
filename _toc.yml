@@ -88,6 +88,13 @@ chapters:
         sections:
           - file: book/unit-7/lesson-3/array-patterns
           - file: book/unit-7/lesson-3/review-questions
+  - file: book/unit-10/index
+    sections: 
+      - file: book/unit-10/lesson-1/index
+        sections: 
+          - file: book/unit-10/lesson-1/2d-array-basics
+          - file: book/unit-10/lesson-1/2d-array-practice
+          - file: book/unit-10/lesson-1/matrix-add-problem
 
 
 
