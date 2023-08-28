@@ -53,9 +53,14 @@ chapters:
           - file: book/unit-4/lesson-1/methods
           - file: book/unit-4/lesson-1/methods-review
       - file: book/unit-4/lesson-2/index
-      # sections: 
+        sections: 
+          - file: book/unit-4/lesson-2/parameters
+          - file: book/unit-4/lesson-2/scope
+          - file: book/unit-4/lesson-2/parameters-review
       - file: book/unit-4/lesson-3/index
-      # sections: 
+        sections:
+          - file: book/unit-4/lesson-3/returns
+          - file: book/unit-4/lesson-3/returns-review
   - file: book/unit-6/index
     sections:
       - file: book/unit-6/lesson-1/index
