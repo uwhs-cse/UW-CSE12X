@@ -61,6 +61,23 @@ chapters:
         sections:
           - file: book/unit-4/lesson-3/returns
           - file: book/unit-4/lesson-3/returns-review
+  - file: book/unit-5/index
+    sections:
+      - file: book/unit-5/lesson-1/index
+        sections:
+          - file: book/unit-5/lesson-1/conditionals
+          - file: book/unit-5/lesson-1/conditionals-review
+          - file: book/unit-5/lesson-1/design-decisions
+          - file: book/unit-5/lesson-1/design-descisions-review
+          - file: book/unit-5/lesson-1/conditionals-programming-review
+      - file: book/unit-5/lesson-2/index
+        sections:
+          - file: book/unit-5/lesson-2/while-loops
+          - file: book/unit-5/lesson-2/while-loops-review
+      - file: book/unit-5/lesson-3/index
+        sections:
+          - file: book/unit-5/lesson-3/user-input
+          - file: book/unit-5/lesson-3/user-input-review
   - file: book/unit-6/index
     sections:
       - file: book/unit-6/lesson-1/index
