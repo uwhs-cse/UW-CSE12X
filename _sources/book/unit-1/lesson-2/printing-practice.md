@@ -9,7 +9,7 @@ True or False: The `System.out.print` method displays text to the screen and **i
 :::{admonition} See Answer
 :class: tip
 :class: dropdown
-True!
+False!
 :::
 
 <hr>

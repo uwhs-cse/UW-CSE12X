@@ -1,0 +1,857 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Conditionals &#8212; UW CSE 12X Open Access Prototype</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-5/lesson-1/conditionals';</script>
+    <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-5/lesson-1/conditionals.html" />
+    <link rel="shortcut icon" href="../../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Conditionals Review" href="conditionals-review.html" />
+    <link rel="prev" title="Conditionals" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../welcome.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-1/index.html">Unit 1: Hello World!</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-1/lesson-2/index.html">1.2: Printing</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printlns.html">Printlns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-1/lesson-2/printing-practice.html">Println’s Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-2/index.html">Unit 2: Data Types, Expressions, and Variables</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-1/index.html">2.1 Data Types</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-1/data-types.html">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-1/data-types-practice.html">Data Types Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-2/index.html">2.2 Expressions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/expressions.html">Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/walkthrough-of-expression-problems.html">👣 Walkthrough of Expression Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-2/expressions-practice.html">Expressions Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-3/index.html">2.3 Variables</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-3/variables.html">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-3/variables-practice.html">Variables Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-4/index.html">2.4 Strings</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-4/strings-and-characters.html">Strings and Characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-4/string-methods-practice.html">String Methods Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-2/lesson-5/index.html">2.5 Random</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-5/random.html">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-5/random-review-problems.html">Random Revie Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-2/lesson-5/random-challenge-problem.html">Challenge Problem [Optional]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-3/index.html">Unit 3: Introduction to Iteration</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-1/index.html">3.1: For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/intro-to-for-loops.html">Introduction to For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loops-for-string-traversals.html">For Loops for String Traversals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/for-loop-review.html">For Loop Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-1/strings-and-character-practice.html">Strings and Characters Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-3/lesson-2/index.html">3.2: Nested For Loops</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops.html">Nested For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-3/lesson-2/nested-for-loops-review.html">Nested For Loops Review Problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-4/index.html">Unit 4: Methods, Parameters, and Returns!</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-4/lesson-1/index.html">4.1: Methods</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods.html">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-1/methods-review.html">Methods Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-4/lesson-2/index.html">4.2: Parameters</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-2/parameters.html">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-2/scope.html">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-2/parameters-review.html">Parameters Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-4/lesson-3/index.html">4.3: Return Values</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-3/returns.html">Returns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-4/lesson-3/returns-review.html">Returns Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Unit 5: Indefinite Loops, Conditionals, and User Input</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Conditionals</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Conditionals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conditionals-review.html">Conditionals Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-decisions.html">Design Decisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="design-decisions-review.html">Design Decisions Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conditionals-programming-review.html">Conditionals Programming Review</a></li>
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-2/index.html">While Loops</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-2/while-loops.html">While Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-2/while-loops-review.html">While Loops Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lesson-3/index.html">User Input (Scanner)</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-3/user-input.html">User (Scanner) Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lesson-3/user-input-review.html">User Input (Scanner) Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-6/index.html">Unit 6: Reading and Writing to Files</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-1/index.html">6.1: Reading from a File: Token and Line Based Processing</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/reading-from-a-file.html">Reading From a File Using Scanners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/scanner-methods.html">Scanner Methods and Processing Tokens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/using-a-file-scanner.html">Using a File Scanner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/string-scanners.html">String Scanners and Line Based Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-1/line-and-token-processing-practice.html">Combining Line and Token Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-2/index.html">6.2: Processing Numerical Data</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-2/scanning-numeric-data.html">Scanning Numeric Data From Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-2/negative-sum.html">negativeSum</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-6/lesson-3/index.html">6.3: Writing to a File: PrintStream</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-3/printing-to-a-file.html">Printing to a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-6/lesson-3/print-product.html">Print Product</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-7/index.html">Unit 7: Arrays and References</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-7/lesson-1/index.html">7.1: Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-7/lesson-1/array-basics.html">Array Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-7/lesson-1/array-traversal-pattern.html">Array Traversal Pattern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-7/lesson-1/array-practice.html">Array Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-7/lesson-2/index.html">7.2: Reference Semantics</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-7/lesson-2/value-vs-reference-semantics.html">Value vs. Reference Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-7/lesson-2/array-reference-semantics-mystery.html">Array Reference Semantics Mystery</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-7/lesson-3/index.html">7.3: Common Array Patterns and Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-7/lesson-3/array-patterns.html">Array Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-7/lesson-3/review-questions.html">Review Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-10/index.html">Unit 10: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-10/lesson-1/index.html">10.1: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/2d-array-basics.html">2D Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/2d-array-practice.html">2D Array Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/matrix-add-problem.html">Matrix Add [2D Arrays Programming]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/edit/main/book/unit-5/lesson-1/conditionals.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uwhs-cse/UW-CSE12X/issues/new?title=Issue%20on%20page%20%2Fbook/unit-5/lesson-1/conditionals.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/book/unit-5/lesson-1/conditionals.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Conditionals</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">🧠 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statement">💭 <code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statement">💭  <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-if-statement">💭  <code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if</span></code> statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-multiple-branches">🔎  Writing Multiple Branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-points">Main Points:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="conditionals">
+<h1>Conditionals<a class="headerlink" href="#conditionals" title="Permalink to this heading">#</a></h1>
+<div style="position: relative; padding-bottom: 62.5%; height: 0;">
+    <iframe src="https://www.youtube.com/embed/9XW1JVrGk44?si=XZwLgI1bE150yhXh" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Above, you’ll see there’s a video titled <strong>CSE 121: Conditionals Video Walkthrough</strong>. The video and the reading both have the same information! You’re not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!</p>
+</div>
+<section id="motivation">
+<h2>🧠 Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading">#</a></h2>
+<p>Say that I wanted to write a method that would take in an integer and print whether that number was positive or negative to the console.</p>
+<p>If the parameter of the method was <code class="docutils literal notranslate"><span class="pre">4</span></code>, then I would want to print <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">is</span> <span class="pre">positive!</span></code> or if the parameter of the method was <code class="docutils literal notranslate"><span class="pre">-200</span></code>, the I would want to print <code class="docutils literal notranslate"><span class="pre">-200</span> <span class="pre">is</span> <span class="pre">negative!</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Example</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">determinePosOrNeg</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// should tell us &quot;4 is positive!&quot;</span>
+<span class="w">        </span><span class="n">determinePosOrNeg</span><span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">);</span><span class="w"> </span><span class="c1">// should tell us &quot;-200 is negative!&quot;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">200</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">determinePosOrNeg</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// if the number is positive, i want to print it&#39;s positive</span>
+<span class="w">        </span><span class="c1">// if its negative, i want to print it&#39;s negative</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notice that I want to output one message <em>if</em> the parameter is positive and I want to output a different message <em>if</em> the parameter is negative.</p>
+<p><strong>Take a moment and pause and think about how we would implement the method above 🤔. When you’re ready, click “Expand” below!</strong></p>
+<details>
+<summary>Expand</summary>
+We actually don't have a way to implement the behavior of the method below with only the concepts we've learned about so far. This is where **conditionals** will come in handy!
+</details>
+</section>
+<section id="if-statement">
+<h2>💭 <code class="docutils literal notranslate"><span class="pre">if</span></code> statement<a class="headerlink" href="#if-statement" title="Permalink to this heading">#</a></h2>
+<p>The <strong><code class="docutils literal notranslate"><span class="pre">if</span></code></strong> statement is the building block of conditionals! It allows us to execute a certain body of statements if a test passes. If the test fails, then we execute whatever statements come after the conditional.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement contains the following syntax:</p>
+<p><img alt="Image of the if-statement syntax: if(test) {body (statement to be executed)}." src="../../../_images/if-statement-code.png" /></p>
+<ol class="arabic simple">
+<li><p>The <strong>test</strong> – this is what enables us to determine in what cases we execute the body and in what cases we don’t.</p></li>
+</ol>
+<p>As mentioned previously, we want to write the test in such a way (using operators, <em>which we will mention in the next section of the reading</em>) that we relate some values and determine if the relationship is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>After the closing parenthesis of the test, we have the opening curly brace of the conditional.</p>
+<ol class="arabic simple" start="2">
+<li><p>The <strong>body</strong> (statements to be executed) – if the test passes (evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> ), then the body of statements in between the curly braces will be executed in the order they are written.</p></li>
+</ol>
+<p>After they are all executed, we will continue to execute the code that comes after the conditional (after the closing curly brace).</p>
+<p>If the test fails (evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>), we will not execute the body. Rather, we will just execute the lines of code that come after the conditional. After the body of the conditional, the next line will contain the closing curly brace of the conditional.</p>
+<p>The control flow for an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement can be found below:</p>
+<p><img alt="Image of the control flow of the if-statement: if the conditional test is true, execute the controlled statement(s) inside the body of the if statement, then execute the statement after the conditional. If the conditional test is not true, execute the statement after the conditional." src="../../../_images/if-statement-control-flow.png" /></p>
+<p>Recall the relational and logical operators that we can use to produce <code class="docutils literal notranslate"><span class="pre">boolean</span></code> expressions - we can use these within the tests of conditional statements!</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Example</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;both numbers are positive&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">13</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;at least one of the numbers is positive!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">num2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;the second number is negative!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="if-else-statement">
+<h2>💭  <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement<a class="headerlink" href="#if-else-statement" title="Permalink to this heading">#</a></h2>
+<p>Building off the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, we have the <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement! This is a conditional structure that ends with an <code class="docutils literal notranslate"><span class="pre">else</span></code> branch, which allows us to execute a certain body of statements if a test evaluates <code class="docutils literal notranslate"><span class="pre">true</span></code>. If the test evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, then we execute the statements of the <code class="docutils literal notranslate"><span class="pre">else</span></code> branch.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement contains the following syntax:</p>
+<p><img alt="Image of the if/else statement syntax: if(test) { statement(s)} else { statement(s) }." src="../../../_images/if-else-statement-code.png" /></p>
+<ol class="arabic simple">
+<li><p>The <strong><code class="docutils literal notranslate"><span class="pre">if</span></code> branch</strong> – just like with a regular <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, if the test in the <code class="docutils literal notranslate"><span class="pre">if</span></code> branch evaluates <code class="docutils literal notranslate"><span class="pre">true</span></code>, then we will execute the <code class="docutils literal notranslate"><span class="pre">if</span></code> branch (i.e. the statements in between the curly braces of the <code class="docutils literal notranslate"><span class="pre">if</span></code>). Once those statements are executed in the order they’re written, we will execute the lines of code that come after the entire conditional structure, <em>meaning we do not execute the statements in the <code class="docutils literal notranslate"><span class="pre">else</span></code> branch</em>.</p></li>
+<li><p>The <strong><code class="docutils literal notranslate"><span class="pre">else</span></code> branch</strong> – if the test in the <code class="docutils literal notranslate"><span class="pre">if</span></code> branch evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, then we will enter the <code class="docutils literal notranslate"><span class="pre">else</span></code> branch and execute the statements in that branch. Once those statements are executed in the order they’re written, we will execute the lines of code that come after the entire conditional structure.</p></li>
+</ol>
+<p>With an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> structure, we will enter exactly <strong>one branch</strong>. We will either execute the statements in the <code class="docutils literal notranslate"><span class="pre">if</span></code> branch OR the <code class="docutils literal notranslate"><span class="pre">else</span></code> branch, never both.</p>
+<p>Try running the code below to see how these <code class="docutils literal notranslate"><span class="pre">if/else</span></code> structures interact!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Try changing the values of <code class="docutils literal notranslate"><span class="pre">city</span></code> and <code class="docutils literal notranslate"><span class="pre">num</span></code> to see how the output changes!</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Example</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Seattle&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="p">;</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">city</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Manila&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Mabuhay!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;This number is less than 0&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;This number is greater than 0&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The control flow for an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement can be found below:</p>
+<p><img alt="Image of the control flow of the if/else statement: if the conditional test is true, execute the controlled statement(s) inside the body of the if statement, then execute the statement after the conditional. If the conditional test is not true, execute the the controlled statement(s) inside the body of the else statement, then execute the statement after the conditional." src="../../../_images/if-statement-control-flow.png" /></p>
+</section>
+<section id="if-else-if-statement">
+<h2>💭  <code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if</span></code> statement<a class="headerlink" href="#if-else-if-statement" title="Permalink to this heading">#</a></h2>
+<p>Lastly, we have the <code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if</span></code> structure! This structure allows us to not only execute different bodies of statements depending on a test, but also allows us to evaluate multiple tests! How would we use such a structure in a real-life scenario?</p>
+<p>Say that I was writing a method that would print one message if Person 1 won the race and would print a different message if Person 2 won the race. If there was a tie, I wouldn’t want to print anything at all! In this case, we would only want to execute some code in two specific situations!</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if</span></code> statement contains the following syntax:</p>
+<p><img alt="Image of the if/else if statement syntax: if(test) { statement(s)} else if (tests) { statement(s) }." src="../../../_images/if-else-if-code.png" /></p>
+<ol class="arabic simple">
+<li><p>The <strong><code class="docutils literal notranslate"><span class="pre">if</span></code> branch</strong> – just like with a regular <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, if the test in the <code class="docutils literal notranslate"><span class="pre">if</span></code> branch evaluates to true, then we will execute the <code class="docutils literal notranslate"><span class="pre">if</span></code> branch. Once those statements are executed in the order they’re written, we will execute the lines of code that come after the entire conditional structure, <em>meaning we do not execute the statements in the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> branch</em>.</p></li>
+<li><p>The <strong><code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> branch</strong> – if the test in the <code class="docutils literal notranslate"><span class="pre">if</span></code> branch evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, then we will evaluate the test in the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> branch.</p></li>
+</ol>
+<p>If that test evaluates <code class="docutils literal notranslate"><span class="pre">true</span></code>, then we will execute the statements in the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> branch. If that test evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, then we will execute the lines of code that come after the entire conditional structure, meaning we do not execute the statements in the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> branch.</p>
+<p>With an <code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if</span></code> structure, it’s possible that we enter <strong>one branch</strong> or <strong>none of the branches</strong>. If it is the case that both of the tests evaluate <code class="docutils literal notranslate"><span class="pre">false</span></code>, then we will not execute any of the branches in the structure.</p>
+<p>Try running the code below to see how these <code class="docutils literal notranslate"><span class="pre">if/else</span></code> structures interact!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Try changing the values of <code class="docutils literal notranslate"><span class="pre">rank</span></code> and <code class="docutils literal notranslate"><span class="pre">coffeeOrder</span></code> and see how the output changes! Are there some values for each where we don’t print any output at all?</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Example</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">coffeeOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mocha&quot;</span><span class="p">;</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rank</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;WOOHOO! Gold medal!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rank</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;SILVER MEDAL! YAY!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rank</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Bronze medal! Let&#39;s GO!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">coffeeOrder</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;cold brew&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;pouring a cold brew!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">coffeeOrder</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;mocha&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;whipping up a mocha!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The control flow for an <code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if</span></code> statement can be found below:</p>
+<p><img alt="Image of the control flow of the if/else if statement: if test 1 is true, execute the controlled statement(s) inside the body of the if statement, then execute the statement after the conditional. If the test 1 is not true and test 2 is true, execute the the controlled statement(s) inside the body of the else if statement, then execute the statement after the conditional. If test 1 and test 2 are not true, execute the statement after the conditional." src="../../../_images/if-else-if-control-flow.png" /></p>
+<p>If test 1 is <strong>true</strong>, then we execute statement(s) 1 and execute the statement(s) after the <strong>conditional structure</strong>. If test 1 is <strong>false</strong>, then we check if test 2 is <strong>true</strong>. If test 2 is <strong>true</strong>, we execute statement(s) 2 and execute the statement(s) after the conditional structure. If test 2 is <strong>false</strong>, we just execute the statement(s) after the conditional structure.</p>
+</section>
+<section id="writing-multiple-branches">
+<h2>🔎  Writing Multiple Branches<a class="headerlink" href="#writing-multiple-branches" title="Permalink to this heading">#</a></h2>
+<p>When we write conditional structures, we’re not limited to just having two branches! With the introduction of the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> branch, we are able to check as many tests as we’d like (meaning we can add as many branches as needed). Note that with a conditional structure with multiple branches, we end with either an <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> branch or an <code class="docutils literal notranslate"><span class="pre">else</span></code> branch. (<em>We’ll come back to this idea in our next reading!</em>)</p>
+<p>Check out an example of a conditional structure with multiple branches below:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Example</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">dayOfWeek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wednesday&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dayOfWeek</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Monday&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Beginning of the week! :)&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dayOfWeek</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Wednesday&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hump day! XD&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dayOfWeek</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Saturday&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">dayOfWeek</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Sunday&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;The weekend! WOOHOO!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dayOfWeek</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Friday&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Almost the weekend :D&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;How many days until Friday? -_-&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Try changing <code class="docutils literal notranslate"><span class="pre">dayOfWeek</span></code> to some other day of the week to see how the output changes!</p>
+</div>
+</section>
+<section id="main-points">
+<h2>Main Points:<a class="headerlink" href="#main-points" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Conditionals allow us to execute some sequence of code if a condition is true, and to skip over that code otherwise.</p></li>
+<li><p>Conditionals give us control over our program so that some code only executes when we want it to.</p></li>
+<li><p>We learned about three different types of conditional branches</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">statement</span></code>: If the statement within the parenthesis is <strong>true</strong> (e.g. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(x</span> <span class="pre">&gt;</span> <span class="pre">5)</span></code>), then the code that is within the <code class="docutils literal notranslate"><span class="pre">if</span></code> branch will execute.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">statement</span></code>: If the statement within the parenthesis is <strong>true</strong> (e.g. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(x</span> <span class="pre">&gt;</span> <span class="pre">5)</span></code>), then the code that is within the <code class="docutils literal notranslate"><span class="pre">if</span></code> branch will execute, otherwise the code that is within the <code class="docutils literal notranslate"><span class="pre">else</span></code> branch will execute (code must execute within either the <code class="docutils literal notranslate"><span class="pre">if</span></code> or <code class="docutils literal notranslate"><span class="pre">else</span></code> branch and the program will not skip over this code).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if</span> <span class="pre">statement</span></code>: If the statement within the first <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is <strong>false</strong>, the program will move on to each <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> branches that all contain different expressions (e.g. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(x</span> <span class="pre">&gt;</span> <span class="pre">5)</span> <span class="pre">{}</span> <span class="pre">else</span> <span class="pre">if</span> <span class="pre">(x</span> <span class="pre">&gt;</span> <span class="pre">2)</span> <span class="pre">{}</span> <span class="pre">else</span> <span class="pre">if</span> <span class="pre">(x</span> <span class="pre">&gt;</span> <span class="pre">0){}</span></code>) until it finds a branch that evaluates to <strong>true</strong>.</p>
+<ul>
+<li><p>With <code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if</span> <span class="pre">statements</span></code>, there is no requirement for any branch to evaluate to true, so there is no branch that must execute (unless the <code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if</span> <span class="pre">statements</span></code> end with an <code class="docutils literal notranslate"><span class="pre">else</span></code> branch, in which case the code within the <code class="docutils literal notranslate"><span class="pre">else</span></code> branch will execute).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>We can combine many different conditional branches throughout our code!</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/unit-5/lesson-1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Conditionals</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="conditionals-review.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Conditionals Review</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">🧠 Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statement">💭 <code class="docutils literal notranslate"><span class="pre">if</span></code> statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statement">💭  <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-if-statement">💭  <code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if</span></code> statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-multiple-branches">🔎  Writing Multiple Branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-points">Main Points:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Parker Gustafson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
