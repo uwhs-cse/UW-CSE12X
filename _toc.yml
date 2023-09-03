@@ -68,7 +68,7 @@ chapters:
           - file: book/unit-5/lesson-1/conditionals
           - file: book/unit-5/lesson-1/conditionals-review
           - file: book/unit-5/lesson-1/design-decisions
-          - file: book/unit-5/lesson-1/design-descisions-review
+          - file: book/unit-5/lesson-1/design-decisions-review
           - file: book/unit-5/lesson-1/conditionals-programming-review
       - file: book/unit-5/lesson-2/index
         sections:
