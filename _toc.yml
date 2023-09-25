@@ -10,6 +10,17 @@ chapters:
         sections:
           - file: book/unit-1/lesson-2/printlns
           - file: book/unit-1/lesson-2/printing-practice
+          - file: book/unit-1/lesson-2/printing-cheat-sheet
+          - file: book/unit-1/lesson-2/my-program
+          - file: book/unit-1/lesson-2/star-figure-1
+          - file: book/unit-1/lesson-2/star-figure-2
+          - file: book/unit-1/lesson-2/understanding-check
+      - file: book/unit-1/lesson-3/
+        sections:
+          - file: book/unit-1/lesson-3/turtle-tutorial
+          - file: book/unit-1/lesson-3/turtle-equilateral
+          - file: book/unit-1/lesson-3/turtle-triangles
+          - file: book/unit-1/lesson-3/understanding-check
   - file: book/unit-2/index
     sections:
       - file: book/unit-2/lesson-1/index
