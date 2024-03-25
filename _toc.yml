@@ -110,6 +110,18 @@ chapters:
         sections:
           - file: book/unit-7/lesson-3/array-patterns
           - file: book/unit-7/lesson-3/review-questions
+  - file: book/unit-9/index
+    sections:
+      - file: book/unit-9/lesson-1/index
+        sections: 
+          - file: book/unit-9/lesson-1/overview-adts
+          - file: book/unit-9/lesson-1/queues
+          - file: book/unit-9/lesson-1/stacks
+          - file: book/unit-9/lesson-1/sum-problem
+      - file: book/unit-9/lesson-2/index
+        sections: 
+          - file: book/unit-9/lesson-2/exceptions
+          - file: book/unit-9/lesson-2/copy-stack-problem
   - file: book/unit-10/index
     sections: 
       - file: book/unit-10/lesson-1/index
