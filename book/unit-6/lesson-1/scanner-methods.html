@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Scanner Methods and Processing Tokens &#8212; UW CSE 12X Open Access Prototype</title>
   
@@ -19,51 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-6/lesson-1/scanner-methods';</script>
     <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-6/lesson-1/scanner-methods.html" />
-    <link rel="shortcut icon" href="../../../_static/fav.ico"/>
+    <link rel="icon" href="../../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Using a File Scanner" href="using-a-file-scanner.html" />
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../welcome.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="UW CSE 12X Open Access Prototype - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="UW CSE 12X Open Access Prototype - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-1/index.html">Unit 1: Hello World!</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -285,8 +305,23 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-10/index.html">Unit 10: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-10/lesson-1/index.html">10.1: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-9/index.html">Unit 9: Stacks and Queues</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-9/lesson-1/index.html">9.1: Stacks / Queues</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/overview-adts.html">Overview: Abstract Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/queues.html">Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/stacks.html">Stacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/sum-problem.html">Sum</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-9/lesson-2/index.html">9.2: More Stacks &amp; Queues + Misc Topics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-2/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-2/copy-stack-problem.html">Sum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-10/index.html">Unit 10: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-10/lesson-1/index.html">10.1: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/2d-array-basics.html">2D Arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/2d-array-practice.html">2D Array Practice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/matrix-add-problem.html">Matrix Add [2D Arrays Programming]</a></li>
@@ -464,20 +499,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -517,10 +554,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="scanner-methods-and-processing-tokens">
-<h1>Scanner Methods and Processing Tokens<a class="headerlink" href="#scanner-methods-and-processing-tokens" title="Permalink to this heading">#</a></h1>
+<h1>Scanner Methods and Processing Tokens<a class="headerlink" href="#scanner-methods-and-processing-tokens" title="Link to this heading">#</a></h1>
 <div style="position: relative; padding-bottom: 62.5%; height: 0;">
     <iframe src="https://www.youtube.com/embed/9Xf784OJWAo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
@@ -529,7 +566,7 @@ document.write(`
 <p>Above, you’ll see there’s a video titled <strong>CSE 121: Reading From a File &amp; Scanner Methods and Processing Tokens Video Walkthrough</strong>. The video and the reading both have the same information! You’re not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!</p>
 </div>
 <section id="dealing-with-filenotfoundexceptions">
-<h2>Dealing with <code class="docutils literal notranslate"><span class="pre">FileNotFoundException</span></code>s<a class="headerlink" href="#dealing-with-filenotfoundexceptions" title="Permalink to this heading">#</a></h2>
+<h2>Dealing with <code class="docutils literal notranslate"><span class="pre">FileNotFoundException</span></code>s<a class="headerlink" href="#dealing-with-filenotfoundexceptions" title="Link to this heading">#</a></h2>
 <p>There’s one issue we’ve run into that we haven’t discussed yet. What if the file we are trying to read from doesn’t exist? For now, we can just assume that we will always give our <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> a file that does exist, but Java doesn’t necessarily know that. If we try to make a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> over a file given our current knowledge of Java, the compiler will throw an error on our <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> creation for an “unreported <code class="docutils literal notranslate"><span class="pre">FileNotFoundException</span></code>”.</p>
 <p>Notice that it says “unreported”. Importantly, this means that if we tell, or “report”, to Java that we are aware our method can throw this exception and we want the code to execute regardless, then the compiler will not throw this error. In order to do this we need to add two words to the end of our method header: <code class="docutils literal notranslate"><span class="pre">throws</span> <span class="pre">FileNotFoundException</span></code>. With the addition of these 2 words, we have reported the possible exception to Java, and stated that we accept the possibility of it being thrown. In practice our method headers now look something like this:</p>
 <div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fileReadingMethod</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="p">{</span>
@@ -541,7 +578,7 @@ document.write(`
 </div>
 </section>
 <section id="scanner-methods">
-<h2>Scanner Methods<a class="headerlink" href="#scanner-methods" title="Permalink to this heading">#</a></h2>
+<h2>Scanner Methods<a class="headerlink" href="#scanner-methods" title="Link to this heading">#</a></h2>
 <p>Now that we have our <code class="docutils literal notranslate"><span class="pre">File</span></code> <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> set up, let’s take a look at what methods we can use with it. Given a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> with the following creation:</p>
 <div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">Scanner</span><span class="w"> </span><span class="n">fileScan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;inputFile.txt&quot;</span><span class="p">));</span>
 </pre></div>
@@ -592,12 +629,12 @@ document.write(`
 <p>Now, <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>s do have more methods associated with them, you can google the Java <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> documentation to see more, but these are the methods that will be relevant for this course and the 12x sequence as a whole.</p>
 </section>
 <section id="what-is-a-token">
-<h2>What is a Token?<a class="headerlink" href="#what-is-a-token" title="Permalink to this heading">#</a></h2>
+<h2>What is a Token?<a class="headerlink" href="#what-is-a-token" title="Link to this heading">#</a></h2>
 <p>We tossed the word “token” around a lot in those method definitions above, but what exactly is that? A <strong>token</strong> is the smallest component of something being read that has meaning to the thing reading it. For our purposes however, we can consider a “token” to be a chunk of input. A token as defined by a Java <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> reading from a file, happens to be a word or number separated by whitespace. <strong>Whitespace</strong> is defined as any space which separate tokens (e.g. spaces, tabs, newlines), and so each token of input in Java should have some form of space separating it from the rest.</p>
 <p>Note that you do not need a space before the first token in a line or after the last, as the beginning and end of each line is a <em>de-facto</em> whitespace character, the latter via the newline. That means if a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> was processing token by token a file that contained the text <code class="docutils literal notranslate"><span class="pre">&quot;To</span> <span class="pre">be</span> <span class="pre">or</span> <span class="pre">not</span> <span class="pre">to</span> <span class="pre">be\nThat</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">question&quot;</span></code>, each individual word would be read in as its own token, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;To&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;be&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;or&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;not&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;to&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;be&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;That&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;is&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;the&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;question&quot;</span></code>.</p>
 </section>
 <section id="processing-a-file-token-by-token">
-<h2>Processing a File Token by Token<a class="headerlink" href="#processing-a-file-token-by-token" title="Permalink to this heading">#</a></h2>
+<h2>Processing a File Token by Token<a class="headerlink" href="#processing-a-file-token-by-token" title="Link to this heading">#</a></h2>
 <p>The last problem we have to solve is how do we know how many times to read in a token given an arbitrary file? There’s no easy way to tell how many tokens are in a file, so we can’t use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to process the file token by token like we might in order to process a <code class="docutils literal notranslate"><span class="pre">String</span></code> character by character. That leaves us with the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop as an iterative structure to process tokens, and it turns out that the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>’s <code class="docutils literal notranslate"><span class="pre">hasNext()</span></code> and <code class="docutils literal notranslate"><span class="pre">hasNextLine()</span></code> methods work perfectly in conjunction with a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. On each iteration of the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, we can ask the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> if there is something to read in with either the <code class="docutils literal notranslate"><span class="pre">hasNext()</span></code> or <code class="docutils literal notranslate"><span class="pre">hasNextLine()</span></code> methods, and if there is we can process it accordingly!</p>
 <p>We now know all that we need to set up a basic <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> over an input <code class="docutils literal notranslate"><span class="pre">File</span></code>! On the next slide we have a code challenge for you to test these new skills. Make sure to read the description on the left side of the screen for information on what to do before starting the challenge.</p>
 </section>
@@ -628,11 +665,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="reading-from-a-file.html"
@@ -652,10 +688,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -663,6 +696,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -695,6 +729,7 @@ By Parker Gustafson
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -721,8 +756,8 @@ By Parker Gustafson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

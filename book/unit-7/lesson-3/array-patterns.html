@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Array Patterns &#8212; UW CSE 12X Open Access Prototype</title>
   
@@ -19,51 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-7/lesson-3/array-patterns';</script>
     <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-7/lesson-3/array-patterns.html" />
-    <link rel="shortcut icon" href="../../../_static/fav.ico"/>
+    <link rel="icon" href="../../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Review Questions" href="review-questions.html" />
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../welcome.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="UW CSE 12X Open Access Prototype - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="UW CSE 12X Open Access Prototype - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-1/index.html">Unit 1: Hello World!</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -285,8 +305,23 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-10/index.html">Unit 10: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-10/lesson-1/index.html">10.1: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-9/index.html">Unit 9: Stacks and Queues</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-9/lesson-1/index.html">9.1: Stacks / Queues</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/overview-adts.html">Overview: Abstract Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/queues.html">Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/stacks.html">Stacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/sum-problem.html">Sum</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-9/lesson-2/index.html">9.2: More Stacks &amp; Queues + Misc Topics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-2/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-2/copy-stack-problem.html">Sum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-10/index.html">Unit 10: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-10/lesson-1/index.html">10.1: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/2d-array-basics.html">2D Arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/2d-array-practice.html">2D Array Practice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/matrix-add-problem.html">Matrix Add [2D Arrays Programming]</a></li>
@@ -464,20 +499,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -524,10 +561,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="array-patterns">
-<h1>Array Patterns<a class="headerlink" href="#array-patterns" title="Permalink to this heading">#</a></h1>
+<h1>Array Patterns<a class="headerlink" href="#array-patterns" title="Link to this heading">#</a></h1>
 <div style="position: relative; padding-bottom: 62.5%; height: 0;">
     <iframe src="https://www.youtube.com/embed/EfNmCXt3cBc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
@@ -540,16 +577,16 @@ document.write(`
 <p>✋  Before you begin: This pre-class work will appear longer than others, because it’s really meant to be used as a reference! You’ve learned all you really need to about arrays by now, but now we want you to get some more practice with them.  To that end, this pre-class work shows you some common patterns of ways to use arrays!  No real new concepts or material, but lots of examples!</p>
 </div>
 <section id="review-array-traversals">
-<h2>📖 Review: Array Traversals<a class="headerlink" href="#review-array-traversals" title="Permalink to this heading">#</a></h2>
+<h2>📖 Review: Array Traversals<a class="headerlink" href="#review-array-traversals" title="Link to this heading">#</a></h2>
 <p>You’ll notice in the patterns and examples below, almost every single one uses some form of an array traversal!  It’s been a little while, so let’s review a “typical” array traversal pattern:</p>
 <p><img alt="code &quot;for (int i = 0; i &lt; array.length; i++) { // do something with array[i]; }&quot;? with purple highlight on for loop header and light blue highlight on loop body." src="../../../_images/array-traversal.png" /></p>
 <p>Notice the bounds of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.  In this case, the loop variable <code class="docutils literal notranslate"><span class="pre">i</span></code> iterates through <em>each valid index</em> of array.  It starts at 0 (the first valid index of <code class="docutils literal notranslate"><span class="pre">array</span></code> because arrays use 0-based indexing) and the loop test will <strong>fail</strong> when <code class="docutils literal notranslate"><span class="pre">i</span></code> is equal to the length of the array. This means that in the last iteration of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, <code class="docutils literal notranslate"><span class="pre">i</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">array.length</span> <span class="pre">-</span> <span class="pre">1</span></code> which is the last valid index of the array!</p>
 <p>The body of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop indicates that we do something with <code class="docutils literal notranslate"><span class="pre">array[i]</span></code>.  Since we’ve already established that <code class="docutils literal notranslate"><span class="pre">i</span></code> will take on the values of <em>all valid indexes</em> of array, doing something with <code class="docutils literal notranslate"><span class="pre">array[i]</span></code> in the body of the for loop means that we’ll do something with each element of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop!</p>
 </section>
 <section id="patterns">
-<h2>🎒 Patterns<a class="headerlink" href="#patterns" title="Permalink to this heading">#</a></h2>
+<h2>🎒 Patterns<a class="headerlink" href="#patterns" title="Link to this heading">#</a></h2>
 <section id="counting-elements-that-meet-a-condition">
-<h3>🔢 Counting Elements that Meet a Condition<a class="headerlink" href="#counting-elements-that-meet-a-condition" title="Permalink to this heading">#</a></h3>
+<h3>🔢 Counting Elements that Meet a Condition<a class="headerlink" href="#counting-elements-that-meet-a-condition" title="Link to this heading">#</a></h3>
 <p>Say we want to count the number of elements in an array that meet a specific condition. Well in order to do that, we’ll need to examine <em>every element of the array</em> – this is exactly what array traversals are built for! In this case, we’ll just need to have the loop body contain code that only increments our counter <em>sometimes</em> depending on whether the element in question meets the condition.</p>
 <p><strong>Example: <code class="docutils literal notranslate"><span class="pre">evenLength</span></code></strong></p>
 <p>Say we want to write a method that counts the number of <code class="docutils literal notranslate"><span class="pre">String</span></code>s in a <code class="docutils literal notranslate"><span class="pre">String[]</span></code> that have even length, and return that count! We’ve given you a start in the code below with the general pattern for an array traversal and a variable to hold the count – think about what the body of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop should look like!</p>
@@ -596,7 +633,7 @@ document.write(`
 </div>
 </section>
 <section id="modifying-elements-of-an-array">
-<h3>🪄 Modifying Elements of an Array<a class="headerlink" href="#modifying-elements-of-an-array" title="Permalink to this heading">#</a></h3>
+<h3>🪄 Modifying Elements of an Array<a class="headerlink" href="#modifying-elements-of-an-array" title="Link to this heading">#</a></h3>
 <p>Another common pattern is passing over an array and applying some modification to each of its elements. Again, we’ll start with an array traversal to look at each individual element of the array, and in the body of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop we’ll need to apply whatever change is required!</p>
 <p><strong>Example: <code class="docutils literal notranslate"><span class="pre">clamp</span></code></strong></p>
 <p>Let’s write a method that, given a minimum and maximum as parameters, goes through the array of integers that it is given and makes sure that every element is within the range [minimum, maximum]. If a given element is larger than maximum, it is replaced with maximum. If a given element is smaller than minimum, it is replaced with minimum. We’ve given you a start below, fill in the body of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop!</p>
@@ -654,7 +691,7 @@ document.write(`
 </div>
 </section>
 <section id="searching-for-an-element">
-<h3>🔎 Searching for an Element<a class="headerlink" href="#searching-for-an-element" title="Permalink to this heading">#</a></h3>
+<h3>🔎 Searching for an Element<a class="headerlink" href="#searching-for-an-element" title="Link to this heading">#</a></h3>
 <p>Because arrays can hold many different values as its elements, sometimes we want to search through an array in order to find a particular value.  In this case, we might not need to look at every single value of the array (once we find the element we’re looking for, we don’t need to keep on searching the array) but we will need to look at elements in a structured way, one at a time.  A slight variation of our array traversal problem is just what we need here!</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -711,7 +748,7 @@ document.write(`
 </div>
 </section>
 <section id="shifting-elements">
-<h3>↔️ Shifting Elements<a class="headerlink" href="#shifting-elements" title="Permalink to this heading">#</a></h3>
+<h3>↔️ Shifting Elements<a class="headerlink" href="#shifting-elements" title="Link to this heading">#</a></h3>
 <p>Another set of array problems involve shifting elements around in an array.  This may involve shifting elements from left or right, or some other reordering.  When moving values within an array, we have to be mindful of losing data.  If we take the value at index <code class="docutils literal notranslate"><span class="pre">i</span></code> and move it to index <code class="docutils literal notranslate"><span class="pre">i+1</span></code>, then we’ll lose the value that was previously at <code class="docutils literal notranslate"><span class="pre">i+1</span></code> unless we save it somehow! Sometimes using local variables strategically can help us ensure that we don’t lose any data, or even traversing the array backwards!</p>
 <p><strong>Example: <code class="docutils literal notranslate"><span class="pre">rotateRight</span></code></strong></p>
 <p>Let’s write a method called <code class="docutils literal notranslate"><span class="pre">rotateRight</span></code> that takes a given <code class="docutils literal notranslate"><span class="pre">double[]</span></code> and rotates all of its elements to the right, meaning that the <em>last</em> element of the array is moved to the front, and all of the other elements are moved over by 1 slot to the right.   For example, if an array were initially <code class="docutils literal notranslate"><span class="pre">{0.0,</span> <span class="pre">0.1,</span> <span class="pre">0.2,</span> <span class="pre">0.3,</span> <span class="pre">0.4}</span></code>, after passing it to <code class="docutils literal notranslate"><span class="pre">rotateRight</span></code> it would be <code class="docutils literal notranslate"><span class="pre">{0.4,</span> <span class="pre">0.0,</span> <span class="pre">0.1,</span> <span class="pre">0.2,</span> <span class="pre">0.3}</span></code>. We’ve given you a partial implementation, fill in the last few bits to complete the method!</p>
@@ -797,7 +834,7 @@ document.write(`
 </div>
 </section>
 <section id="looking-at-multiple-elements-in-an-array">
-<h3>👓 Looking at Multiple Elements in an Array<a class="headerlink" href="#looking-at-multiple-elements-in-an-array" title="Permalink to this heading">#</a></h3>
+<h3>👓 Looking at Multiple Elements in an Array<a class="headerlink" href="#looking-at-multiple-elements-in-an-array" title="Link to this heading">#</a></h3>
 <p>Up until this point, we’ve mostly been looking at one element of an array at a time.  In the <code class="docutils literal notranslate"><span class="pre">rotateRight</span></code> example just above, we were looking at two <em>indexes</em> at a time (taking an element from one index and copying it to another) but we were still only really looking at one element at a time.  But there are some array problems where you want to look at two elements at a time!</p>
 <p><strong>Example: <code class="docutils literal notranslate"><span class="pre">isPalindrome</span></code></strong></p>
 <p>Let’s write a method that accepts an <code class="docutils literal notranslate"><span class="pre">int[]</span></code> that returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if that array is a <em>palindrome</em> (where its sequence of elements is the same read forwards or backwards like <code class="docutils literal notranslate"><span class="pre">{3,</span> <span class="pre">1,</span> <span class="pre">3}</span> </code>or <code class="docutils literal notranslate"><span class="pre">{0,</span> <span class="pre">1,</span> <span class="pre">9,</span> <span class="pre">1,</span> <span class="pre">0}</span></code>) and <code class="docutils literal notranslate"><span class="pre">false</span></code> if it is not a palindrome.  Here, we’ll need to look at two elements at a time to compare them!  We’ve given you a start below.  All that’s left to fill in is what to return on lines 14 and 17 (HINT: one line should <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true;</span></code> and the other line should <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false;</span></code>).</p>
@@ -892,7 +929,7 @@ document.write(`
 </div>
 </section>
 <section id="array-of-counters-or-tallying">
-<h3>🧮 Array of Counters or “Tallying”<a class="headerlink" href="#array-of-counters-or-tallying" title="Permalink to this heading">#</a></h3>
+<h3>🧮 Array of Counters or “Tallying”<a class="headerlink" href="#array-of-counters-or-tallying" title="Link to this heading">#</a></h3>
 <p>So far we’ve been given arrays to work with, and done some calculation or task using them. However in this pattern, we won’t be given an array to work with – we’ll have to create it ourselves!  Since arrays sort of act like a bunch of variables glued together, we can also use them as a bunch of <em>counters</em> glued together.</p>
 <p><strong>Example: numCount</strong></p>
 <p>Let’s write a method called <code class="docutils literal notranslate"><span class="pre">numCount</span></code> that takes an input <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> as a parameter and reads single-digit numbers from it (0-9), and returns an array with the count of 0’s at index 0, the count of 1’s at index 1, etc.  For example, a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> that contains the data <code class="docutils literal notranslate"><span class="pre">8</span> <span class="pre">3</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">2</span> <span class="pre">2</span> <span class="pre">0</span> <span class="pre">7</span> <span class="pre">2</span></code> would return the array <code class="docutils literal notranslate"><span class="pre">{2,</span> <span class="pre">1,</span> <span class="pre">3,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">0}</span></code> because there are two 0’s, one 1, three 2’s, one 3, one 7, one 8, and none of any other single-digit number.  <em>You can assume that the input will only contain single-digit integers.</em></p>
@@ -980,7 +1017,7 @@ document.write(`
 </section>
 </section>
 <section id="common-ideas-in-array-patterns">
-<h2>💭 Common Ideas in Array Patterns<a class="headerlink" href="#common-ideas-in-array-patterns" title="Permalink to this heading">#</a></h2>
+<h2>💭 Common Ideas in Array Patterns<a class="headerlink" href="#common-ideas-in-array-patterns" title="Link to this heading">#</a></h2>
 <p>Now that you’ve made it through this long list of array patterns (🥳 way to go!!), let’s think about some of the common ideas that were used in each of them.</p>
 <ul class="simple">
 <li><p><strong>loop bounds</strong> - Our “typical” array traversal has the loop variable go from 0 to array.length - 1, which is all valid indices of array. However, we’ve also seen variations of this pattern where we exclude the first or last index, or where we only want the loop to run array.length / 2 times. The exact loop bounds you should use depends on the problem!</p></li>
@@ -1015,11 +1052,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="index.html"
@@ -1039,10 +1075,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1050,6 +1083,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1089,6 +1123,7 @@ By Parker Gustafson
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1115,8 +1150,8 @@ By Parker Gustafson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

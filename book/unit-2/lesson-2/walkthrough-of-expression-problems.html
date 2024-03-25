@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>👣 Walkthrough of Expression Problems &#8212; UW CSE 12X Open Access Prototype</title>
   
@@ -19,51 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-2/lesson-2/walkthrough-of-expression-problems';</script>
     <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-2/lesson-2/walkthrough-of-expression-problems.html" />
-    <link rel="shortcut icon" href="../../../_static/fav.ico"/>
+    <link rel="icon" href="../../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Expressions Practice" href="expressions-practice.html" />
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../welcome.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="UW CSE 12X Open Access Prototype - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="UW CSE 12X Open Access Prototype - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-1/index.html">Unit 1: Hello World!</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -285,8 +305,23 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-10/index.html">Unit 10: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-10/lesson-1/index.html">10.1: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-9/index.html">Unit 9: Stacks and Queues</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-9/lesson-1/index.html">9.1: Stacks / Queues</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/overview-adts.html">Overview: Abstract Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/queues.html">Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/stacks.html">Stacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/sum-problem.html">Sum</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-9/lesson-2/index.html">9.2: More Stacks &amp; Queues + Misc Topics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-2/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-2/copy-stack-problem.html">Sum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-10/index.html">Unit 10: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-10/lesson-1/index.html">10.1: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/2d-array-basics.html">2D Arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/2d-array-practice.html">2D Array Practice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/matrix-add-problem.html">Matrix Add [2D Arrays Programming]</a></li>
@@ -464,20 +499,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -542,22 +579,22 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="walkthrough-of-expression-problems">
-<h1>👣 Walkthrough of Expression Problems<a class="headerlink" href="#walkthrough-of-expression-problems" title="Permalink to this heading">#</a></h1>
+<h1>👣 Walkthrough of Expression Problems<a class="headerlink" href="#walkthrough-of-expression-problems" title="Link to this heading">#</a></h1>
 <p>To help you get comfortable with all of these complicated rules, let’s walk through the evaluation of a couple of complex Java expressions step by step.</p>
 <section id="expression-1">
-<h2>⭐ Expression 1<a class="headerlink" href="#expression-1" title="Permalink to this heading">#</a></h2>
+<h2>⭐ Expression 1<a class="headerlink" href="#expression-1" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="s2">&quot;hello&quot;</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">10</span>
 </pre></div>
 </div>
 <section id="parentheses">
-<h3>() — <strong>P</strong>arentheses<a class="headerlink" href="#parentheses" title="Permalink to this heading">#</a></h3>
+<h3>() — <strong>P</strong>arentheses<a class="headerlink" href="#parentheses" title="Link to this heading">#</a></h3>
 <p>There are no parentheses in this particular expression, so we can move on!</p>
 </section>
 <section id="modulo-multiplication-division">
-<h3>% * / — <strong>M</strong>odulo, <strong>M</strong>ultiplication, <strong>D</strong>ivision<a class="headerlink" href="#modulo-multiplication-division" title="Permalink to this heading">#</a></h3>
+<h3>% * / — <strong>M</strong>odulo, <strong>M</strong>ultiplication, <strong>D</strong>ivision<a class="headerlink" href="#modulo-multiplication-division" title="Link to this heading">#</a></h3>
 <p>We have a few subexpressions with operators at this level of precedence (specifically the <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code>), so we must carefully execute them in order from <strong>left to right</strong>.  In this order, first we deal with the multiplication by evaluating <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">5</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="s2">&quot;hello&quot;</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">10</span>
 <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="s2">&quot;hello&quot;</span> <span class="o">+</span> <span class="mi">15</span> <span class="o">/</span> <span class="mi">10</span>
@@ -571,7 +608,7 @@ document.write(`
 <p>Again, we are dealing with two <code class="docutils literal notranslate"><span class="pre">int</span></code> operands so we produce an <code class="docutils literal notranslate"><span class="pre">int</span></code> result and we are dealing with <code class="docutils literal notranslate"><span class="pre">int</span></code> division (or “truncating division”)!  So instead of getting a result of <code class="docutils literal notranslate"><span class="pre">1.5</span></code> (that you maybe would have expected from typical mathematics), we get <code class="docutils literal notranslate"><span class="pre">1</span></code> because 10 fits evenly into 15 exactly 1 time.  (That 5 remainder would be the result of <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">%</span> <span class="pre">10</span></code>!)</p>
 </section>
 <section id="addition-subtraction">
-<h3>+ - — <strong>A</strong>ddition, <strong>S</strong>ubtraction<a class="headerlink" href="#addition-subtraction" title="Permalink to this heading">#</a></h3>
+<h3>+ - — <strong>A</strong>ddition, <strong>S</strong>ubtraction<a class="headerlink" href="#addition-subtraction" title="Link to this heading">#</a></h3>
 <p>Finally, we only have <code class="docutils literal notranslate"><span class="pre">+</span></code> operators left which are all at the same level of precedence.  So once again, we will dutifully execute them in order from <strong>left to right</strong>.  Let’s start with the leftmost subexpression <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">2</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="s2">&quot;hello&quot;</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="mi">4</span> <span class="o">+</span> <span class="s2">&quot;hello&quot;</span> <span class="o">+</span> <span class="mi">1</span>
@@ -598,14 +635,14 @@ document.write(`
 </section>
 </section>
 <section id="expression-2">
-<h2>⭐ Expression 2<a class="headerlink" href="#expression-2" title="Permalink to this heading">#</a></h2>
+<h2>⭐ Expression 2<a class="headerlink" href="#expression-2" title="Link to this heading">#</a></h2>
 <p>177 % 100 % 10 / 2</p>
 <section id="id1">
-<h3>() — <strong>P</strong>arentheses<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>() — <strong>P</strong>arentheses<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>There are no parentheses in this particular expression, so we can move on!</p>
 </section>
 <section id="id2">
-<h3>% * / — <strong>M</strong>odulo, <strong>M</strong>ultiplication, <strong>D</strong>ivision<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>% * / — <strong>M</strong>odulo, <strong>M</strong>ultiplication, <strong>D</strong>ivision<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p><em>All</em> of the operators in this expression are at this level of precedence, so let’s move across the expression one subexpression at a time <strong>left to right</strong>, starting with <code class="docutils literal notranslate"><span class="pre">177</span> <span class="pre">%</span> <span class="pre">100</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">177</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="mi">77</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span>
@@ -622,7 +659,7 @@ document.write(`
 <p>We return to our very favorite <code class="docutils literal notranslate"><span class="pre">int</span></code> division which gives us 3 (because 2 divides evenly into 7 <strong>three</strong> times, with 1 remainder).</p>
 </section>
 <section id="id3">
-<h3>+ - — Addition, Subtraction<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>+ - — Addition, Subtraction<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>No addition or subtraction - we’re done! 🏁</p>
 <p>Video walkthrough of this problem below (click “Expand”).</p>
 <details>
@@ -634,12 +671,12 @@ document.write(`
 </section>
 </section>
 <section id="expression-3">
-<h2>⭐ Expression 3<a class="headerlink" href="#expression-3" title="Permalink to this heading">#</a></h2>
+<h2>⭐ Expression 3<a class="headerlink" href="#expression-3" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">2.5</span> <span class="o">+</span> <span class="mf">3.5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <section id="id4">
-<h3>() — <strong>P</strong>arentheses<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3>() — <strong>P</strong>arentheses<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Let’s start with the subexpression in the parentheses: <code class="docutils literal notranslate"><span class="pre">2.5</span> <span class="pre">+</span> <span class="pre">3.5</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">2.5</span> <span class="o">+</span> <span class="mf">3.5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="mf">6.0</span> <span class="o">/</span> <span class="mi">2</span>
@@ -648,7 +685,7 @@ document.write(`
 <p>Notice that we wrote <code class="docutils literal notranslate"><span class="pre">6.0</span></code>, not <code class="docutils literal notranslate"><span class="pre">6</span></code>.  Even though this value <em>could</em> be represented by an <code class="docutils literal notranslate"><span class="pre">int</span></code>, we must carefully follow Java’s rules about types. Both operands in this subexpression are <code class="docutils literal notranslate"><span class="pre">double</span></code>s, so we get a <code class="docutils literal notranslate"><span class="pre">double</span></code> result! Now, we only have one operator to deal with…</p>
 </section>
 <section id="id5">
-<h3>% * / — Modulo, Multiplication, Division<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<h3>% * / — Modulo, Multiplication, Division<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>Now we just need to evaluate <code class="docutils literal notranslate"><span class="pre">6.0</span> <span class="pre">/</span> <span class="pre">2</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">6.0</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="mf">3.0</span>
@@ -657,7 +694,7 @@ document.write(`
 <p>Again, you may have expected the result to be <code class="docutils literal notranslate"><span class="pre">3</span></code>, but we have <code class="docutils literal notranslate"><span class="pre">double</span></code> and <code class="docutils literal notranslate"><span class="pre">int</span></code> expression so Java converts the <code class="docutils literal notranslate"><span class="pre">int</span></code> to a <code class="docutils literal notranslate"><span class="pre">double</span></code> before performing <code class="docutils literal notranslate"><span class="pre">double</span></code> division! Moral of the story: <strong>type matters</strong>!</p>
 </section>
 <section id="id6">
-<h3>+ - — <strong>A</strong>ddition, <strong>S</strong>ubtraction<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<h3>+ - — <strong>A</strong>ddition, <strong>S</strong>ubtraction<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>No addition or subtraction, we’re done!</p>
 <p>Video walkthrough of this problem below (click “Expand”).</p>
 <details>
@@ -669,12 +706,12 @@ document.write(`
 </section>
 </section>
 <section id="expression-4">
-<h2>⭐ Expression 4<a class="headerlink" href="#expression-4" title="Permalink to this heading">#</a></h2>
+<h2>⭐ Expression 4<a class="headerlink" href="#expression-4" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(6.7 &gt; 25) &amp;&amp; 9 &gt; 2 &amp;&amp; !(8.2 &lt; 5)
 </pre></div>
 </div>
 <section id="id7">
-<h3>() — <strong>P</strong>arentheses<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<h3>() — <strong>P</strong>arentheses<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>Let’s start with the subexpression in the first set of parentheses: <code class="docutils literal notranslate"><span class="pre">6.7</span> <span class="pre">&gt;</span> <span class="pre">25</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(6.7 &gt; 25) &amp;&amp; 9 &gt; 2 &amp;&amp; !(8.2 &lt; 5)
 false &amp;&amp; 9 &gt; 2 &amp;&amp; !(8.2 &lt; 5)
@@ -687,7 +724,7 @@ false &amp;&amp; 9 &gt; 2 &amp;&amp; !false
 </div>
 </section>
 <section id="logical-not">
-<h3>! — <strong>Logical Not</strong><a class="headerlink" href="#logical-not" title="Permalink to this heading">#</a></h3>
+<h3>! — <strong>Logical Not</strong><a class="headerlink" href="#logical-not" title="Link to this heading">#</a></h3>
 <p>Remember that logical NOT just takes whatever the boolean value is, and flips it to the opposite!  So in this case !false becomes true.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>false &amp;&amp; 9 &gt; 2 &amp;&amp; !false
 false &amp;&amp; 9 &gt; 2 &amp;&amp; true
@@ -695,15 +732,15 @@ false &amp;&amp; 9 &gt; 2 &amp;&amp; true
 </div>
 </section>
 <section id="id8">
-<h3>% * / — <strong>M</strong>odulo, <strong>M</strong>ultiplication, <strong>D</strong>ivision<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<h3>% * / — <strong>M</strong>odulo, <strong>M</strong>ultiplication, <strong>D</strong>ivision<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>No mod, multiplication or division!</p>
 </section>
 <section id="id9">
-<h3>+ - — <strong>A</strong>ddition, <strong>S</strong>ubtraction<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<h3>+ - — <strong>A</strong>ddition, <strong>S</strong>ubtraction<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>No addition or subtraction!</p>
 </section>
 <section id="relational-operators">
-<h3>&lt; &gt; &lt;= &gt;= — <strong>Relational Operators</strong><a class="headerlink" href="#relational-operators" title="Permalink to this heading">#</a></h3>
+<h3>&lt; &gt; &lt;= &gt;= — <strong>Relational Operators</strong><a class="headerlink" href="#relational-operators" title="Link to this heading">#</a></h3>
 <p>We’ve already dealt with some of the relational operators that were in the original expression when we evaluated the parenthesized expressions, but there is one left: <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">&gt;</span> <span class="pre">2</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">false</span> <span class="o">&amp;&amp;</span> <span class="mi">9</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">true</span>
 <span class="n">false</span> <span class="o">&amp;&amp;</span> <span class="n">true</span> <span class="o">&amp;&amp;</span> <span class="n">true</span>
@@ -711,11 +748,11 @@ false &amp;&amp; 9 &gt; 2 &amp;&amp; true
 </div>
 </section>
 <section id="equality-operators">
-<h3>== != — <strong>Equality Operators</strong><a class="headerlink" href="#equality-operators" title="Permalink to this heading">#</a></h3>
+<h3>== != — <strong>Equality Operators</strong><a class="headerlink" href="#equality-operators" title="Link to this heading">#</a></h3>
 <p>No equality operators!</p>
 </section>
 <section id="logical-and">
-<h3>&amp;&amp; — <strong>Logical And</strong><a class="headerlink" href="#logical-and" title="Permalink to this heading">#</a></h3>
+<h3>&amp;&amp; — <strong>Logical And</strong><a class="headerlink" href="#logical-and" title="Link to this heading">#</a></h3>
 <p>We have multiple subexpressions using <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> so we evaluate them left to right. Remember, <code class="docutils literal notranslate"><span class="pre">false</span> <span class="pre">&amp;&amp;</span> <span class="pre">true</span></code> results in <code class="docutils literal notranslate"><span class="pre">false</span></code>!</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">false</span> <span class="o">&amp;&amp;</span> <span class="n">true</span> <span class="o">&amp;&amp;</span> <span class="n">true</span>
 <span class="n">false</span> <span class="o">&amp;&amp;</span> <span class="n">true</span>
@@ -724,7 +761,7 @@ false &amp;&amp; 9 &gt; 2 &amp;&amp; true
 </div>
 </section>
 <section id="logical-or">
-<h3>|| — <strong>Logical Or</strong><a class="headerlink" href="#logical-or" title="Permalink to this heading">#</a></h3>
+<h3>|| — <strong>Logical Or</strong><a class="headerlink" href="#logical-or" title="Link to this heading">#</a></h3>
 <p>No logical OR, so we’re done!</p>
 <p>Video walkthrough of this problem below (click “Expand”).</p>
 <details>
@@ -732,7 +769,8 @@ false &amp;&amp; 9 &gt; 2 &amp;&amp; true
 <div style="position: relative; padding-bottom: 62.5%; height: 0;">
     <iframe src="https://www.loom.com/share/4ccd49b5f48d414e9367916087beea00" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
-</details></section>
+</details>
+</section>
 </section>
 </section>
 
@@ -761,11 +799,10 @@ false &amp;&amp; 9 &gt; 2 &amp;&amp; true
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="expressions.html"
@@ -785,10 +822,7 @@ false &amp;&amp; 9 &gt; 2 &amp;&amp; true
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -796,6 +830,7 @@ false &amp;&amp; 9 &gt; 2 &amp;&amp; true
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -853,6 +888,7 @@ By Parker Gustafson
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -879,8 +915,8 @@ By Parker Gustafson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

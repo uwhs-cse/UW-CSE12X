@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Expressions &#8212; UW CSE 12X Open Access Prototype</title>
   
@@ -19,51 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/unit-2/lesson-2/expressions';</script>
     <link rel="canonical" href="https://uwhs-cse.github.io/UW-CSE12X/book/unit-2/lesson-2/expressions.html" />
-    <link rel="shortcut icon" href="../../../_static/fav.ico"/>
+    <link rel="icon" href="../../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="👣 Walkthrough of Expression Problems" href="walkthrough-of-expression-problems.html" />
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../welcome.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="UW CSE 12X Open Access Prototype - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="UW CSE 12X Open Access Prototype - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-1/index.html">Unit 1: Hello World!</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -285,8 +305,23 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-10/index.html">Unit 10: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-10/lesson-1/index.html">10.1: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-9/index.html">Unit 9: Stacks and Queues</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-9/lesson-1/index.html">9.1: Stacks / Queues</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/overview-adts.html">Overview: Abstract Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/queues.html">Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/stacks.html">Stacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-1/sum-problem.html">Sum</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-9/lesson-2/index.html">9.2: More Stacks &amp; Queues + Misc Topics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-2/exceptions.html">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unit-9/lesson-2/copy-stack-problem.html">Sum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../unit-10/index.html">Unit 10: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../unit-10/lesson-1/index.html">10.1: 2D Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/2d-array-basics.html">2D Arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/2d-array-practice.html">2D Array Practice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../unit-10/lesson-1/matrix-add-problem.html">Matrix Add [2D Arrays Programming]</a></li>
@@ -464,20 +499,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -528,10 +565,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="expressions">
-<h1>Expressions<a class="headerlink" href="#expressions" title="Permalink to this heading">#</a></h1>
+<h1>Expressions<a class="headerlink" href="#expressions" title="Link to this heading">#</a></h1>
 <div style="position: relative; padding-bottom: 62.5%; height: 0;">
     <iframe src="https://www.youtube.com/embed/JgddtwEvTx8" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
 </div>
@@ -540,12 +577,12 @@ document.write(`
 <p>Above, you’ll see there’s a video titled <strong>Expressions [Video Walkthrough]</strong>. The video and the reading both have the same information! You’re not required to go through both the video and the reading, as the video just walks through the reading to help contextualize it!</p>
 </div>
 <section id="id1">
-<h2>🔢 Expressions<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>🔢 Expressions<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>By now, you’ve worked a bit with data types such as <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, and <code class="docutils literal notranslate"><span class="pre">boolean</span></code>.  In this lesson, we’ll learn about how else we can use these values!</p>
 <p>Specifically, now that we can have notions of <code class="docutils literal notranslate"><span class="pre">5</span></code> and <code class="docutils literal notranslate"><span class="pre">3.14</span></code> in our programs, something you may be inclined to do is write a simple mathematical <em>expression</em> such as <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">+</span> <span class="pre">3.14</span></code>.  Good news!  Java knows about math, and works the way you might expect!  (For the most part… more to come on this a bit further down the page.)</p>
 </section>
 <section id="operators">
-<h2>➕ Operators<a class="headerlink" href="#operators" title="Permalink to this heading">#</a></h2>
+<h2>➕ Operators<a class="headerlink" href="#operators" title="Link to this heading">#</a></h2>
 <p>The basic mathematical operators for addition (using <code class="docutils literal notranslate"><span class="pre">+</span></code>), subtraction (using <code class="docutils literal notranslate"><span class="pre">-</span></code>), multiplication (using <code class="docutils literal notranslate"><span class="pre">*</span></code>), and division (using <code class="docutils literal notranslate"><span class="pre">/</span></code>) are available in Java.  Each of these mathematical operators are <strong>binary operators</strong>, meaning they are used to combine two values (or operands) and each operation <em><strong>evaluates</strong></em> to a new value.</p>
 <p>Let’s take a look at a few examples!  You’ll see a code snippet below with expressions inside of <code class="docutils literal notranslate"><span class="pre">System.out.println</span></code> statements. Each expression <em>evaluates</em> to a resulting value, which is then printed out using the <code class="docutils literal notranslate"><span class="pre">println</span></code> statements!</p>
 <div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExpressionPractice</span><span class="p">{</span>
@@ -561,7 +598,7 @@ document.write(`
 </div>
 <p>Hit the “Run” button and take a look at the output. Are all of the results that are printed what you expected?  Take a close look at the last line…🤔 huh?  (keep reading ⬇️)</p>
 <section id="integer-division">
-<h3>➗ Integer Division<a class="headerlink" href="#integer-division" title="Permalink to this heading">#</a></h3>
+<h3>➗ Integer Division<a class="headerlink" href="#integer-division" title="Link to this heading">#</a></h3>
 <p>The basic mathematical operators work as you would expect, <em>except</em> for the division operator when working with two <code class="docutils literal notranslate"><span class="pre">int</span></code> operands.  In the <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">/</span> <span class="pre">3</span></code> example shown above, you may have expected to see something like <code class="docutils literal notranslate"><span class="pre">3.333</span></code>, but instead we see that the result evaluates to <code class="docutils literal notranslate"><span class="pre">3</span></code>. In this scenario, “int division” or “truncating division” is performed—-you can instead think of this as answering the question of “How many times does 3 fit evenly into 10?” where the answer is 3. Alternatively, you can do mathematical division and get an answer of <code class="docutils literal notranslate"><span class="pre">3.333</span></code>… , then remember that in this case we truncate everything to the right of the decimal point, giving us the final answer <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
 <div class="caution admonition">
 <p class="admonition-title">Caution</p>
@@ -570,7 +607,7 @@ document.write(`
 </div>
 </section>
 <section id="modulo-or-mod">
-<h3>😲 Modulo or “Mod” (%)<a class="headerlink" href="#modulo-or-mod" title="Permalink to this heading">#</a></h3>
+<h3>😲 Modulo or “Mod” (%)<a class="headerlink" href="#modulo-or-mod" title="Link to this heading">#</a></h3>
 <p>Java actually provides another mathematical operator that you may not have seen before: the <strong>modulo</strong> (or “mod” for short) operator, which uses the <code class="docutils literal notranslate"><span class="pre">%</span></code> character. This operator’s result is what would be the <em>remainder</em> of an <code class="docutils literal notranslate"><span class="pre">int</span></code> division using the same two operands. For example, if we were to evaluate <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">%</span> <span class="pre">3</span></code>, we would get <code class="docutils literal notranslate"><span class="pre">s</span></code> which is the <em>remainder</em> we get when evaluating <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">/</span> <span class="pre">3</span></code>. Given this description, what do you expect <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">%</span> <span class="pre">2</span></code>’s result to be? Take a moment to think before running the code below:</p>
 <div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModuloPractice</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -583,7 +620,7 @@ document.write(`
 </div>
 </section>
 <section id="dealing-with-strings">
-<h3>🧵 Dealing with Strings<a class="headerlink" href="#dealing-with-strings" title="Permalink to this heading">#</a></h3>
+<h3>🧵 Dealing with Strings<a class="headerlink" href="#dealing-with-strings" title="Link to this heading">#</a></h3>
 <p>So far we’ve only been talking about <code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">double</span></code> types, but you’ve also been working with values of type <code class="docutils literal notranslate"><span class="pre">String</span></code>!  <code class="docutils literal notranslate"><span class="pre">String</span></code> values aren’t able to work with the <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, or <code class="docutils literal notranslate"><span class="pre">%</span></code> operators (if you try to use them, you will get a compiler error), but they do work with <code class="docutils literal notranslate"><span class="pre">+</span></code>!  When dealing with String values, <code class="docutils literal notranslate"><span class="pre">+</span></code> denotes concatenation which is a fancy way of saying “squishing <code class="docutils literal notranslate"><span class="pre">String</span></code>s together”!  Try running the code below to understand how <code class="docutils literal notranslate"><span class="pre">String</span></code> concatenation works!</p>
 <div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ConcatenationPractice</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -595,7 +632,7 @@ document.write(`
 </div>
 </section>
 <section id="relational-and-logical-operators">
-<h3>⚙️ Relational and Logical Operators<a class="headerlink" href="#relational-and-logical-operators" title="Permalink to this heading">#</a></h3>
+<h3>⚙️ Relational and Logical Operators<a class="headerlink" href="#relational-and-logical-operators" title="Link to this heading">#</a></h3>
 <p><strong>Relational operators</strong> allow us to check the relationship between two <strong>operands</strong> (or values). We evaluate the expression using the relational operators to see if that relationship is <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. Some of the basic relational operators can be seen below:</p>
 <link
     href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;700&family=Open+Sans:wght@300;400;600;700;800&display=swap"
@@ -713,7 +750,7 @@ td {
 </section>
 </section>
 <section id="expressions-using-different-types">
-<h2>🤔 Expressions Using Different Types<a class="headerlink" href="#expressions-using-different-types" title="Permalink to this heading">#</a></h2>
+<h2>🤔 Expressions Using Different Types<a class="headerlink" href="#expressions-using-different-types" title="Link to this heading">#</a></h2>
 <p>We’ve notably only trying out examples where both of the operands share the same type.  What do you think would happen if we tried to use these operators using values of different types in an expression? Take a moment to think about some reasonable things Java could do given this scenario before clicking “Expand” below!</p>
 <details>
 <summary>Expand</summary>
@@ -744,7 +781,7 @@ Java will *convert* one of the operands to the other operand's type, then it wil
 </details>
 </section>
 <section id="precedence-order-of-operations">
-<h2>📄 Precedence (Order of Operations)<a class="headerlink" href="#precedence-order-of-operations" title="Permalink to this heading">#</a></h2>
+<h2>📄 Precedence (Order of Operations)<a class="headerlink" href="#precedence-order-of-operations" title="Link to this heading">#</a></h2>
 <p>Now that we’ve got a grasp of the basics, let’s think about some more complicated expressions. When there are multiple operators involved in an expression (like <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">14.5</span> <span class="pre">+</span> <span class="pre">6</span> <span class="pre">+</span> <span class="pre">&quot;hi&quot;</span></code>)  you have to think about <strong>precedence</strong>, or what order the parts of the expression (or <strong>subexpressions</strong>) are evaluated in. The PEMDAS order-of-operations trick that you may have learned in earlier school years applies here (with a few small tweaks) for non-boolean expressions.</p>
 <p><img alt="PEMDAS text with the E crossed out and replaced with an M. Underneath, () under the P, % under the first M, * under the next M, / under the D, + under the A, - under the S. The P and () are underlined with pink, the MMD and %*/ are underlined with yellow, and the AS and +- are underlined with blue." src="../../../_images/precedence.jpeg" /></p>
 <ul class="simple">
@@ -764,7 +801,7 @@ Java will *convert* one of the operands to the other operand's type, then it wil
 </li>
 </ul>
 <section id="levels-of-precedence">
-<h3>🎚 Levels of Precedence<a class="headerlink" href="#levels-of-precedence" title="Permalink to this heading">#</a></h3>
+<h3>🎚 Levels of Precedence<a class="headerlink" href="#levels-of-precedence" title="Link to this heading">#</a></h3>
 <p>Notice that we’ve grouped <strong>m</strong>od, <strong>m</strong>ultiplication, and <strong>d</strong>ivision together, and <strong>a</strong>ddition and <strong>s</strong>ubtraction have their own group. These groupings indicate the <em>levels of precedence</em>.  In other words, all of the operators within a level of precedence don’t have priority over the others—in Java, when there are multiple subexpressions with the same level of precedence, they are executed <strong>from left to right</strong>.</p>
 <div class="caution admonition">
 <p class="admonition-title">Caution</p>
@@ -772,7 +809,7 @@ Java will *convert* one of the operands to the other operand's type, then it wil
 </div>
 </section>
 <section id="precedence-with-booleans">
-<h3>❗ Precedence with <code class="docutils literal notranslate"><span class="pre">boolean</span></code>s<a class="headerlink" href="#precedence-with-booleans" title="Permalink to this heading">#</a></h3>
+<h3>❗ Precedence with <code class="docutils literal notranslate"><span class="pre">boolean</span></code>s<a class="headerlink" href="#precedence-with-booleans" title="Link to this heading">#</a></h3>
 <p>All of the operators discussed above (PMMDAS) have higher precedence than the relational and logical operators we’ve introduced <strong>except for the “logical NOT” operator (<code class="docutils literal notranslate"><span class="pre">!</span></code>)</strong>.  So specifically, the full list in their order of precedence, we have:</p>
 <ul class="simple">
 <li><p>Logical NOT <strong><code class="docutils literal notranslate"><span class="pre">!</span></code></strong></p></li>
@@ -805,7 +842,7 @@ Java will *convert* one of the operands to the other operand's type, then it wil
 </section>
 </section>
 <section id="main-points">
-<h2>Main Points:<a class="headerlink" href="#main-points" title="Permalink to this heading">#</a></h2>
+<h2>Main Points:<a class="headerlink" href="#main-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Java can combine data into expressions - many mathematical operators work as you expect (+, -, /, *, &lt;, &gt;).</p></li>
 <li><p>There are additional operators that Java supports that you may not be familiar with (e.g., %, ==, !=, &lt;=, &gt;=, &amp;&amp;, ||, !).</p></li>
@@ -844,11 +881,10 @@ Java will *convert* one of the operands to the other operand's type, then it wil
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="index.html"
@@ -868,10 +904,7 @@ Java will *convert* one of the operands to the other operand's type, then it wil
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -879,6 +912,7 @@ Java will *convert* one of the operands to the other operand's type, then it wil
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -922,6 +956,7 @@ By Parker Gustafson
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -948,8 +983,8 @@ By Parker Gustafson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
